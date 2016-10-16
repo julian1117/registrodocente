@@ -1,0 +1,10 @@
+parametrizar semestre y dias no laborables-super admin
+parametrizar roles y servicios invocables-super admin
+construir pagina inicial(menus a las paginas segun el rol)
+registrar clase-ver registros de las fechas siguientes(una semana antes y despues)
+aprobar registro coordinador
+pantalla lista de programas y pantalla lista de docentes
+pantalla lista de asignaturas docente
+pantalla lista de registros diligenciados(editar y eliminar)-no se puede editar un registro aprobado
+ver reporte registro del mes del docente
+

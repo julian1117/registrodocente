@@ -1,0 +1,79 @@
+<html !DOCUMENT>
+
+<header>
+	<title>Test Angular JS</title>
+
+	<!-- Librerias -->
+	<link rel="stylesheet" type="text/css"
+		href="resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="resources/css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="resources/css/ripples.min.css">
+
+	<!-- Librerias de Angular -->
+	<script type="text/javascript" src="resources/js/angular.min.js"></script>
+	<script type="text/javascript" src="resources/js/angular-route.js"></script>
+
+	<!-- Librerias Jquery necesarias para el bootstrap y el material design -->
+	<script type="text/javascript" src="resources/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="resources/js/material.min.js"></script>
+	<script type="text/javascript" src="resources/js/ripples.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+
+	<!-- Archivos trabajo angular -->
+	<script type="text/javascript" src="controlador/app.js"></script>
+	<script type="text/javascript" src="services/tokenservice.js"></script>
+	<script type="text/javascript" src="services/httpservice.js"></script>
+	<script type="text/javascript" src="controlador/modulo1Controller.js"></script>
+	<script type="text/javascript"
+		src="controlador/inventariocontroller.js"></script>
+	<script type="text/javascript" src="controlador/clientecontroller.js"></script>
+	<script type="text/javascript" src="controlador/compracontroller.js"></script>
+
+</header>
+
+<body ng-app="miApp">
+
+	<div class="container">
+
+		<!-- BARRA DE MENU -->
+		<div class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-responsive-collapse">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="javascript:void(0)">Angular</a>
+				</div>
+				<div class="navbar-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#/">Home</a></li>
+						<li><a href="#/pagina1">Page 1</a></li>
+						<li><a href="#/pagina2">Page 2</a></li>
+						<li><a href="#/pagina3">Page 3</a></li>
+						<li><a href="#/cliente">Cliente</a></li>
+						<li><a href="#/comprar">Comprar</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Sección donde cargan las vistas -->
+		<div ng-view></div>
+
+	</div>
+
+
+</body>
+
+<script type="text/javascript">
+	$.material.init()
+</script>
+
+</html>
