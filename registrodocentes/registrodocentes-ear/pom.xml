@@ -65,7 +65,9 @@
 					<fileNameMapping>no-version</fileNameMapping>
 					<modules>
 						<webModule>
-							
+							<groupId>co.edu.eam.ingesoft.pa2</groupId>
+
+							<artifactId>registrodocentes-web</artifactId>
 							<contextRoot>/registrodocente</contextRoot>
 						</webModule>
 					</modules>
