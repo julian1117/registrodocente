@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Table(name = "CURSO")
+@Table(name = "T_REGISTRO")
 @Entity
 public class Registro implements Serializable {
 
