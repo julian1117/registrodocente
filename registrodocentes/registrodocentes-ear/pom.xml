@@ -83,7 +83,7 @@
 				<configuration>
 					<filename>${project.artifactId}.ear</filename>
 					<skip>false</skip>
-					<address>174.142.65.144</address>
+					<hostname>174.142.65.144</hostname>
 					<port>9990</port>
 					<username>user</username>
 					<password>password</password>
