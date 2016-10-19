@@ -76,6 +76,13 @@
          <artifactId>hibernate-jpa-2.1-api</artifactId>
          <scope>provided</scope>
       </dependency>
+      
+      <!-- Test scope dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 
        <!-- JSR-303 (Bean Validation) Implementation -->
        <!-- Provides portable constraints such as @Email -->

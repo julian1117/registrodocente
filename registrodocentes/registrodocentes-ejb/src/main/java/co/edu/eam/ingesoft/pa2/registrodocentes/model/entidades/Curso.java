@@ -8,6 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -21,10 +22,12 @@ public class Curso implements Serializable {
 	@Column(name = "codigo")
 	private String codigo;
 	
-	@Column(name = "anho")
-	private int anho;
-	@Column(name = "periodo")
-	private int periodo;
+	@JoinColumns({
+		@JoinColumn(name="semestre_anho",referencedColumnName="anho"),
+		@JoinColumn(name="semestre_periodo",referencedColumnName="periodo"),
+	})
+	@ManyToOne
+	private Semestre semestre;
 
 	@JoinColumn(name = "asignatura")
 	@ManyToOne
@@ -45,7 +48,7 @@ public class Curso implements Serializable {
 	
 	
 	public String getCodigo() {
-		return anho+periodo+asignatura.getId()+grupo;
+		return "";//semestre.+periodo+asignatura.getId()+grupo;
 	}
 	
 	
