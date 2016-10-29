@@ -1,0 +1,87 @@
+	<div class="row" ng-controller="regSemAnteriores">
+	
+	<h1 class="text-center">Registro de semestres anteriores</h1>
+
+	<div class="panel panel-info" id="lateral">
+		<div class="panel-heading">
+			<h3 class="panel-title">Informacion de los registros de los cursos</h3>
+		</div>
+		<div class="panel-body">
+
+			<form role="form">
+
+				<label id="label-1">Año</label>
+				<select class="form-control">
+					<option>Seleccine el año</option>
+					<option>2006</option>
+					<option>2007</option>
+					<option>2008</option>
+					<option>2009</option>
+					<option>2010</option>
+					<option>2011</option>
+					<option>2012</option>
+					<option>2013</option>
+					<option>2014</option>
+					<option>2015</option>
+					<option>2016</option>
+
+			
+				</select> 
+				
+				<label id="label-2">Semestre</label>
+				<select class="form-control">
+					<option>Seleccine el semestre del año</option>
+					<option>1</option>
+					<option>2</option>
+
+				</select>
+				
+				<label id="label-3">Profesor</label>
+				 <select class="form-control">
+					<option>Seleccine el profesor</option>
+					<option>Camilo</option>
+					<option>Jorge Ivan</option>
+					<option>Erika</option>
+					<option>David</option>
+
+				</select>
+
+				
+				<button type="submit" class="btn btn-primary center-block">Consultar</button>
+			</form>
+
+			<div class="panel panel-default">
+
+
+				<table class="table table-striped">
+
+					<tr>
+						<td><strong>Año</strong></td>
+						<td><strong>Semestre</strong></td>
+						<td><strong>Curso</strong></td>
+						<td><strong>Ver cursos</strong></td>
+						
+					</tr>
+
+					<tr>
+						<td>2016</td>
+						<td>Sexto</td>
+						<td>Programación Avanzada 2</td>
+						<td> <input type="submit" value="Ver materia" id="regMateria1"/></td>
+					</tr>
+
+					<tr>
+						<td>2016</td>
+						<td>Cuarto</td>
+						<td>Diseño De Software</td>
+						 <td> <input type="submit" value="Ver materia" id="regMateria2"/></td>
+				
+						
+					</tr>
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+</div>
