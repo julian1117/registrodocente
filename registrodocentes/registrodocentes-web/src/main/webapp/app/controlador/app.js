@@ -22,20 +22,20 @@ app.config(function($routeProvider){
             controllerAs: "tra",
             templateUrl: "vistas/AsignarAcceso.html"
         })
-        .when("/pagina2", {
+        .when("/login", {
             controller: "modulo1Controller",
             controllerAs: "m1",
-            templateUrl: "vistas/page2.html"
+            templateUrl: "vistas/login.html"
         })
         .when("/cliente", {
             controller: "clientecontroller",
             controllerAs: "cliente",
             templateUrl: "vistas/cliente.html"
         })
-        .when("/pagina3", {
+        .when("/RegSemAnteriores", {
             controller: "inventariocontroller",
             
-            templateUrl: "vistas/page3.html"
+            templateUrl: "vistas/RegSemAnteriores.html"
         })
 	    .when("/reporteregistro", {
 	        controller: "inventariocontroller",
