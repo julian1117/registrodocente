@@ -32,6 +32,11 @@ app.config(function($routeProvider){
             
             templateUrl: "vistas/page3.html"
         })
+	    .when("/reporteregistro", {
+	        controller: "inventariocontroller",
+	        
+	        templateUrl: "vistas/ReporteRegistros.html"
+	    })
 
     	.when("/programasDocentes", {
         controller: "inventariocontroller",
