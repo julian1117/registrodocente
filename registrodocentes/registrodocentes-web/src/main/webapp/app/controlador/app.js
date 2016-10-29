@@ -7,10 +7,10 @@ app.config(function($routeProvider){
             controllerAs: "m1",
             templateUrl: "vistas/form.html"
         })
-        .when("/comprar", {
-            controller: "compracontroller",
-            controllerAs: "m1",
-            templateUrl: "vistas/compra.html"
+        .when("/registros", {
+            controller: "registrosController",
+            controllerAs: "reg",
+            templateUrl: "vistas/registros.html"
         })
         .when("/pagina1", {
             controller: "modulo1Controller",
