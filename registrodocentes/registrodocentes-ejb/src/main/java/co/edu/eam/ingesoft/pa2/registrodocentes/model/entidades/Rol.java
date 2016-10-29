@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="T_ROL")
+
 @NamedQueries({@NamedQuery(name= Rol.LISTAR_ROLES_USUARIO, 
 query="SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1")})
 public class Rol implements Serializable{
@@ -54,6 +55,7 @@ public class Rol implements Serializable{
 		return id;
 	}
 
+	
 	public void setId(int id) {
 		this.id = id;
 	}
