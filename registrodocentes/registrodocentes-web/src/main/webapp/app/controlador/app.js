@@ -14,7 +14,7 @@ app.config(function($routeProvider){
         })
         .when("/AsignarAcceso", {
             controller: "modulo1Controller",
-            controllerAs: "m1",
+            controllerAs: "tra",
             templateUrl: "vistas/AsignarAcceso.html"
         })
         .when("/pagina2", {

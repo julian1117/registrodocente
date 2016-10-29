@@ -12,7 +12,11 @@ import javax.ws.rs.core.MediaType;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.LoginOutDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
-
+/**
+ * 
+ * @author Jhohanns
+ *
+ */
 @Path("/seguridad")
 public class LoginRest {
 
