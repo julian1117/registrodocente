@@ -31,6 +31,11 @@ app.config(function($routeProvider){
             controller: "inventariocontroller",
             
             templateUrl: "vistas/page3.html"
-        });
+        })
+    	.when("/programasDocentes", {
+        controller: "inventariocontroller",
+        
+        templateUrl: "vistas/programasDocentes.html"
+    });
 });
 
