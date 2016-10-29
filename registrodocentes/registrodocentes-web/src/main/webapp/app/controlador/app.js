@@ -43,6 +43,13 @@ app.config(function($routeProvider){
             controller: "inventariocontroller",
             
             templateUrl: "vistas/CrearRol.html"
-        });
+        })
+        
+        .when("/RegSemAnteriores", {
+            controller: "regSemAnteriores",
+            
+            templateUrl: "vistas/RegSemAnteriores.html"
+        })
+        ;
 });
 
