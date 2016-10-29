@@ -12,6 +12,11 @@ app.config(function($routeProvider){
             controllerAs: "reg",
             templateUrl: "vistas/registros.html"
         })
+        .when("/aprobar-registro", {
+            controller: "aprobarRegistroController",
+            controllerAs: "apr",
+            templateUrl: "vistas/aprobar-registro.html"
+        })
         .when("/AsignarAcceso", {
             controller: "modulo1Controller",
             controllerAs: "tra",
@@ -32,13 +37,16 @@ app.config(function($routeProvider){
             
             templateUrl: "vistas/page3.html"
         })
-
+	    .when("/reporteregistro", {
+	        controller: "inventariocontroller",
+	        
+	        templateUrl: "vistas/ReporteRegistros.html"
+	    })
     	.when("/programasDocentes", {
         controller: "inventariocontroller",
         
         templateUrl: "vistas/programasDocentes.html"
     	})
-
         .when("/CrearRol", {
             controller: "inventariocontroller",
             

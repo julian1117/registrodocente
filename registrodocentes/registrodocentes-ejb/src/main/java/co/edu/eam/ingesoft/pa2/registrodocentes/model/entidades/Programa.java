@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -19,12 +17,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="T_PROGRAMA")
-@NamedQueries({ @NamedQuery(name= Programa.LISTAR_PROGRAMAS, query = "Select p from Programa p")})
 public class Programa  implements Serializable{
 
 	/* Atributos */
-	
-	public static final String LISTAR_PROGRAMAS = "Programa.listarTodos";
+
 	
 	@Id
 	@Column(name="ID_PROGRAMA", length = 45, nullable=false)

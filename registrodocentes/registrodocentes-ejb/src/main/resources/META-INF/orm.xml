@@ -6,17 +6,24 @@
 
 	
 
-<!-- 	<named-query name="listarPeliculas"> -->
-<!-- 		<query> -->
-<!-- 			SELECT f FROM Film f WHERE f.length=?1 -->
-<!-- 		</query> -->
-<!-- 	</named-query> -->
+	<named-query name="Programa.LISTAR_PROGRAMAS"> 
+		<query> 
+			Select p FROM Programa p
+		</query> 
+	</named-query> 
 	
-<!-- 	<named-query name="listarCategorias"> -->
-<!-- 		<query> -->
-<!-- 			SELECT f FROM Category f -->
-<!-- 		</query> -->
-<!-- 	</named-query> -->
+	<named-query name="Rol.LISTAR_ROLES_USUARIO"> 
+		<query> 
+			SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1
+		</query> 
+	</named-query> 
+	
+	<named-query name="Usuario.BUSCAR_POR_USERNAME"> 
+		<query> 
+			SELECT u FROM Usuario u WHERE u.usuario = ?1
+		</query> 
+	</named-query> 
+	
 
 
 

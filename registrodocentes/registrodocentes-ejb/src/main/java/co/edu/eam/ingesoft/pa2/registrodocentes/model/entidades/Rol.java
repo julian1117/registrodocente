@@ -11,16 +11,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="T_ROL")
-
-@NamedQueries({@NamedQuery(name= Rol.LISTAR_ROLES_USUARIO, 
-query="SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1")})
 public class Rol implements Serializable{
 
 	/** 
 	 * Atributos
 	 */
-	
-	public static final String LISTAR_ROLES_USUARIO = "Rol.listarRolesUsuario";
 	
 	@Id
 	@Column(name="ID_ROL", length=12, nullable=false)

@@ -18,9 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "T_DOCENTE")
 public class Docente extends Usuario implements Serializable{
-
 	
-
 	@ManyToOne
 	@JoinColumn(name = "ID_PROGRAMA", nullable = false)
 	private Programa programa;
@@ -28,6 +26,22 @@ public class Docente extends Usuario implements Serializable{
 		
 	public Docente(){
 		
+	}
+
+
+	public Docente(int id, String nombre, String apellido, String usuario, String pass, Programa programa) {
+		super(id, nombre, apellido, usuario, pass);
+		this.programa = programa;
+	}
+
+
+	public Programa getPrograma() {
+		return programa;
+	}
+
+
+	public void setPrograma(Programa programa) {
+		this.programa = programa;
 	}
 
 	

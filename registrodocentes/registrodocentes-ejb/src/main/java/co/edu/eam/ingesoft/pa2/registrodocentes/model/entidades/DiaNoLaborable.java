@@ -15,12 +15,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Table(name="T_DIANOLABORABLE")
 @Entity
+@Table(name="T_DIANOLABORABLE")
 public class DiaNoLaborable implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID_DIANOLABORABLE", length=45, nullable=false)
 	private Long id;
 	
 	@Column(name="fecha")
@@ -30,11 +31,56 @@ public class DiaNoLaborable implements Serializable {
 	@Column(name="causa")
 	private String causa;
 	
+	@ManyToOne
 	@JoinColumns({
 		@JoinColumn(name="semestre_anho",referencedColumnName="anho"),
 		@JoinColumn(name="semestre_periodo",referencedColumnName="periodo"),
 	})
-	
-	@ManyToOne
 	private Semestre semestre;
+
+	public DiaNoLaborable( Date fecha, String causa, Semestre semestre) {
+		super();
+		this.id = id;
+		this.fecha = fecha;
+		this.causa = causa;
+		this.semestre = semestre;
+	}
+
+	public DiaNoLaborable() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getCausa() {
+		return causa;
+	}
+
+	public void setCausa(String causa) {
+		this.causa = causa;
+	}
+
+	public Semestre getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(Semestre semestre) {
+		this.semestre = semestre;
+	}
+	
+	
 }

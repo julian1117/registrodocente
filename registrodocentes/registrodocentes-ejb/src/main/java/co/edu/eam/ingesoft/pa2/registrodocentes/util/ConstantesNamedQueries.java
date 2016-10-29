@@ -13,7 +13,15 @@ package co.edu.eam.ingesoft.pa2.registrodocentes.util;
  */
 public class ConstantesNamedQueries {
 	
-	//public static final String CONSULTA.....;
+	
+	public static final String LISTAR_PROGRAMAS = "Programa.listarTodos";
+	
+	
+	public static final String LISTAR_ROLES_USUARIO = "Rol.listarRolesUsuario";
+
+	
+	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
+	
 	
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub

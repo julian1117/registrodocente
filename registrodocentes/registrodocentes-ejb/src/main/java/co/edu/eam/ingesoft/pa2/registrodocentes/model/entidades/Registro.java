@@ -14,12 +14,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Table(name = "T_REGISTRO")
+
 @Entity
+@Table(name = "T_REGISTRO")
 public class Registro implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID_REGISTRO", length=45, nullable=false)
 	private Long id;
 
 	@ManyToOne
@@ -38,8 +40,9 @@ public class Registro implements Serializable {
 
 	@Column(name = "aprobrh")
 	private boolean aprobadoRH;
-	
-	/**
+
+
+   	/**
 	 * Constructor vacío
 	 */
 	public Registro() {
@@ -148,8 +151,8 @@ public class Registro implements Serializable {
 	 */
 	public void setAprobadoRH(boolean aprobadoRH) {
 		this.aprobadoRH = aprobadoRH;
-	}
-
-	
-	
+	}	
 }
+   	
+	
+

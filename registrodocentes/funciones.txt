@@ -16,17 +16,17 @@
 	aqui debe aparecer los registros de una semana antes y una semana despues
 	de la fecha de hoy. solo se pueden editar registros que no hayan sido aprobados
 	
-5. aprobar registro coordinador
+5.  aprobar registro coordinador
 	Pantalla donde se ven los registros de un docente en una asignatura.
 	se aprueban(con checkbox)
 	poner un comentario(opcional) a cada registro.
 	
-6. pantalla lista de programas y pantalla lista de docentes
+6.  pantalla lista de programas y pantalla lista de docentes
 	Se debe listar los programas y al elegir un programa se deben listar
 	los docentes de ese programa. cuando se seleccione un docente se ira a la pantalla
 	del punto 7
 	
-7. pantalla lista de asignaturas docente
+7.  pantalla lista de asignaturas docente
 	Asigntaruas del docente.
 	Se debe mostrar cuantas horas ha registro en el mes y en el semestre.
 	porcentaje de registros aprobados.
