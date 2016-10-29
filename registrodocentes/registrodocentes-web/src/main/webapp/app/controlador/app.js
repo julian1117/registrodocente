@@ -12,10 +12,10 @@ app.config(function($routeProvider){
             controllerAs: "reg",
             templateUrl: "vistas/registros.html"
         })
-        .when("/pagina1", {
+        .when("/AsignarAcceso", {
             controller: "modulo1Controller",
             controllerAs: "m1",
-            templateUrl: "vistas/page1.html"
+            templateUrl: "vistas/AsignarAcceso.html"
         })
         .when("/pagina2", {
             controller: "modulo1Controller",
