@@ -24,9 +24,10 @@ public class SesionCurso implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID_SESIONCURSO")
 	private Long id;
 	
-	@JoinColumn(name = "curso")
+	@JoinColumn(name = "ID_CURSO")
 	@ManyToOne
 	private Curso curso;
 
@@ -41,4 +42,60 @@ public class SesionCurso implements Serializable{
 	@Column(name="horafinal")
 	@Temporal(TemporalType.TIME)
 	private Date horaFinal;
+
+	public SesionCurso(Curso curso, DiaEnum dia, Date horaInicial, Date horaFinal) {
+		super();
+		this.id = id;
+		this.curso = curso;
+		this.dia = dia;
+		this.horaInicial = horaInicial;
+		this.horaFinal = horaFinal;
+	}
+
+	public SesionCurso() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public DiaEnum getDia() {
+		return dia;
+	}
+
+	public void setDia(DiaEnum dia) {
+		this.dia = dia;
+	}
+
+	public Date getHoraInicial() {
+		return horaInicial;
+	}
+
+	public void setHoraInicial(Date horaInicial) {
+		this.horaInicial = horaInicial;
+	}
+
+	public Date getHoraFinal() {
+		return horaFinal;
+	}
+
+	public void setHoraFinal(Date horaFinal) {
+		this.horaFinal = horaFinal;
+	}
+	
+	
+	
 }

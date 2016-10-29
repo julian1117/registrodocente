@@ -22,13 +22,10 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "T_USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
-@NamedQueries({@NamedQuery(name=Usuario.BUSCAR_POR_USERNAME, query="SELECT u FROM Usuario u WHERE u.usuario = ?1 ")})
-
 public class Usuario implements Serializable {
 
 	/* Atributos */
-	
-	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
+
 
 	@Id
 	@Column(name = "ID_USUARIO", length = 12, nullable = false)

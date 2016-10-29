@@ -14,42 +14,84 @@ import javax.persistence.Table;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.enumeraciones.GrupoEnum;
 
-@Table(name = "T_CURSO")
 @Entity
+@Table(name = "T_CURSO")
 public class Curso implements Serializable {
 
 	@Id
-	@Column(name = "codigo")
+	@Column(name = "ID_CURSO", length = 12, nullable = false)
 	private String codigo;
-	
-	@JoinColumns({
-		@JoinColumn(name="semestre_anho",referencedColumnName="anho"),
-		@JoinColumn(name="semestre_periodo",referencedColumnName="periodo"),
-	})
+
+	@JoinColumns({ @JoinColumn(name = "semestre_anho", referencedColumnName = "anho"),
+			@JoinColumn(name = "semestre_periodo", referencedColumnName = "periodo"), })
 	@ManyToOne
 	private Semestre semestre;
 
-	@JoinColumn(name = "asignatura")
 	@ManyToOne
+	@JoinColumn(name = "asignatura")
 	private Asignatura asignatura;
 
-	@JoinColumn(name = "docente")
 	@ManyToOne
+	@JoinColumn(name = "docente")
 	private Docente docente;
-	
-	@Enumerated(EnumType.STRING)
+
+	@Enumerated(value = EnumType.STRING)
 	@Column(name = "GRUPO")
 	private GrupoEnum grupo;
-	
+
 	public Curso() {
-		
+
 	}
-	
-	
-	
+
+	public Curso(String codigo, Semestre semestre, Asignatura asignatura, Docente docente, GrupoEnum grupo) {
+		super();
+		this.codigo = codigo;
+		this.semestre = semestre;
+		this.asignatura = asignatura;
+		this.docente = docente;
+		this.grupo = grupo;
+	}
+
 	public String getCodigo() {
-		return "";//semestre.+periodo+asignatura.getId()+grupo;
+		return "";// semestre.+periodo+asignatura.getId()+grupo;
+	}
+
+	public Semestre getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(Semestre semestre) {
+		this.semestre = semestre;
+	}
+
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
+
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
+	}
+
+	public Docente getDocente() {
+		return docente;
+	}
+
+	public void setDocente(Docente docente) {
+		this.docente = docente;
+	}
+
+	public GrupoEnum getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(GrupoEnum grupo) {
+		this.grupo = grupo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 	
 	
+
 }
