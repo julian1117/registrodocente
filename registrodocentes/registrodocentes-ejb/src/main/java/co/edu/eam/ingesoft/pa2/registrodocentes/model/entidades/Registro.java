@@ -23,23 +23,24 @@ public class Registro implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_REGISTRO", length=45, nullable=false)
 	private Long id;
-	
+
 	@ManyToOne
-	@JoinColumn(name="sesion")
+	@JoinColumn(name = "sesion")
 	private SesionCurso sesion;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="fecha")
+	@Column(name = "fecha")
 	private Date fecha;
-	
-	@Column(name="comentario")
+
+	@Column(name = "comentario")
 	private String comentario;
-	
-	@Column(name="aprobcoord")
+
+	@Column(name = "aprobcoord")
 	private boolean aprobadoCoord;
-	
-	@Column(name="aprobrh")
+
+	@Column(name = "aprobrh")
 	private boolean aprobadoRH;
+
 
    	/**
 	 * Constructor vacío
