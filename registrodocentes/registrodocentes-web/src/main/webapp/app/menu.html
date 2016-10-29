@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registro docente</title>
+
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Librerias de Angular -->
+<script type="text/javascript" src="resources/js/angular.min.js"></script>
+<script type="text/javascript" src="resources/js/angular-route.js"></script>
+
+<!-- Librerias Jquery necesarias para el bootstrap y el material design -->
+<script type="text/javascript" src="resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resources/js/material.min.js"></script>
+<script type="text/javascript" src="resources/js/ripples.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+<script type="text/javascript" src="controlador/app.js"></script>
+
+</head>
+<body ng-app="miApp"
+	style="background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;">
+	<div class="container">
+		<ul class="nav nav-pills">
+			<li class="active"><a href="#/login">Login</a></li>
+			<li><a href="#/registros">Registros</a></li>
+			
+		</ul>
+		<div ng-view></div>
+	</div>
+</body>
+<script type="text/javascript">
+	$.material.init()
+</script>
+</html>

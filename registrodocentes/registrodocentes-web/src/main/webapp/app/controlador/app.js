@@ -7,15 +7,15 @@ app.config(function($routeProvider){
             controllerAs: "m1",
             templateUrl: "vistas/form.html"
         })
-        .when("/comprar", {
-            controller: "compracontroller",
-            controllerAs: "m1",
-            templateUrl: "vistas/compra.html"
+        .when("/registros", {
+            controller: "registrosController",
+            controllerAs: "reg",
+            templateUrl: "vistas/registros.html"
         })
-        .when("/pagina1", {
+        .when("/AsignarAcceso", {
             controller: "modulo1Controller",
-            controllerAs: "m1",
-            templateUrl: "vistas/page1.html"
+            controllerAs: "tra",
+            templateUrl: "vistas/AsignarAcceso.html"
         })
         .when("/pagina2", {
             controller: "modulo1Controller",
@@ -31,6 +31,18 @@ app.config(function($routeProvider){
             controller: "inventariocontroller",
             
             templateUrl: "vistas/page3.html"
+        })
+
+    	.when("/programasDocentes", {
+        controller: "inventariocontroller",
+        
+        templateUrl: "vistas/programasDocentes.html"
+    	})
+
+        .when("/CrearRol", {
+            controller: "inventariocontroller",
+            
+            templateUrl: "vistas/CrearRol.html"
         });
 });
 

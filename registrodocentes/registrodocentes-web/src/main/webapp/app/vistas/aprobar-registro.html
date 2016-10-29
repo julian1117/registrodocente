@@ -1,0 +1,53 @@
+
+    <div class="row" ng-controller="aprobarRegistroController">
+
+  <div>
+  <h1 >Ventana Aprobar Registro</h1>
+  </div>
+
+	<table  class="table table-bordered">
+	<tr style="background-color:#68ddd9"> <th>Docente</th>
+	<th>Asignatura</th> 
+	<th>Registro</th>
+	<th>Aprobar</th>
+	</tr>
+
+    <tr> <td>Matallana</td>
+	<td>Programacion</td> 
+	<td>sesion1-29/10/16</td>
+	<td><input type="checkbox" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> Aprobar</td>
+	</tr>
+    
+    <tr> <td>Cardona</td>
+	<td>Math</td> 
+	<td>sesion2-12/11/16</td>
+	<td><input type="checkbox" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> Aprobar</td>
+	</tr>
+
+	</table>
+
+     <div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Descripcion</h4>
+        </div>
+        <div class="modal-body">
+            <textarea rows="5" cols="50" style="margin: 0px; width: 536px; height: 158px;"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+	
+</div>
+

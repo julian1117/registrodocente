@@ -16,7 +16,6 @@ public class Rol implements Serializable{
 	/** 
 	 * Atributos
 	 */
-
 	
 	@Id
 	@Column(name="ID_ROL", length=12, nullable=false)
@@ -51,6 +50,7 @@ public class Rol implements Serializable{
 		return id;
 	}
 
+	
 	public void setId(int id) {
 		this.id = id;
 	}
