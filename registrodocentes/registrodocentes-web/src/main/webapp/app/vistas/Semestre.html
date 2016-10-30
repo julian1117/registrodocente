@@ -1,0 +1,74 @@
+<div align="center" class="container">
+
+
+		<h3 class="bg-primary">
+			CREAR SEMESTRES <span class="label label-default"></span>
+		</h3>
+	
+		<div class="input-group" style="margin-top: 50px; "
+				class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<span class="input-group-addon" id="basic-addon1">Fecha Inicio</span>
+			<input type="date" class="form-control" name="fechaInicio"
+				placeholder="Fecha" aria-describedby="basic-addon1">
+				
+		<button type="submit" name="action" class="btn btn-default navbar-btn">Guardar</button>
+		</div>
+
+		
+	</div>
+
+	<br>
+	<br>
+	<br>
+
+	<table class="container">
+		<tr>
+			<td>
+				<div style="width: 370px ; margin-top: -130px" class="col-md-12">
+					<h4   align="center" style="width: 370px" class="bg-primary">Semestres</h4>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Año</th>
+								<th>Periodo</th>
+								<th>Eliminar</th>
+								<th>Editar</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>{{s.anho}}</td>
+								<td>{{s.periodo}}</td>
+								<td>
+									<button class="btn waves-effect waves-light" type="button"
+										data-toggle="modal" name="action"
+										data-target="#complete-dialog" style="width: 80px">Eliminar</button>
+								</td>
+								<td>
+									<button class="btn waves-effect waves-light" type="button"
+										data-toggle="modal" name="action"
+										data-target="#complete-dialog" style="width: 80px">Editar</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+			<td>
+				<div style="width: 370px" class="col-md-12">
+					<h4 class="bg-primary" align="center">Dias no laborales</h4>
+					<span class="input-group-addon" id="basic-addon1">Fecha
+						Inicio</span> <input type="date" class="form-control" name="fechaInicio"
+						placeholder="Fecha" aria-describedby="basic-addon1"> <br>
+					<span class="input-group-addon" id="basic-addon1">Causa</span>
+					<textarea class="form-control" name="causa" placeholder="Causa"
+						aria-describedby="basic-addon1"></textarea>
+				
+					<button style="margin-left:130px " type="button" name="marcar"
+						class="btn btn-default navbar-btn">Marcar</button>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
