@@ -16,6 +16,8 @@
  */
 package co.edu.eam.ingesoft.pa2.registrodocentes.rest.util;
 
+import java.util.Set;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
