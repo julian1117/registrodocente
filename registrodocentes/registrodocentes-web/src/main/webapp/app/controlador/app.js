@@ -45,3 +45,26 @@ app.config(function($routeProvider) {
 		templateUrl : "vistas/CrearRol.html"
 	});
 });
+
+/**
+ * Filtro de accesos
+ * Jhohanns villa vasquez, Miguel tamayo
+ */
+app.filter(function($location) {
+	if (sessionStorage.Usuario != null) {
+
+		var exito = false;
+		for (var i = 0, t = sessionStorage.Accesos.length; i < t; i++) {
+			key = sessionStorage.Accesos.key(i);
+			if ($location.path().equals(key)) {
+				exito = true;
+			}
+		}
+		if (!exito) {
+			$location.path('/');
+		}
+	} else {
+		$location.path('/login');
+	}
+
+});
