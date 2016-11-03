@@ -22,6 +22,10 @@ public class ConstantesNamedQueries {
 	
 	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
 	
+	public static final String LISTAR_USUARIOS = "Usuario.listarUsuarios";
+	
+	public static final String LISTAR_CURSOS = "Curso.listarcursos";
+	
 	
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub
