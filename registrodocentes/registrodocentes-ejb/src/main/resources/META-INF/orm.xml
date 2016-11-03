@@ -27,6 +27,12 @@
 			SELECT reg FROM Registro reg 
 		</query> 
 	</named-query> 
+	
+	<named-query name="Registro.listarentrefechas">
+		<query>
+			SELECT reg FROM Registro reg WHERE reg.fecha BETWEEN ?1 AND ?2 AND reg.sesion.curso.asignatura.id = ?3 AND reg.sesion.curso.docente.id = ?4
+		</query>
+	</named-query>
 
 
 	<named-query name="Usuario.buscarUserPass">
