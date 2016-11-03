@@ -7,7 +7,7 @@
 <title>Registro docente</title>
 
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
- 
+
 <!-- Librerias de Angular -->
 <script type="text/javascript" src="resources/js/angular.min.js"></script>
 <script type="text/javascript" src="resources/js/angular-route.js"></script>
@@ -27,8 +27,8 @@
 	<div class="container" ng-controller="menuController">
 		<form name="frmTest" id="frmTest" class="form-horizontal" role="form">
 			<ul class="nav nav-pills">
-				<li class="active"><a href="#/menu">Inicio</a></li>
 				<li ng-repeat="a in accesos"><a ng-href="{{a.url}}">{{a.nombre}}</a></li>
+				<li class="active"><a href="../app/login.html" type="submit" ng-click="logout()">Cerrar</a></li>
 			</ul>
 			<div ng-view></div>
 		</form>
