@@ -72,7 +72,7 @@ public class SemestreRest {
 			return new RespuestaDTO(false, "error al eliminar", "-1");
 		}
 	
-}
+} 
 	
 //
 //	@Path("/marcarDia")

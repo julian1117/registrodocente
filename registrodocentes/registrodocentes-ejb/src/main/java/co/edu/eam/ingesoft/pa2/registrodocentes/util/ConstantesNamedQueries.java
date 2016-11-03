@@ -22,7 +22,7 @@ public class ConstantesNamedQueries {
 
 	
 	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
-	
+	 
 	public static final String LISTAR_REGISTROS = "Registro.listar";
 	
 	

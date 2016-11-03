@@ -50,7 +50,7 @@ public class SemestreEJB extends EJBGenerico<Semestre> {
 		}
 	}
 	
-	
+	 
 	public List<Semestre> listarSemestres(){
 		return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTA_SEMESTRES);
 	}

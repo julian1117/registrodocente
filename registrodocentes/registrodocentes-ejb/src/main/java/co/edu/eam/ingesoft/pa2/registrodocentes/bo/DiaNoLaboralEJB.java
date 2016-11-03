@@ -20,7 +20,7 @@ public class DiaNoLaboralEJB extends EJBGenerico<DiaNoLaborable> {
 		return DiaNoLaborable.class;
 	}
 	
-
+  
 	
 	public boolean crear(DiaNoLaboralDTO dto){
 		if(dto != null){

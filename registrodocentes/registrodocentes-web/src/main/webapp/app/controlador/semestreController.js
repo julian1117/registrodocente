@@ -70,7 +70,7 @@ app.controller("semestreController", function($scope, $http) {
 			data : dato1,
 			headers : {
 				"Content-Type" : "application/x-www-form-urlencoded"				
-			}
+			 }
 
 		}).success(function(data, status, headers, config) {
 			if (data.codigo == '00') {

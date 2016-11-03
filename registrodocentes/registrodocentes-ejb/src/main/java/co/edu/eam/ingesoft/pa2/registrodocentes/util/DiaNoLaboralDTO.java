@@ -25,7 +25,7 @@ public class DiaNoLaboralDTO {
 
 	public Semestre getSemestre() {
 		return semestre;
-	}
+	}  
 
 	public void setSemestre(Semestre semestre) {
 		this.semestre = semestre;

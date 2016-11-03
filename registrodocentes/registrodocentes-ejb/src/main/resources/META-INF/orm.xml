@@ -9,7 +9,7 @@
 			Select p FROM Programa p
 		</query> 
 	</named-query> 
-	
+	 
 	<named-query name="Rol.listarRolesUsuario"> 
 		<query> 
          SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1
