@@ -35,7 +35,7 @@ public class RegistroRest {
 	 * @author Brian David Tafur Londoño<br/>
 	 *         email: tafur2401@gmail.com <br/>
 	 *         Fecha: 3 de nov. de 2016<br/>
-	 * @param cod, código de la asignatura
+	 * @param cod, código del curso
 	 * @param ced, cédula del docente
 	 * @return una cadena JSON con la lista de registros en ese rango
 	 */
