@@ -24,7 +24,7 @@ app.controller("loginController", function($scope, $http, $window,
 				alert(data.mensaje);
 			}
 		}).error(function(data, status, headers, config) {
-			alert('error::' + data.mensaje); 
+			alert('error::' + data.mensaje);
 		});
 	};
 });
