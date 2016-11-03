@@ -34,6 +34,8 @@ public class ConstantesNamedQueries {
 	
 	public static final String BUSCAR_ACCESO_ROL = "Acceso.buscarRol";
 	
+	public static final String LISTAR_REGISTROS_ENTREFECHAS = "Registro.listarentrefechas";
+	
 	
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub
