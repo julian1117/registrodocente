@@ -1,19 +1,20 @@
 /**
  * Controlador para ver los registros anteriores de los docentes
  */
-alert("Entro");
-app.controller("regSemAnteriores", function($scope, $http, httpservice,
-		$sessionStorage) {
 
-	$scope.usuarios = [];
-	$scope.cursos =[];
-	
+app.controller("semestresAnterioresRegController",
+		function($scope, $http, httpservice,$sessionStorage) {
+	$scope.alerta = function() {
+		alert("Entro");
+//	$scope.usuarios = [];
+//	$scope.cursos =[];
+	};
 
 	/**
 	 * Funcion para listar los usuarios Docentes 
 	 */
 	$scope.listarUsuario=function() {
-		alert("entroo pipi");
+		alert("entroo 1");
 		$http({
 			url : '../rest/semestresAnteriores/listaUsuarios',
 			method : "GET"
@@ -38,7 +39,7 @@ app.controller("regSemAnteriores", function($scope, $http, httpservice,
 			method : "GET"
 		}).success(function(data, status, headers, config) {
 			if (data.codigo=='00') {
-				$scope.usuarios=data.obj;				
+				$scope.cursos=data.obj;				
 			} else {
 				alert(data.mensaje);
 			}
@@ -75,15 +76,16 @@ app.controller("regSemAnteriores", function($scope, $http, httpservice,
 	//$scope.iniciar = function(){$scope.listarUsuario();}
 			
 	$scope.listarUsuario();
+	$scope.listarCursos();
 	
 	
-//	(function() {
-//		// cargar los cursos.
-//
-//		listarUsuario();
-//
-//	}());
-//	
+	(function() {
+		// cargar los cursos.
+
+		listarUsuario();
+
+	}());
+	
 
 	
 });
