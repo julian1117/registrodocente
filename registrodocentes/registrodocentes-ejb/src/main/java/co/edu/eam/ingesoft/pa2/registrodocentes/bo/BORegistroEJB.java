@@ -1,10 +1,13 @@
 package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Registro;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.InterfaceEJBRemote;
 
@@ -42,8 +45,15 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 		
 	}
 	
+	/**
+	 * Metodo para listar los registros
+	 * @author Brayan Giraldo
+	 * Correo : giraldo97@outlook.com
+	 */
 	public RespuestaDTO listarRegistros(){
-		return null;
+		List<Registro> registros = dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS);
+		RespuestaDTO res = new RespuestaDTO(registros);
+		return res;
 	}
 	
 

@@ -7,7 +7,7 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.servicios.LoginRest;
 
 //@Secured//indicar al filtro que se interceptara lo anotado con esto
@@ -18,6 +18,7 @@ public class FiltroSeguridadRest implements ContainerRequestFilter {
 	public void filter(ContainerRequestContext ctxReq) throws IOException {
 
 		String token=ctxReq.getHeaderString("Authorization");
+		
 		
 		
 		

@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.enumeraciones.DiaEnum;
 
 @Entity
-@Table(name="sesioncurso")
+@Table(name="T_SESION_CURSO")
 public class SesionCurso implements Serializable{
 
 	@Id

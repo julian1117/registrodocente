@@ -10,8 +10,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.LoginOutDTO;
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.LoginOutDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
+
 /**
  * 
  * @author Jhohanns
