@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.pa2.registrodocentes.util;
+package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,8 @@ import javax.ejb.Stateless;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Rol;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 
 @LocalBean
 @Stateless

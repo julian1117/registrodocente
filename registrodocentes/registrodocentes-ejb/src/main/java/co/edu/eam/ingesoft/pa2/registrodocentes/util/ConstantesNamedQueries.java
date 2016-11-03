@@ -14,6 +14,7 @@ package co.edu.eam.ingesoft.pa2.registrodocentes.util;
 public class ConstantesNamedQueries {
 	
 	
+	
 	public static final String LISTAR_PROGRAMAS = "Programa.listarTodos";
 	
 	

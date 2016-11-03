@@ -1,5 +1,6 @@
 var app = angular.module("miApp", [ "ngRoute", "ngStorage" ]);
 
+
 app.config(function($routeProvider) {
 	$routeProvider.when("/", {
 		controller : "menuController",

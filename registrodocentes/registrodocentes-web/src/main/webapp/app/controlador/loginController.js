@@ -2,7 +2,6 @@ app.controller("loginController", function($scope, $http, $window,
 		$sessionStorage) {
 	$scope.user = '';
 	$scope.pass = '';
-	$scope.token = '';
 	$scope.login = function() {
 		var xsrf = $.param({
 			usuario : $scope.user,
@@ -22,7 +21,6 @@ app.controller("loginController", function($scope, $http, $window,
 				$window.sessionStorage = $sessionStorage.usuario;
 				$window.sessionStorage = $sessionStorage.token;
 				$window.location.href = '../app/menu.html#/';
-
 			} else {
 				alert(data.mensaje);
 			}

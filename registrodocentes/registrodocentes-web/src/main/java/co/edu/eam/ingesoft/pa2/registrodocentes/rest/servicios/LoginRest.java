@@ -13,13 +13,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import co.edu.eam.ingesoft.pa2.registrodocentes.bo.AccesoRolEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Rol;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Usuario;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.AccesoRolDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.LoginOutDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
-import co.edu.eam.ingesoft.pa2.registrodocentes.util.AccesoRolEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.LoginEJB;
 
 /**
@@ -55,6 +55,7 @@ public class LoginRest {
 		}
 	}
 
+	
 	@POST
 	@Path("/accesos")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)

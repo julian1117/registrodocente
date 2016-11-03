@@ -11,6 +11,7 @@ public class AccesoRolDTO {
 	private List<Rol> roles;
 	private String usuario;
 
+	
 	public AccesoRolDTO() {
 	}
 
