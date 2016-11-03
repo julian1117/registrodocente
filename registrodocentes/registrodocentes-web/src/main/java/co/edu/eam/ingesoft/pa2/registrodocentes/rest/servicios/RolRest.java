@@ -10,11 +10,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import co.edu.eam.ingesoft.pa2.registrodocentes.bo.AccesoEJB;
+import co.edu.eam.ingesoft.pa2.registrodocentes.bo.RolEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RolInDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
-import co.edu.eam.ingesoft.pa2.registrodocentes.service.AccesoEJB;
-import co.edu.eam.ingesoft.pa2.registrodocentes.service.RolEJB;
 
 @Path("/gestionRol")
 public class RolRest {

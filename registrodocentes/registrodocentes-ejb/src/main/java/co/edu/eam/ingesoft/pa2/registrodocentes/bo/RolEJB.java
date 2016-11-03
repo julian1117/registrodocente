@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.pa2.registrodocentes.service;
+package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
 import java.util.ArrayList;
 
@@ -25,6 +25,11 @@ public class RolEJB {
 		dao = new DAOGenerico(em);
 	}
 	
+	/**
+	 * Metodo para crear un rol
+	 * @param rol, el Rol a crear
+	 * @return True si lo creo, de lo contrario false
+	 */
 	public boolean crearRol(Rol rol){
 		ArrayList<Rol> lista = (ArrayList<Rol>) dao.listarTodos(Rol.class);
 		for (Rol rol2 : lista) {
