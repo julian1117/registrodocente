@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.pa2.registrodocentes.service;
+package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
 import java.util.List;
 
@@ -25,6 +25,10 @@ public class AccesoEJB {
 		dao = new DAOGenerico(em);
 	}
 	
+	/**
+	 * Metodo para listar los accesos
+	 * @return una lista de accesos
+	 */
 	public List<Acceso> listarAcceso() {
 		return dao.listarTodos(Acceso.class);
 	}

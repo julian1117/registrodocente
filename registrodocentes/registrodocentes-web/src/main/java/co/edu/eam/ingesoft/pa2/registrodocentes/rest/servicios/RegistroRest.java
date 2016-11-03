@@ -14,6 +14,11 @@ public class RegistroRest {
 	@EJB
 	private BORegistroEJB registroEJB;
 
+	/**
+	 * Metodo rest para obtener el listado de registros
+	 * @author Brayan Giraldo
+	 * Correo : giraldo97@outlook.com
+	 */
 	@GET
 	@Path("/listar-registros")
 	@javax.ws.rs.Produces(MediaType.APPLICATION_JSON)

@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.pa2.registrodocentes.util;
+package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
 import java.util.List;
 
@@ -7,6 +7,9 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Usuario;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ExcepcionNegocio;
 
 @LocalBean
 @Stateless

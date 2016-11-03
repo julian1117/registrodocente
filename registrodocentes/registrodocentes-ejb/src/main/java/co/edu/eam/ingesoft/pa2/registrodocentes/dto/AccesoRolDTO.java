@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto;
+package co.edu.eam.ingesoft.pa2.registrodocentes.dto;
 
 import java.util.List;
 
