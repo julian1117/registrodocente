@@ -23,6 +23,15 @@ public class ConstantesNamedQueries {
 	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
 	
 	
+	public static final String BUSCAR_POR_USER_PASS = "Usuario.buscarUserPass";
+	
+	
+	public static final String BUSCAR_ROL_USER = "Usuario.roles";
+	
+	
+	public static final String BUSCAR_ACCESO_ROL = "Acceso.buscarRol";
+	
+	
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub
 	}
