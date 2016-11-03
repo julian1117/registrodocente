@@ -15,7 +15,7 @@ app.controller("loginController", function($scope, $http, $window,
 				"Content-Type" : "application/x-www-form-urlencoded"
 			}
 		}).success(function(data, status, headers, config) {
-			if (data.codigo == '1') {
+			if (data.codigo == '00') {
 				$sessionStorage.objeto = data.obj;
 				window.setTimeout(function() {
 					window.location.href = '../app/menu.html#/';
