@@ -29,7 +29,7 @@
 		<form name="frmTest" id="frmTest" class="form-horizontal" role="form">
 			<ul class="nav nav-pills">
 				<li class="active"><a href="#/menu">Inicio</a></li>
-				<li ng-repeat="a in accesos"><a href="a.url">{{a.nombre}}</a></li>
+				<li ng-repeat="a in accesos"><a ng-href="{{a.url}}">{{a.nombre}}</a></li>
 			</ul>
 			<div ng-view></div>
 		</form>

@@ -61,7 +61,6 @@ public class LoginRest {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public RespuestaDTO accesos(@FormParam(value = "usuario") String usuario) {
-		System.out.println("usuario-------" + usuario);
 		List<Rol> roles = accesoRolEJB.listarRoles(usuario);
 		List<Acceso> accesos = accesoRolEJB.listarAccesos();
 		if (!roles.isEmpty()) {
