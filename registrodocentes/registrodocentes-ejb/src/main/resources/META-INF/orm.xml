@@ -54,6 +54,12 @@
 			SELECT ar.acceso FROM AccesoRol ar WHERE ar.rol=?1
 		</query>
 	</named-query>
+	
+	<named-query name="Registro.listarRegistrosDocenteAsignatura">
+		<query>
+			SELECT r FROM Registro r WHERE r.sesion.curso.docente.id=?1 and r.sesion.curso.asignatura.id=?2
+		</query>
+	</named-query>
 
 
 

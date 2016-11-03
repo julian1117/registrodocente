@@ -27,9 +27,9 @@ public class RegistroRest {
 	@Path("/listar-registros")
 	@javax.ws.rs.Produces(MediaType.APPLICATION_JSON)
 	public RespuestaDTO listarRegistros(){
-		return registroEJB.listarRegistros();
+		return new RespuestaDTO(registroEJB.listarRegistros());
 	}
-	
+
 	@POST
 	@Path("/listar-registros-fechas")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -39,6 +39,23 @@ public class RegistroRest {
 		return res;
 	}
 	
+	
+	/**
+	 * Metodo REST para listar los registros de un docente en una
+	 * asignatura especifica
+	 * @param idDoc, es la identificacion del docente
+	 * @param idAsig, es la identificacion de la asignatura
+	 * @author Brayan Giraldo
+	 * Correo : giraldo97@outlook.com
+	 */
+	@POST
+	@Path("/listar-registros-docente-asignatura")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public RespuestaDTO listarRegistrosDocenteAsignatura(@FormParam(value="doc") int idDoc,
+			                                             @FormParam(value="asig") String idAsig){
+		return new RespuestaDTO(registroEJB.listarRegistrosDocenteAsignatura(idDoc, idAsig));
+	}
 	
 	
 }

@@ -52,10 +52,8 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 	 * 
 	 * @author Brayan Giraldo Correo : giraldo97@outlook.com
 	 */
-	public RespuestaDTO listarRegistros() {
-		List<Registro> registros = dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS);
-		RespuestaDTO res = new RespuestaDTO(registros);
-		return res;
+	public List<Registro> listarRegistros() {
+		return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS);
 	}
 
 	/**
@@ -79,5 +77,19 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 				fechaInicial.getTime(), fechaFinal.getTime(), cod, ced);
 		return lista;
 	}
+	
+	/**
+	 * Metodo para listar los registros de un docente en una
+	 * asignatura especifica
+	 * @param idDoc, es la identificacion del docente
+	 * @param idAsig, es la identificacion de la asignatura
+	 * @author Brayan Giraldo
+	 * Correo : giraldo97@outlook.com
+	 */
+    public List<Registro> listarRegistrosDocenteAsignatura(int idDoc, String idAsig){
+    	return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS_DOCENTE_ASIGNATURA,
+    			                       idDoc, idAsig);
+    }
+	
 
 }

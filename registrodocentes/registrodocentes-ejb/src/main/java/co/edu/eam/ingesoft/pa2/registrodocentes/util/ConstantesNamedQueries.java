@@ -36,6 +36,9 @@ public class ConstantesNamedQueries {
 	
 	public static final String LISTAR_REGISTROS_ENTREFECHAS = "Registro.listarentrefechas";
 	
+	public static final 
+	     String LISTAR_REGISTROS_DOCENTE_ASIGNATURA = "Registro.listarRegistrosDocenteAsignatura";
+	
 	
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub
