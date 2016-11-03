@@ -37,7 +37,6 @@ public class SemestresAnterioresRest {
 
 	/**
 	 * Servicio rest que trae una lista de usuarios
-	 * 
 	 * @return la lista si esta esta llena
 	 */
 	@GET
@@ -53,11 +52,13 @@ public class SemestresAnterioresRest {
 
 	}
 
+
 	/**
-	 * Corrrefir falta los parametros Servicio rest que tiene tres parametros y
-	 * lista los cursos indicados en los parametros
-	 * 
-	 * @return
+	 * Servicio REST para listar los cursos con datos especificos
+	 * @param anio el año seleccionado
+	 * @param periodo, periodo del año 1 o 2 
+	 * @param docente, el docente del cual se quiere ver los cursos
+	 * @return, la lista con los cursos si se encuentra 
 	 */
 	@POST
 	@Path("/listarCursos")

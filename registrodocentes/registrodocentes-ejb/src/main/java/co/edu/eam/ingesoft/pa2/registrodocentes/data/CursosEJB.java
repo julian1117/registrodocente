@@ -29,7 +29,7 @@ public class CursosEJB extends EJBGenerico<Curso>{
 
 	/**
 	 * Query para listar todos los cursos de un profesor en determinada fecha y en cierto periodo
-	 * @return, lista de cursos
+	 * @return, lista con los cursos que se encuentren con los parametros encontrados
 	 */
 	public List<Curso> listaCursos(int anio, int periodo, int docente){
 		return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_CURSOS, anio, periodo, docente);
