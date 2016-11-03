@@ -49,7 +49,6 @@ public class RolRest {
 	 * un mensaje indicando esto con codigo -13
 	 */
 	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/listarAccesos")
 	public RespuestaDTO listarAccesos() {
