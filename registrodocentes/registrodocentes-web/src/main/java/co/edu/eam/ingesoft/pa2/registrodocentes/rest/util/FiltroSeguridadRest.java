@@ -16,7 +16,6 @@ public class FiltroSeguridadRest implements ContainerRequestFilter {
 
 	@Override
 	public void filter(ContainerRequestContext ctxReq) throws IOException {
-
 		String token=ctxReq.getHeaderString("Authorization");
 		//TODO: revisar el usuario del token y el permiso de acceso al servicio
 		if(!LoginRest.tokens.containsKey(token)){
@@ -24,7 +23,6 @@ public class FiltroSeguridadRest implements ContainerRequestFilter {
 			Response res=Response.status(401).entity(dto).build();
 			ctxReq.abortWith(res);
 		}
-		
 	}
 
 }
