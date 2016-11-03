@@ -4,8 +4,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
 	version="2.0">
 
-	
-
 	<named-query name="Programa.listarTodos"> 
 		<query> 
 			Select p FROM Programa p
@@ -14,12 +12,12 @@
 	
 	<named-query name="Rol.listarRolesUsuario"> 
 		<query> 
-			SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1
-		</query> 
-	</named-query> 
-	
-	<named-query name="Usuario.buscarUser"> 
-		<query> 
+         SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1
+		</query>
+	</named-query>
+
+	<named-query name="Usuario.buscarUser">
+		<query>
 			SELECT u FROM Usuario u WHERE u.usuario = ?1
 		</query> 
 	</named-query> 
@@ -31,8 +29,25 @@
 	</named-query> 
 
 
+	<named-query name="Usuario.buscarUserPass">
+		<query>
+			SELECT u FROM Usuario u WHERE u.usuario = ?1 and u.pass=?2
+		</query>
+	</named-query>
 
 
+	<named-query name="Usuario.roles">
+		<query>
+			SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.usuario = ?1
+		</query>
+	</named-query>
+
+
+	<named-query name="Acceso.buscarRol">
+		<query>
+			SELECT ar.acceso FROM AccesoRol ar WHERE ar.rol=?1
+		</query>
+	</named-query>
 
 
 

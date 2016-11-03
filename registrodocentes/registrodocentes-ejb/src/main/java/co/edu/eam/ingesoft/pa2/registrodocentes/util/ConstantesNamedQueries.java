@@ -14,6 +14,7 @@ package co.edu.eam.ingesoft.pa2.registrodocentes.util;
 public class ConstantesNamedQueries {
 	
 	
+	
 	public static final String LISTAR_PROGRAMAS = "Programa.listarTodos";
 	
 	
@@ -23,6 +24,15 @@ public class ConstantesNamedQueries {
 	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
 	
 	public static final String LISTAR_REGISTROS = "Registro.listar";
+	
+	
+	public static final String BUSCAR_POR_USER_PASS = "Usuario.buscarUserPass";
+	
+	
+	public static final String BUSCAR_ROL_USER = "Usuario.roles";
+	
+	
+	public static final String BUSCAR_ACCESO_ROL = "Acceso.buscarRol";
 	
 	
 	private ConstantesNamedQueries() {
