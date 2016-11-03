@@ -49,6 +49,16 @@
 		</query>
 	</named-query>
 
-
+	<named-query name="Semestre.listar">
+		<query>
+			SELECT s FROM Semestre s
+		</query>
+	</named-query>
+	
+	<named-query name="Semestre.buscarSemestres">
+		<query>
+			SELECT s FROM Semestre s where s.anho =?1 and s.periodo =?2
+		</query>
+	</named-query>
 
 </entity-mappings>

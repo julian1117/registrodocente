@@ -35,6 +35,10 @@ public class ConstantesNamedQueries {
 	public static final String BUSCAR_ACCESO_ROL = "Acceso.buscarRol";
 	
 	
+	public static final String LISTA_SEMESTRES = "Semestre.listar";
+	
+	public static final String BUSCAR_SEMESTRE = "Semestre.buscarSemestres";
+	
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub
 	}
