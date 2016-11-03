@@ -1,79 +1,65 @@
-<div class="container">
-<h1 class="text-center">PROGRAMAS Y DOCENTES</h1>
-<div class="panel panel-primary">
-      <div class="panel-heading">PROGRAMAS</div>
-      
-  <table class="table">
-    <thead>
-      <tr>
-        <th>CODIGO</th>
-        <th>NOMBRE</th>
-        <th>FACULTAD</th>
-        <th>VER</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>23</td>
-        <td>Ingenieria Software</td>
-        <td>Ingenieria</td>
-        <td><button type="button" class="btn btn-primary">VER DOCENTES</button></td>
-      </tr>
-      <tr>
-        <td>24</td>
-        <td>Publicidad</td>
-        <td>Diseño</td>
-        <td><button type="button" class="btn btn-primary">VER DOCENTES</button></td>
-      </tr>
-      <tr>
-        <td>42</td>
-        <td>Negocios</td>
-        <td>Administracion</td>
-        <td><button type="button" class="btn btn-primary">VER DOCENTES</button></td>
-      </tr>
-      
-    </tbody>
-  </table>
-  </div>
+<div class="container" ng-controller="programasDocentesController">
+	<h1 class="text-center">PROGRAMAS Y DOCENTES</h1>
+	<div class="panel panel-primary">
+		<div class="panel-heading">PROGRAMAS</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>CODIGO</th>
+					<th>NOMBRE</th>
+					<th>FACULTAD</th>
+					<th>VER</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="p in programas">
+					<td >{{p.id}}</td>
+					<td>{{p.nombre}}</td>
+					<td>{{p.facultad.nombre}}</td>
+					<td>
+						<button class="btn btn-primary" type="submit"
+						name="action" ng-click="listardocentes(p.id)">
+						   VER DOCENTES
+						</button>
+					</td>
+				</tr>
 
 
+			</tbody>
+		</table>
+	</div>
 
-<br><br>
+
+	<br>
+	<br>
 
 
-<div class="panel panel-primary">
-	<div class="panel-heading">DOCENTES</div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>DOCUMENTO</th>
-        <th>NOMBRE</th>
-        <th>APELLIDO</th>
-        <th>VER</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>12833639</td>
-        <td>Camilo</td>
-        <td>Ferrer</td>
-        <td><button type="button" class="btn btn-primary">ASIGNATURAS</button></td>
-      </tr>
-      <tr>
-        <td>14256399</td>
-        <td>Jorge Ivan</td>
-        <td>Triviño</td>
-        <td><button type="button" class="btn btn-primary">ASIGNATURAS</button></td>
-      </tr>
-      <tr>
-        <td>10858584</td>
-        <td>David</td>
-        <td>Angarita</td>
-        <td><button type="button" class="btn btn-primary">ASIGNATURAS</button></td>
-      </tr>
-      
-    </tbody>
-  </table>
-</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading">DOCENTES</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>DOCUMENTO</th>
+					<th>NOMBRE</th>
+					<th>APELLIDO</th>
+					<th>VER</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="d in docentes">
+					<td>{{d.id}}</td>
+					<td>{{d.nombre}}</td>
+					<td>{{d.apellido}}</td>
+					<td>
+						<button class="btn btn-primary" type="button">VER ASIGNATURAS</button>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
 
 </div>

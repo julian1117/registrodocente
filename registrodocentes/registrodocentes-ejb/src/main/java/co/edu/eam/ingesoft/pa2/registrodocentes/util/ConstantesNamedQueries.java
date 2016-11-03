@@ -16,11 +16,13 @@ public class ConstantesNamedQueries {
 	
 	public static final String LISTAR_PROGRAMAS = "Programa.listarTodos";
 	
+	public static final String LISTAR_DOCENTES_POR_PROGRAMA = "Docente.listarPorPrograma";
 	
 	public static final String LISTAR_ROLES_USUARIO = "Rol.listarRolesUsuario";
 
 	
 	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
+	
 	
 	
 	private ConstantesNamedQueries() {

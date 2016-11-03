@@ -32,7 +32,7 @@ app.config(function($routeProvider) {
 		controller : "inventariocontroller",
 		templateUrl : "vistas/ReporteRegistros.html"
 	}).when("/programasDocentes", {
-		controller : "inventariocontroller",
+		controller : "programasDocentesController",
 		templateUrl : "vistas/programasDocentes.html"
 	}).when("/asignaturas", {
 		controller : "inventariocontroller",

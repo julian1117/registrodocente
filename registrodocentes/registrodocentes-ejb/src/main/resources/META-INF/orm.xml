@@ -6,9 +6,15 @@
 
 	
 
-	<named-query name="Programa.LISTAR_PROGRAMAS"> 
+	<named-query name="Programa.listarTodos"> 
 		<query> 
-			Select p FROM Programa p
+			SELECT p FROM Programa p
+		</query> 
+	</named-query> 
+	
+	<named-query name="Docente.listarPorPrograma"> 
+		<query> 
+			SELECT d FROM Docente d WHERE d.programa.id=?1
 		</query> 
 	</named-query> 
 	
@@ -24,7 +30,6 @@
 		</query> 
 	</named-query> 
 	
-
 
 
 
