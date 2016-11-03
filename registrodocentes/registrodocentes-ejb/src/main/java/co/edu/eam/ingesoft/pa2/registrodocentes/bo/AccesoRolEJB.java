@@ -23,12 +23,24 @@ public class AccesoRolEJB extends EJBGenerico<Acceso> {
 		return Acceso.class;
 	}
 
+	/**
+	 * metodo que lista los roles de un suario
+	 * 
+	 * @param user
+	 *            el usuario
+	 * @return una lista con los roles de un usuario
+	 */
 	public List<Rol> listarRoles(String user) {
 		lista = new ArrayList<>();
 		lista = dao.ejecutarNamedQuery(ConstantesNamedQueries.BUSCAR_ROL_USER, user);
 		return lista;
 	}
 
+	/**
+	 * metodo que lista los accesos de los roles
+	 * 
+	 * @return una lista de accesos
+	 */
 	public List<Acceso> listarAccesos() {
 		List<Acceso> accesos = new ArrayList<>();
 		if (!lista.isEmpty()) {

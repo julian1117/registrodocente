@@ -27,5 +27,5 @@ app.controller("menuController", function($scope, $http, $window,
 	$scope.iniciar = function() {
 		$scope.cargarAccesos();
 	}
-	$scope.iniciar();
+	$scope.iniciar(); 
 });

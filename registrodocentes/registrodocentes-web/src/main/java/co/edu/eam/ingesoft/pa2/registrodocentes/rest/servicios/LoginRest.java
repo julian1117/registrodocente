@@ -22,7 +22,6 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Rol;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Usuario;
 
-
 /**
  * 
  * @author Jairo
@@ -39,6 +38,15 @@ public class LoginRest {
 
 	public static Map<String, Object> tokens = new HashMap<>();
 
+	/**
+	 * jairo andres rios franco servicio rest para verificar usuario
+	 * 
+	 * @param usuario
+	 *            el usuario
+	 * @param contrasenia
+	 *            la contrasenia del usuairo
+	 * @return dto con mensaje de error u objeto
+	 */
 	@POST
 	@Path("/verificar")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -56,7 +64,14 @@ public class LoginRest {
 		}
 	}
 
-	
+	/**
+	 * jairo andres rios franco servicio que verifica los roles y accesos de un
+	 * usuario
+	 * 
+	 * @param usuario
+	 *            el usuario
+	 * @return dto con mensaje de error u objetos
+	 */
 	@POST
 	@Path("/accesos")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)

@@ -27,6 +27,5 @@ app.controller("loginController", function($scope, $http, $window,
 		}).error(function(data, status, headers, config) {
 			alert('error::' + data.mensaje);
 		});
-
 	};
 });
