@@ -1,10 +1,10 @@
 var app = angular.module("miApp", [ "ngRoute", "ngStorage" ]);
 
+
 app.config(function($routeProvider) {
 	$routeProvider.when("/", {
-		controller : "modulo1Controller",
+		controller : "menuController",
 		controllerAs : "m1",
-		templateUrl : "vistas/form.html"
 	}).when("/registros", {
 		controller : "registrosController",
 		controllerAs : "reg",
@@ -18,8 +18,8 @@ app.config(function($routeProvider) {
 		controllerAs : "tra",
 		templateUrl : "vistas/AsignarAcceso.html"
 	}).when("/login", {
-		controller : "modulo1Controller",
-		controllerAs : "m1",
+		controller : "loginController",
+		controllerAs : "loc",
 		templateUrl : "vistas/login.html"
 	}).when("/cliente", {
 		controller : "clientecontroller",
@@ -40,8 +40,35 @@ app.config(function($routeProvider) {
 	}).when("/Semestre", {
 		controller : "inventariocontroller",
 		templateUrl : "vistas/Semestre.html"
+	}).when("/menu", {
+		controller : "menuController",
+		controllerAs : "menu",
+		templateUrl : "menu.html"
 	}).when("/CrearRol", {
 		controller : "inventariocontroller",
 		templateUrl : "vistas/CrearRol.html"
 	});
+});
+
+/**
+ * Filtro de accesos
+ * Jhohanns villa vasquez, Miguel tamayo
+ */
+app.filter(function($location) {
+	if (sessionStorage.Usuario != null) {
+
+		var exito = false;
+		for (var i = 0, t = sessionStorage.Accesos.length; i < t; i++) {
+			key = sessionStorage.Accesos.key(i);
+			if ($location.path().equals(key)) {
+				exito = true;
+			}
+		}
+		if (!exito) {
+			$location.path('/');
+		}
+	} else {
+		$location.path('/login');
+	}
+
 });

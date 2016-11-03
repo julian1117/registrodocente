@@ -11,5 +11,5 @@ import javax.ws.rs.NameBinding;
 @Target(value={ElementType.TYPE,ElementType.METHOD})
 @NameBinding//indicar que se usara como intereptor REST-
 public @interface Secured {
-
+String rol();
 }

@@ -20,7 +20,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.data.UsuarioEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Curso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Docente;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Usuario;
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 
 /**
  * @author Alejandro

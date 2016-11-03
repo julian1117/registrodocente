@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -26,6 +28,7 @@ public class Acceso implements Serializable{
 	public static final String LISTAR_ACCESOS_ROL = "Acceso.listarAccesosRol";
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_ACCESO", length=12, nullable=false)
 	private int id;
 	
@@ -44,9 +47,8 @@ public class Acceso implements Serializable{
 	 */
 	
 
-	public Acceso(int id, String url, String nombre) {
+	public Acceso(String url, String nombre) {
 		super();
-		this.id = id;
 		this.url = url;
 		this.nombre = nombre;
 	}
