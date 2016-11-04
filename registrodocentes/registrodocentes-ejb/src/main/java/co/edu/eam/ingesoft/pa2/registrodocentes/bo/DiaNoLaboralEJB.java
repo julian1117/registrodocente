@@ -25,7 +25,7 @@ public class DiaNoLaboralEJB extends EJBGenerico<DiaNoLaborable> {
 	}
 
 	@EJB
-	SemestreEJB semestreEJb;
+	 SemestreEJB semestreEJb;
 	
 	
 	

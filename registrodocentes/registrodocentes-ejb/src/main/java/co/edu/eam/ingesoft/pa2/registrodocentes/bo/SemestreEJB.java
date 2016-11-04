@@ -25,8 +25,8 @@ public class SemestreEJB extends EJBGenerico<Semestre> {
 		return Semestre.class;
 	}
 
-	
-	/**
+	 
+	  /**
 	 * Metodo para crear un semestre
 	 * @param fecha , la fecha del inicio del semestre
 	 * @return true si se persiste

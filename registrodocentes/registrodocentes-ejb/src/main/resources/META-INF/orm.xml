@@ -105,7 +105,7 @@
 
 	<named-query name="DiaNoLaborable.listarDias">
 		<query>
-			SELECT d FROM DiaNoLaborable d
+			SELECT d FROM DiaNoLaborable d  
 		</query>
 	</named-query>
 	

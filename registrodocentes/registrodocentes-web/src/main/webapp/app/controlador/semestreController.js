@@ -1,6 +1,6 @@
 app.controller("semestreController", function($scope, $http) {
 
-	$scope.causa = '';
+	 $scope.causa = '';
 	$scope.fechaNoLaboral = new Date();
 	$scope.id = '';
 	$scope.sem = '';

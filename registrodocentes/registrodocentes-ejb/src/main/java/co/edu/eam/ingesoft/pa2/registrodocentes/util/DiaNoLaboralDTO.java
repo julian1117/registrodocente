@@ -16,7 +16,7 @@ public class DiaNoLaboralDTO {
 	/**
 	 * periodo del semestre
 	 */
-	private int periodo;
+	 private int periodo;
 	
 	/**
 	 * fecha del dia noo laboral

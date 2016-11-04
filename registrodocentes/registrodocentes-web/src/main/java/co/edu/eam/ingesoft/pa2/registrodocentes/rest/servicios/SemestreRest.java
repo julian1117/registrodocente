@@ -28,7 +28,7 @@ public class SemestreRest {
 
 	//ejb de semestre
 	@EJB
-	private SemestreEJB semestreEjb;
+	 private SemestreEJB semestreEjb;
 	
 	//ejb del diaNoLaborable
 	@EJB
