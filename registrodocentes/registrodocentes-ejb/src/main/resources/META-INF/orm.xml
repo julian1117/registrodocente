@@ -111,7 +111,7 @@
 
 	<named-query name="DiaNoLaborable.listarDias">
 		<query>
-			SELECT d FROM DiaNoLaborable d where d.semestre.anho =?1 and d.semestre.periodo =?2
+			SELECT d FROM DiaNoLaborable d
 		</query>
 	</named-query>
 	

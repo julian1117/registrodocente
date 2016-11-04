@@ -8,35 +8,60 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Semestre;
 
 public class DiaNoLaboralDTO {
 
-	private Semestre semestre;
-	private Date fecha;
+	/**
+	 * anho del semestre
+	 */
+	private int anho;
+	
+	/**
+	 * periodo del semestre
+	 */
+	private int periodo;
+	
+	/**
+	 * fecha del dia noo laboral
+	 */
+	private Date fechaNoLaboral;
+	
+	/**
+	 * cuasa por la cual es dia no laboral
+	 */
 	private String causa;
 	
 	public DiaNoLaboralDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DiaNoLaboralDTO(Semestre semestre, Date fecha, String causa) {
+	public DiaNoLaboralDTO(int anho, int periodo, Date fechaNoLaboral, String causa) {
 		super();
-		this.semestre = semestre;
-		this.fecha = fecha;
+		this.anho = anho;
+		this.periodo = periodo;
+		this.fechaNoLaboral = fechaNoLaboral;
 		this.causa = causa;
 	}
 
-	public Semestre getSemestre() {
-		return semestre;
-	}  
-
-	public void setSemestre(Semestre semestre) {
-		this.semestre = semestre;
+	public int getAnho() {
+		return anho;
 	}
 
-	public Date getFecha() {
-		return fecha;
+	public void setAnho(int anho) {
+		this.anho = anho;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public int getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(int periodo) {
+		this.periodo = periodo;
+	}
+
+	public Date getFechaNoLaboral() {
+		return fechaNoLaboral;
+	}
+
+	public void setFechaNoLaboral(Date fechaNoLaboral) {
+		this.fechaNoLaboral = fechaNoLaboral;
 	}
 
 	public String getCausa() {
@@ -46,7 +71,8 @@ public class DiaNoLaboralDTO {
 	public void setCausa(String causa) {
 		this.causa = causa;
 	}
-	
+
+
 	
 	
 }
