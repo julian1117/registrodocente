@@ -11,12 +11,15 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.bo.DiaNoLaboralEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.bo.SemestreEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.DiaNoLaborable;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Semestre;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.DiaNoLaboralDTO;
 
 
 
@@ -74,16 +77,46 @@ public class SemestreRest {
 	
 } 
 	
-//
-//	@Path("/marcarDia")
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	public RespuestaDTO marcarDia(DiaNoLaboralDTO dto) {
-//		if (diaNoLaborableEjb.crear(dto)) {
-//			return new RespuestaDTO(true, "el dia se marco correctamente", "00");
-//		} else {
-//			return new RespuestaDTO(false, "error al marcar dia", "-1");
-//		}
-//	}
+	
+	
+	@Path("/listarDiasNoLaborales")
+	@GET
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public RespuestaDTO listarDiasNoLaborales(@QueryParam(value = "anho") int anho ,@QueryParam(value = "periodo") int periodo) {
+		List<DiaNoLaborable> dias = diaNoLaborableEjb.listarDias(anho, periodo);
+		if (dias.isEmpty()) {
+			return new RespuestaDTO(null, "no hay dias no laborales registrados", "-1");
+		} else {
+			return new RespuestaDTO(dias);
+		}
+	}
+	
+
+	@Path("/marcarDia")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public RespuestaDTO marcarDia(DiaNoLaboralDTO dto) {
+		if (diaNoLaborableEjb.crear(dto)) {
+			return new RespuestaDTO(true, "el dia se marco correctamente", "00");
+		} else {
+			return new RespuestaDTO(false, "error al marcar dia", "-1");
+		}
+	}
+	
+	
+	
+	@Path("/eliminarDia")
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public RespuestaDTO eliminarSemestre(@FormParam(value = "id") long id) {
+		System.out.println("");
+		if (diaNoLaborableEjb.eliminar(id)) {
+			return new RespuestaDTO(true, "se elimino correctamente", "00");
+		} else {
+			return new RespuestaDTO(false, "error al eliminar", "-1");
+		}
+	
+} 
 }

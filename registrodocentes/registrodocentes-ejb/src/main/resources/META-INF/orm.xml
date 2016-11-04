@@ -61,4 +61,10 @@
 		</query>
 	</named-query>
 
+	<named-query name="DiaNoLaborable.listarDias">
+		<query>
+			SELECT d FROM DiaNoLaborable d where d.semestre.anho =?1 and d.semestre.periodo =?2
+		</query>
+	</named-query>
+	
 </entity-mappings>

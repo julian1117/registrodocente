@@ -39,6 +39,8 @@ public class ConstantesNamedQueries {
 	
 	public static final String BUSCAR_SEMESTRE = "Semestre.buscarSemestres";
 	
+	public static final String LISTAR_DIAS_NO_LABORALES = "DiaNoLaborable.listarDias";
+	
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub
 	}
