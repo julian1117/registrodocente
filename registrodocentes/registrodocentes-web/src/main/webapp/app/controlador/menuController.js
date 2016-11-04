@@ -22,7 +22,6 @@ app.controller("menuController", function($scope, $http, $window,
 				"Authorization" : $sessionStorage.objeto.token
 			}
 		}).success(function(data, status, headers, config) {
-			alert(data.obj);
 			if (data.codigo == '00') {
 				$scope.accesos = data.obj.accesos;
 				$sessionStorage.objt = data.obj;
