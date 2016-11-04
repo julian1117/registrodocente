@@ -29,7 +29,7 @@
 			Select p FROM Programa p
 		</query> 
 	</named-query> 
-	
+	 
 	<named-query name="Rol.listarRolesUsuario"> 
 		<query> 
          SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1
@@ -58,7 +58,6 @@
 	<named-query name="Usuario.buscarUserPass">
 		<query>
 			SELECT u FROM Usuario u WHERE u.usuario = ?1 and u.pass=?2
-
 		</query>
 	</named-query>
 
@@ -96,4 +95,22 @@
 		</query>
 	</named-query>
 
+	<named-query name="Semestre.listar">
+		<query>
+			SELECT s FROM Semestre s
+		</query>
+	</named-query>
+	
+	<named-query name="Semestre.buscarSemestres">
+		<query>
+			SELECT s FROM Semestre s where s.anho =?1 and s.periodo =?2
+		</query>
+	</named-query>
+
+	<named-query name="DiaNoLaborable.listarDias">
+		<query>
+			SELECT d FROM DiaNoLaborable d where d.semestre.anho =?1 and d.semestre.periodo =?2
+		</query>
+	</named-query>
+	
 </entity-mappings>
