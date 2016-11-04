@@ -16,7 +16,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.data.DocenteEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.data.ProgramaEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Docente;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Programa;
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;;
 
 @Path("/programas")
 public class ProgramaRest {

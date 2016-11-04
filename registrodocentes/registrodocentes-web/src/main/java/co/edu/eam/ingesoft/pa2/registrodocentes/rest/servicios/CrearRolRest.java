@@ -7,9 +7,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RolInDTO;
-import co.edu.eam.ingesoft.pa2.registrodocentes.service.RolEJB;
+import co.edu.eam.ingesoft.pa2.registrodocentes.bo.RolEJB;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RolInDTO;
 
 @Path("/gestionRol")
 public class CrearRolRest {
