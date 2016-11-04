@@ -26,13 +26,13 @@ app.config(function($routeProvider) {
 		controllerAs : "cliente",
 		templateUrl : "vistas/cliente.html"
 	}).when("/RegSemAnteriores", {
-		controller : "inventariocontroller",
+		controller : "semestresAnterioresRegController",
 		templateUrl : "vistas/RegSemAnteriores.html"
 	}).when("/ReporteRegistros", {
 		controller : "inventariocontroller",
 		templateUrl : "vistas/ReporteRegistros.html"
 	}).when("/programasDocentes", {
-		controller : "inventariocontroller",
+		controller : "programasDocentesController",
 		templateUrl : "vistas/programasDocentes.html"
 	}).when("/asignaturas", {
 		controller : "inventariocontroller",
@@ -53,7 +53,7 @@ app.config(function($routeProvider) {
 /**
  * Filtro de accesos
  * Jhohanns villa vasquez, Miguel tamayo
- */
+
 app.filter(function($location) {
 	if (sessionStorage.Usuario != null) {
 
@@ -72,3 +72,4 @@ app.filter(function($location) {
 	}
 
 });
+ */
