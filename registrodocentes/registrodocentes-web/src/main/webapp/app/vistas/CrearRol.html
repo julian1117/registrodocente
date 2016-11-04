@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row" ng-controller="crearRolController">
 	<div class="contmayor">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Nombre del Rol"
-				aria-describedby="basic-addon1"> <a href="#"
-				class="btn btn-default botonCR" style="background-color: #009688;" role="button">GUARDAR CAMBIOS</a>
+			<input id="idRol" ng-model="nombreRol" type="text" class="form-control" placeholder="Nombre del Rol"
+				aria-describedby="basic-addon1"> 
+			<a ng-click="botonCrear()" class="btn btn-default botonCR" style="background-color: #009688">GUARDAR CAMBIOS</a>
 		</div>
 	</div>
 </div>

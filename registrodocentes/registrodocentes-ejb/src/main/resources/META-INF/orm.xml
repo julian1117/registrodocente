@@ -3,9 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
 	version="2.0">
-
-
-
+	
 	<named-query name="Programa.listarTodos"> 
 		<query> 
 			SELECT p FROM Programa p
@@ -17,11 +15,6 @@
 			SELECT d FROM Docente d WHERE d.programa.id=?1
 		</query> 
 	</named-query> 
-	
-	<named-query name="Rol.LISTAR_ROLES_USUARIO"> 
-		<query>
-		</query> 
-		</named-query>
 
 	<named-query name="Programa.LISTAR_PROGRAMAS">
 		<query>
@@ -40,13 +33,6 @@
 			SELECT u FROM Usuario u WHERE u.usuario = ?1
 		</query>
 	</named-query>
-
-	<named-query name="Programa.listarTodos"> 
-		<query> 
-			Select p FROM Programa p
-		</query> 
-	</named-query> 
-
 	 
 	<named-query name="Rol.listarRolesUsuario"> 
 		<query> 
