@@ -45,7 +45,7 @@ app.config(function($routeProvider) {
 		controllerAs : "menu",
 		templateUrl : "menu.html"
 	}).when("/CrearRol", {
-		controller : "inventariocontroller",
+		controller : "crearRolController",
 		templateUrl : "vistas/CrearRol.html"
 	});
 });

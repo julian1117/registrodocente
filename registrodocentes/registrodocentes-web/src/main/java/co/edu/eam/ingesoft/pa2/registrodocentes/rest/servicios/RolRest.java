@@ -35,7 +35,6 @@ public class RolRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/crearRol")
 	public RespuestaDTO crearRol(RolInDTO rol) {
-		System.out.println("Id: "+rol.getRol().getId());
 		boolean resp = rolEJB.crearRol(rol.getRol());
 		if(resp) {
 			return new RespuestaDTO(resp);
