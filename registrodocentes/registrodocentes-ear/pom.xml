@@ -42,12 +42,12 @@
 	</repositories>
 	<dependencies>
 
-		<dependency>
-			<groupId>com.github.caferrerb</groupId>
-			<artifactId>publisher</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<type>ejb</type>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.github.caferrerb</groupId> -->
+<!-- 			<artifactId>publisher</artifactId> -->
+<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 			<type>ejb</type> -->
+<!-- 		</dependency> -->
 
 		<!-- Depend on the ejb module and war so that we can package them -->
 		<dependency>
