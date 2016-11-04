@@ -6,11 +6,7 @@
 
 
 
-	<named-query name="Programa.listarTodos"> 
-		<query> 
-			SELECT p FROM Programa p
-		</query> 
-	</named-query> 
+	
 	
 	<named-query name="Docente.listarPorPrograma"> 
 		<query> 
@@ -18,10 +14,7 @@
 		</query> 
 	</named-query> 
 	
-	<named-query name="Rol.LISTAR_ROLES_USUARIO"> 
-		<query>
-		</query> 
-		</named-query>
+	
 
 	<named-query name="Programa.LISTAR_PROGRAMAS">
 		<query>
