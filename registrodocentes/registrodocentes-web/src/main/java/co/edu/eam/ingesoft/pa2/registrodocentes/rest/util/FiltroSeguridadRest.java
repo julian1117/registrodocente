@@ -11,7 +11,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.servicios.LoginRest;
 
 //@Secured//indicar al filtro que se interceptara lo anotado con esto
-@Provider
+//@Provider
 public class FiltroSeguridadRest implements ContainerRequestFilter {
 
 	@Override

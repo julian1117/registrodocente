@@ -23,6 +23,11 @@ public class ConstantesNamedQueries {
 	
 	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
 	 
+
+	public static final String LISTAR_USUARIOS = "Usuario.listarUsuarios";
+	
+	public static final String LISTAR_CURSOS = "Curso.listarcursos";
+
 	public static final String LISTAR_REGISTROS = "Registro.listar";
 	
 	
@@ -33,6 +38,12 @@ public class ConstantesNamedQueries {
 	
 	
 	public static final String BUSCAR_ACCESO_ROL = "Acceso.buscarRol";
+	
+	public static final String LISTAR_REGISTROS_ENTREFECHAS = "Registro.listarentrefechas";
+	
+	public static final 
+	     String LISTAR_REGISTROS_DOCENTE_ASIGNATURA = "Registro.listarRegistrosDocenteAsignatura";
+
 	
 	
 	public static final String LISTA_SEMESTRES = "Semestre.listar";

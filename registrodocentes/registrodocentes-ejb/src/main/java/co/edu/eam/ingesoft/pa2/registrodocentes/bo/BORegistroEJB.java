@@ -1,5 +1,9 @@
 package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -17,14 +21,12 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 
 	@Override
 	public Class getClase() {
-		// TODO Auto-generated method stub
-		return null;
+		return Registro.class;
 	}
 
 	@Override
 	public void crear(Registro entidad) {
-		// TODO Auto-generated method stub
-		
+		dao.persistir(entidad);
 	}
 
 	@Override
@@ -36,25 +38,58 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 	@Override
 	public void editar(Registro entidad) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void eliminar(Registro entidad) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	/**
+	 * Metodo para listar los registros
+	 * 
+	 * @author Brayan Giraldo Correo : giraldo97@outlook.com
+	 */
+	public List<Registro> listarRegistros() {
+		return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS);
+	}
+
+	/**
+	 * Método para listar los registros realizados por un docente en un
+	 * curso 8 días antes y 8 días después de la fecha actual
+	 * 
+	 * @author Brian David Tafur Londoño<br/>
+	 *         email: tafur2401@gmail.com <br/>
+	 *         Fecha: 3 de nov. de 2016<br/>
+	 * @param cod, código del curso
+	 * @param ced, cédula del docente que realiza los registros
+	 * @return una lista con todos los registros realizados en ese rango de fechas
+	 */
+	public List<Registro> listarRegistroEntreFechas(String cod, int ced) {
+		Calendar fechaInicial = Calendar.getInstance();
+		fechaInicial.add(Calendar.DAY_OF_YEAR, -8);
+		Calendar fechaFinal = Calendar.getInstance();
+		fechaFinal.add(Calendar.DAY_OF_YEAR, 8);
+
+		List<Registro> lista = dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS_ENTREFECHAS,
+				fechaInicial.getTime(), fechaFinal.getTime(), cod, ced);
+		return lista;
 	}
 	
 	/**
-	 * Metodo para listar los registros
+	 * Metodo para listar los registros de un docente en una
+	 * asignatura especifica
+	 * @param idDoc, es la identificacion del docente
+	 * @param idAsig, es la identificacion de la asignatura
 	 * @author Brayan Giraldo
 	 * Correo : giraldo97@outlook.com
 	 */
-	public RespuestaDTO listarRegistros(){
-		List<Registro> registros = dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS);
-		RespuestaDTO res = new RespuestaDTO(registros);
-		return res;
-	}
+    public List<Registro> listarRegistrosDocenteAsignatura(int idDoc, String idAsig){
+    	return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS_DOCENTE_ASIGNATURA,
+    			                       idDoc, idAsig);
+    }
 	
 
 }

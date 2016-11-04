@@ -24,8 +24,13 @@ app.controller("menuController", function($scope, $http, $window,
 			alert('error::' + data.mensaje);
 		});
 	}
+
+	$scope.logout = function() {
+		sessionStorage.clear();
+	};
+
 	$scope.iniciar = function() {
 		$scope.cargarAccesos();
 	}
-	$scope.iniciar(); 
+	$scope.iniciar();
 });
