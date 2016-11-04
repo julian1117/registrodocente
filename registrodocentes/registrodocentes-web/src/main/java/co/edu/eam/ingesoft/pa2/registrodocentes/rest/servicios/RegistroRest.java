@@ -31,6 +31,15 @@ public class RegistroRest {
 		return new RespuestaDTO(registroEJB.listarRegistros());
 	}
 
+	/**
+	 * Servicio REST para listar los registros de 8 días antes y después
+	 * @author Brian David Tafur Londoño<br/>
+	 *         email: tafur2401@gmail.com <br/>
+	 *         Fecha: 3 de nov. de 2016<br/>
+	 * @param cod, código del curso
+	 * @param ced, cédula del docente
+	 * @return una cadena JSON con la lista de registros en ese rango
+	 */
 	@POST
 	@Path("/listar-registros-fechas")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)

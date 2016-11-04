@@ -1,74 +1,105 @@
-<div align="center" class="container">
+<div ng-controller="semestreController">
+		<div align="center" class="container">
+		<label style="visibility:hidden;">{{us | cambiar}}</label>
+			<h3 class="bg-primary">
+				CREAR SEMESTRES <span class="label label-default"></span>
+			</h3>
 
 
-		<h3 class="bg-primary">
-			CREAR SEMESTRES <span class="label label-default"></span>
-		</h3>
-	
-		<div class="input-group" style="margin-top: 50px; "
+
+
+			<div class="input-group" style="margin-top: 50px;"
 				class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<span class="input-group-addon" id="basic-addon1">Fecha Inicio</span>
-			<input type="date" class="form-control" name="fechaInicio"
-				placeholder="Fecha" aria-describedby="basic-addon1">
-				
-		<button type="submit" name="action" class="btn btn-default navbar-btn">Guardar</button>
+				<span class="input-group-addon" id="basic-addon1">Fecha
+					Inicio</span> <input type="date" class="form-control" name="fechaInicio"
+					placeholder="Fecha" aria-describedby="basic-addon1" ng-model="fecha">
+
+				<button type="submit" name="action"
+					class="btn btn-default navbar-btn" ng-click="crearSemestre()">Guardar</button>
+			</div>
+
+
 		</div>
 
-		
+		<br> <br> <br>
+
+		<table class="container">
+			<tr>
+				<td>
+					<div style="width: 370px; margin-top: -130px" class="col-md-12">
+						<h4 align="center" style="width: 370px" class="bg-primary">Semestres</h4>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Año</th>
+									<th>Periodo</th>
+									<th>Eliminar</th>
+									<th>Editar</th>
+								</tr>
+							</thead> 
+							<tbody>
+
+								<tr ng-repeat="s in semestres">
+									<td ng-model="anho">{{s.anho}}</td>
+									<td ng-model="periodo">{{s.periodo}}</td>
+									<td>
+										<button class="btn waves-effect waves-light" type="button"
+											data-toggle="modal" name="action"
+											data-target="#complete-dialog" style="width: 80px"  ng-click="eliminarSemestre(s)">Eliminar</button>
+									</td>
+									<td>
+										<button class="btn waves-effect waves-light" type="button"
+											data-toggle="modal" name="action"
+											data-target="#complete-dialog" style="width: 80px" ng-click="listarDiasSemestre(s)">No laborales</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+				<td>
+					<div style="width: 370px" class="col-md-12">
+						<h4 class="bg-primary" align="center">Marcar dia</h4>
+						<span class="input-group-addon" id="basic-addon1">Fecha
+							Inicio</span> <input type="date" class="form-control" name="fechaInicio"
+							placeholder="Fecha" aria-describedby="basic-addon1" ng-model="fechaNoLaboral"> <br>
+						<span class="input-group-addon" id="basic-addon1">Causa</span>
+						<textarea class="form-control" name="causa" placeholder="Causa"
+							aria-describedby="basic-addon1" ng-model="causa"></textarea>
+
+						<button style="margin-left: 130px" type="button" name="marcar"
+							class="btn btn-default navbar-btn" ng-click="marcarDia(s)" >Marcar</button>
+					</div>
+					<div style="width: 370px" class="col-md-12">
+						<h4 class="bg-primary" style="width: 340px" align="center">Dias
+							no laborales</h4>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Fecha</th>
+									<th colspan="2">Causa</th>
+									<th>Eliminar</th>
+
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr ng-repeat="d in dias">
+									<td>{{d.fecha}}</td>
+									<td colspan="2">{{d.causa}}</td>
+									<td>
+										<button class="btn waves-effect waves-light" type="button"
+											data-toggle="modal" name="action"
+											data-target="#complete-dialog" style="width: 80px">Eliminar</button>
+									</td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
 	</div>
 
-	<br>
-	<br>
-	<br>
 
-	<table class="container">
-		<tr>
-			<td>
-				<div style="width: 370px ; margin-top: -130px" class="col-md-12">
-					<h4   align="center" style="width: 370px" class="bg-primary">Semestres</h4>
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Año</th>
-								<th>Periodo</th>
-								<th>Eliminar</th>
-								<th>Editar</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<tr>
-								<td>{{s.anho}}</td>
-								<td>{{s.periodo}}</td>
-								<td>
-									<button class="btn waves-effect waves-light" type="button"
-										data-toggle="modal" name="action"
-										data-target="#complete-dialog" style="width: 80px">Eliminar</button>
-								</td>
-								<td>
-									<button class="btn waves-effect waves-light" type="button"
-										data-toggle="modal" name="action"
-										data-target="#complete-dialog" style="width: 80px">Editar</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</td>
-			<td>
-				<div style="width: 370px" class="col-md-12">
-					<h4 class="bg-primary" align="center">Dias no laborales</h4>
-					<span class="input-group-addon" id="basic-addon1">Fecha
-						Inicio</span> <input type="date" class="form-control" name="fechaInicio"
-						placeholder="Fecha" aria-describedby="basic-addon1"> <br>
-					<span class="input-group-addon" id="basic-addon1">Causa</span>
-					<textarea class="form-control" name="causa" placeholder="Causa"
-						aria-describedby="basic-addon1"></textarea>
-				
-					<button style="margin-left:130px " type="button" name="marcar"
-						class="btn btn-default navbar-btn">Marcar</button>
-				</div>
-			</td>
-		</tr>
-	</table>
-	

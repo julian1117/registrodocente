@@ -10,19 +10,16 @@ import javax.persistence.PersistenceContext;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.DAOGenerico;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 
 @LocalBean
 @Stateless
-public class AccesoEJB {
-
-	@PersistenceContext
-	private EntityManager em;
+public class AccesoEJB extends EJBGenerico<Acceso> {
 	
-	private DAOGenerico dao;
-	
-	@PostConstruct
-	public void init() {
-		dao = new DAOGenerico(em);
+	@Override
+	public Class getClase() {
+		// TODO Auto-generated method stub
+		return Acceso.class;
 	}
 	
 	/**

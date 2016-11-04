@@ -57,13 +57,13 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 	}
 
 	/**
-	 * Método para listar los registros realizados por un docente en una
-	 * asignatura 8 días antes y 8 días después de la fecha actual
+	 * Método para listar los registros realizados por un docente en un
+	 * curso 8 días antes y 8 días después de la fecha actual
 	 * 
 	 * @author Brian David Tafur Londoño<br/>
 	 *         email: tafur2401@gmail.com <br/>
 	 *         Fecha: 3 de nov. de 2016<br/>
-	 * @param cod, código de la asignatura a la que se le buscan los registros
+	 * @param cod, código del curso
 	 * @param ced, cédula del docente que realiza los registros
 	 * @return una lista con todos los registros realizados en ese rango de fechas
 	 */
