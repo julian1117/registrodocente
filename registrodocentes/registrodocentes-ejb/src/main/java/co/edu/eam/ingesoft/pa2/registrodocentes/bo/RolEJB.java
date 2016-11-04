@@ -40,4 +40,14 @@ public class RolEJB {
 		dao.persistir(rol);
 		return true;
 	}
+	
+	public Rol buscarRol(String nombreRol) {
+		ArrayList<Rol> lista = (ArrayList<Rol>) dao.listarTodos(Rol.class);
+		for (Rol rol2 : lista) {
+			if(rol2.getDescripcion().equalsIgnoreCase(nombreRol)){
+				return rol2;
+			}
+		}
+		return null;
+	}
 }
