@@ -14,18 +14,23 @@ app.controller("menuController", function($scope, $http, $window,
 				"Authorization" : $sessionStorage.objeto.token
 			}
 		}).success(function(data, status, headers, config) {
-			if (data.codigo == '1') {
+			if (data.codigo == '00') {
 				$scope.accesos = data.obj.accesos;
 				$sessionStorage.objt = data.obj;
 			} else {
 				alert(data.mensaje);
 			}
 		}).error(function(data, status, headers, config) {
-			alert('error::' + data.mensaje); 
+			alert('error::' + data.mensaje);
 		});
 	}
+
+	$scope.logout = function() {
+		sessionStorage.clear();
+	};
+
 	$scope.iniciar = function() {
-		$scope.cargarAccesos(); 
+		$scope.cargarAccesos();
 	}
-	$scope.iniciar(); 
+	$scope.iniciar();
 });

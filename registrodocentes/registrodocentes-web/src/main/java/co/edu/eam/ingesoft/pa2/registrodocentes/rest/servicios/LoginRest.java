@@ -57,7 +57,7 @@ public class LoginRest {
 		if (u != null) {
 			String token = UUID.randomUUID().toString();
 			tokens.put(token, u.getId());
-			LoginOutDTO obj = new LoginOutDTO(token, usuario, "1");
+			LoginOutDTO obj = new LoginOutDTO(token, usuario, u.getId() + "");
 			return new RespuestaDTO(obj);
 		} else {
 			return new RespuestaDTO(null, "NO AUTORIZADO", "-1");
