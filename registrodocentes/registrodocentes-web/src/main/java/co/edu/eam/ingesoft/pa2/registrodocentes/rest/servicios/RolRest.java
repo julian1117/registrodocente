@@ -15,6 +15,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.bo.RolEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RolInDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
+import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Rol;
 
 @Path("/gestionRol")
 public class RolRest {
@@ -35,7 +36,6 @@ public class RolRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/crearRol")
 	public RespuestaDTO crearRol(RolInDTO rol) {
-		System.out.println("Id: "+rol.getRol().getId());
 		boolean resp = rolEJB.crearRol(rol.getRol());
 		if(resp) {
 			return new RespuestaDTO(resp);
@@ -55,6 +55,17 @@ public class RolRest {
 		ArrayList<Acceso> resp = (ArrayList<Acceso>)accesoEJB.listarAcceso();
 		if(resp.isEmpty()) {
 			return new RespuestaDTO(null, "No hay accesos", "-13");
+		}
+		return new RespuestaDTO(resp);
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/listarRoles")
+	public RespuestaDTO listarRoles() {
+		ArrayList<Rol> resp = rolEJB.listarRoles();
+		if(resp.isEmpty()) {
+			return new RespuestaDTO(null, "No hay roles", "-14");
 		}
 		return new RespuestaDTO(resp);
 	}

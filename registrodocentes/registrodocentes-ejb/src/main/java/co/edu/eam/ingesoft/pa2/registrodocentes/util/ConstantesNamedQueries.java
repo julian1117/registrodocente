@@ -17,12 +17,13 @@ public class ConstantesNamedQueries {
 	
 	public static final String LISTAR_PROGRAMAS = "Programa.listarTodos";
 	
+	public static final String LISTAR_DOCENTES_POR_PROGRAMA = "Docente.listarPorPrograma";
 	
 	public static final String LISTAR_ROLES_USUARIO = "Rol.listarRolesUsuario";
 
 	
 	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
-	
+	 
 
 	public static final String LISTAR_USUARIOS = "Usuario.listarUsuarios";
 	
@@ -43,9 +44,13 @@ public class ConstantesNamedQueries {
 	
 	public static final 
 	     String LISTAR_REGISTROS_DOCENTE_ASIGNATURA = "Registro.listarRegistrosDocenteAsignatura";
+	
+	public static final String LISTA_SEMESTRES = "Semestre.listar";
+	
+	public static final String BUSCAR_SEMESTRE = "Semestre.buscarSemestres";
+	
+	public static final String LISTAR_DIAS_NO_LABORALES = "DiaNoLaborable.listarDias";
 
-	
-	
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub
 	}
