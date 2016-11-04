@@ -1,5 +1,6 @@
 <div class="container" ng-controller="programasDocentesController">
 	<h1 class="text-center">PROGRAMAS Y DOCENTES</h1>
+	<label style="visibility:hidden;">{{us | cambiar}}</label>
 	<div class="panel panel-primary">
 		<div class="panel-heading">PROGRAMAS</div>
 
@@ -15,7 +16,7 @@
 			<tbody>
 
 				<tr ng-repeat="p in programas">
-					<td >{{p.id}}</td>
+					<td>{{p.id}}</td>
 					<td>{{p.nombre}}</td>
 					<td>{{p.facultad.nombre}}</td>
 					<td>
@@ -54,7 +55,8 @@
 					<td>{{d.nombre}}</td>
 					<td>{{d.apellido}}</td>
 					<td>
-						<button class="btn btn-primary" type="button">VER ASIGNATURAS</button>
+						<button class="btn btn-primary" type="submit"
+						name="action" ng-click="guardarsesionstorage(d.id)">VER ASIGNATURAS</button>
 					</td>
 				</tr>
 

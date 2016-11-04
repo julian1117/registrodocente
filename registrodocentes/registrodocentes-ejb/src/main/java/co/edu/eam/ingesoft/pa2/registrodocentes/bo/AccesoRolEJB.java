@@ -11,10 +11,17 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Rol;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 
+/**
+ * 
+ * @author Jairo Andres
+ *
+ */ 
 @LocalBean
 @Stateless
 public class AccesoRolEJB extends EJBGenerico<Acceso> {
-
+	/**
+	 * lista de roles
+	 */
 	private List<Rol> lista;
 
 	@Override

@@ -1,6 +1,5 @@
 var app = angular.module("miApp", [ "ngRoute", "ngStorage" ]);
 
-
 app.config(function($routeProvider) {
 	$routeProvider.when("/", {
 		controller : "menuController",
@@ -14,13 +13,9 @@ app.config(function($routeProvider) {
 		controllerAs : "apr",
 		templateUrl : "vistas/aprobar-registro.html"
 	}).when("/AsignarAcceso", {
-		controller : "modulo1Controller",
+		controller : "asignarAccesoController",
 		controllerAs : "tra",
 		templateUrl : "vistas/AsignarAcceso.html"
-	}).when("/login", {
-		controller : "loginController",
-		controllerAs : "loc",
-		templateUrl : "vistas/login.html"
 	}).when("/cliente", {
 		controller : "clientecontroller",
 		controllerAs : "cliente",
@@ -50,17 +45,22 @@ app.config(function($routeProvider) {
 	});
 });
 
-/**
- * Filtro de accesos
- * Jhohanns villa vasquez, Miguel tamayo
+/**Filtro de seguridad de paginas
+ * Jhohanns villa
+ */
+app.filter('cambiar', function($location, $window) {
 
-app.filter(function($location) {
-	if (sessionStorage.Usuario != null) {
+	var objetoJson = $window.sessionStorage.getItem('objt');
+	var objetoMane = JSON.parse(objetoJson);
+
+	if (objetoMane.obj.usuario != '') {
 
 		var exito = false;
-		for (var i = 0, t = sessionStorage.Accesos.length; i < t; i++) {
-			key = sessionStorage.Accesos.key(i);
-			if ($location.path().equals(key)) {
+		for (var i = 0, t = objetoMane.obj.accesos.length; i < t; i++) {
+
+			alert(objetoMane.obj.accesos[i].url);
+			var acceso = objetoMane.obj.accesos[i].url;
+			if (("#" + $location.path()) == acceso) {
 				exito = true;
 			}
 		}
@@ -68,8 +68,8 @@ app.filter(function($location) {
 			$location.path('/');
 		}
 	} else {
-		$location.path('/login');
+		window.location.href = '../app/login.html';
+
 	}
 
 });
- */
