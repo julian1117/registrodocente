@@ -13,6 +13,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Registro;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ExcepcionNegocio;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.InterfaceEJBRemote;
 
 @LocalBean
@@ -31,14 +32,13 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 
 	@Override
 	public Registro buscar(Object pk) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.encontrarPorId(Registro.class, pk);
 	}
 
 	@Override
 	public void editar(Registro entidad) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -80,16 +80,38 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 	
 	/**
 	 * Metodo para listar los registros de un docente en una
-	 * asignatura especifica
+	 * asignatura especifica sin aprobar
 	 * @param idDoc, es la identificacion del docente
 	 * @param idAsig, es la identificacion de la asignatura
 	 * @author Brayan Giraldo
 	 * Correo : giraldo97@outlook.com
 	 */
-    public List<Registro> listarRegistrosDocenteAsignatura(int idDoc, String idAsig){
-    	return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS_DOCENTE_ASIGNATURA,
+    public List<Registro> listarRegistrosDocenteAsignaturaNA(int idDoc, String idAsig){
+    	return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS_DOCENTE_ASIGNATURA_NA,
     			                       idDoc, idAsig);
     }
-	
+    
+    /**
+     * Aprueba un registro 
+     * @param id, es el registro a aprobar
+     * @param comentario, es el comentario para el registro
+     * @author Brayan Giraldo
+     * Correo : giraldo97@outlook.com
+     */
+    public String aprobarRegistro(Long id, String comentario) {
+    	Registro reg = buscar(id);
+		if ( reg != null) {
+			reg.setComentario(comentario);
+			reg.setAprobadoCoord(true);
+			reg.setAprobadoRH(true);
+			dao.actualizar(reg);
+			return "Aprobado Correctamente";
+		} else {
+			throw new ExcepcionNegocio("No se puede aprobar el registro "
+					+ "con codigo " + id
+					+ " ya que aún no esta registrado");
+		}
+
+	}
 
 }

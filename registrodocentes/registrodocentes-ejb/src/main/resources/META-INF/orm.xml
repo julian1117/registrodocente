@@ -55,12 +55,11 @@
 		</query>
 	</named-query>
 	
-	<named-query name="Registro.listarRegistrosDocenteAsignatura">
+	<named-query name="Registro.listarRegistrosDocenteAsignaturaNA">
 		<query>
 			SELECT r FROM Registro r WHERE r.sesion.curso.docente.id=?1 and r.sesion.curso.asignatura.id=?2
+			and r.aprobadoCoord = 0 and r.aprobadoRH = 0
 		</query>
 	</named-query>
-
-
-
+	
 </entity-mappings>
