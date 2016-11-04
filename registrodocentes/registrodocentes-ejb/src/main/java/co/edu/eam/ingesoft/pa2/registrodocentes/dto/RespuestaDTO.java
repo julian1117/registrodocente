@@ -22,7 +22,7 @@ public class RespuestaDTO {
 	public RespuestaDTO(Object obj) {
 		this.obj = obj;
 		mensaje = "Proceso realizado correctamente";
-		codigo = "1"; // exito
+		codigo = "00"; // exito
 	}
 
 	/**
