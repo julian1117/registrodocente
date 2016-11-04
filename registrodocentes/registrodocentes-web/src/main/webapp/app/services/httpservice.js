@@ -11,7 +11,7 @@ var httpservice = app.service('httpservice', [ '$http', '$window',
 						method : "GET",
 						params : datos,
 						headers : {
-							"Authorization" : $sessionStorage.usuario.token
+							//"Authorization" : $sessionStorage.usuario.token
 						}
 					}).error(function(data, status, headers, config) {
 						if (status == 401) {
@@ -36,16 +36,24 @@ var httpservice = app.service('httpservice', [ '$http', '$window',
 
 					});
 				},
-				post : function(url, datos, succes, error) {
-
+				post : function(url, datos, succes, error,contenttype) {
+					
+					var content='';
+					if(contenttype=="application/x-www-form-urlencoded"){
+						datos=$.param(datos);
+						content="application/x-www-form-urlencoded";
+					}else{
+						content="application/json";
+					}
+					
 					console.log('invocando post:' + url);
 					return $http({
 						url : urlbase + url,
 						method : "POST",
 						data : datos,
 						headers : {
-							"Content-Type" : "application/json",
-							"Authorization" : $sessionStorage.usuario.token
+							"Content-Type" : content
+							//"Authorization" : $sessionStorage.usuario.token
 						}
 					}).error(function(data, status, headers, config) {
 						if (status == 401) {

@@ -6,6 +6,23 @@
 
 
 
+	<named-query name="Programa.listarTodos"> 
+		<query> 
+			SELECT p FROM Programa p
+		</query> 
+	</named-query> 
+	
+	<named-query name="Docente.listarPorPrograma"> 
+		<query> 
+			SELECT d FROM Docente d WHERE d.programa.id=?1
+		</query> 
+	</named-query> 
+	
+	<named-query name="Rol.LISTAR_ROLES_USUARIO"> 
+		<query>
+		</query> 
+		</named-query>
+
 	<named-query name="Programa.LISTAR_PROGRAMAS">
 		<query>
 			Select p FROM Programa p
@@ -29,6 +46,7 @@
 			Select p FROM Programa p
 		</query> 
 	</named-query> 
+
 	 
 	<named-query name="Rol.listarRolesUsuario"> 
 		<query> 
@@ -60,8 +78,6 @@
 			SELECT u FROM Usuario u WHERE u.usuario = ?1 and u.pass=?2
 		</query>
 	</named-query>
-
-
 
 	<named-query name="Usuario.listarUsuarios">
 		<query>
