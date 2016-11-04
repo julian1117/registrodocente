@@ -27,6 +27,12 @@ public class ProgramaRest {
 	@EJB
 	private DocenteEJB docenteEJB;
 	
+	
+	
+	/**
+	 * Servicio rest que lista los programas
+	 * @return dto con la lista de programas
+	 */
 	@GET
 	@Path("/listar-programas")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,6 +40,13 @@ public class ProgramaRest {
 		return new RespuestaDTO( programaEJB.listarProgramas()); 
 	}
 	
+	
+	/**
+	 * Servicio rest que lista los docentes
+	 *  de un programa 
+	 * @param codigo, codigo del programa
+	 * @return dto con la lista de docentes
+	 */
 	@POST
 	@Path("/listar-docentes")
 	@Produces(MediaType.APPLICATION_JSON)
