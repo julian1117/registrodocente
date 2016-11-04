@@ -14,7 +14,7 @@ app.config(function($routeProvider) {
 		controllerAs : "apr",
 		templateUrl : "vistas/aprobar-registro.html"
 	}).when("/AsignarAcceso", {
-		controller : "modulo1Controller",
+		controller : "asignarAccesoController",
 		controllerAs : "tra",
 		templateUrl : "vistas/AsignarAcceso.html"
 	}).when("/login", {

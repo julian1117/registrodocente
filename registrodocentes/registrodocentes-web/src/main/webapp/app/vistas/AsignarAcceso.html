@@ -1,4 +1,4 @@
-<div class="contmayor">
+<div class="contmayor" ng-controller="asignarAccesoController">
 
 
 
@@ -9,12 +9,8 @@
 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Seleccione un rol<span class="caret"></span>
 			</button>
-			<ul class="dropdown-menu" style="width: 100%; background-color: #f2f2f2">
-				<li><a href="#">Rol 0</a></li>
-				<li><a href="#">Rol 1</a></li>
-				<li><a href="#">Rol 2</a></li>
-				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li>
+			<ul ng-model="comboRoles" class="dropdown-menu" style="width: 100%; background-color: #f2f2f2">
+				<li ng-repeat="rol in roles"><a>{{rol.descripcion}}</a></li>
 			</ul>
 		</div>
 		<h2>Lista de Accesos</h2>
@@ -31,8 +27,8 @@
 				<tr>
 					<td>John</td>
 					<td>Doe</td>
-					<td><a href="#" class="btn btn-default" role="button"
-						style="background-color: #009688;">AGREGAR</a>
+					<td><a ng-click="prueba()" class="btn btn-default" role="button"
+						style="background-color: #009688;">AGREGAR-PRUEBA</a>
 						</p></td>
 				</tr>
 				<tr>
