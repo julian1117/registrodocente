@@ -5,7 +5,7 @@ app.controller("loginController", function($scope, $http, $window,
 	 * user del usuario
 	 */
 	$scope.user = '';
-	
+	 
 	/**
 	 * contrasenia del usuario
 	 */

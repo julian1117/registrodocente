@@ -39,7 +39,7 @@ public class AccesoRolDTO {
 	 */
 	public AccesoRolDTO(List<Acceso> accesos, List<Rol> roles, String usuario) {
 		super();
-		this.accesos = accesos;
+		this.accesos = accesos;  
 		this.roles = roles;
 		this.usuario = usuario;
 	}

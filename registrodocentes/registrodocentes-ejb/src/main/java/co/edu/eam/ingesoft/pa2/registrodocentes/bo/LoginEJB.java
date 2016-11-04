@@ -39,7 +39,7 @@ public class LoginEJB extends EJBGenerico<Usuario> {
 		List<Usuario> lista = dao.ejecutarNamedQuery(ConstantesNamedQueries.BUSCAR_POR_USER_PASS, user, pass);
 		if (!lista.isEmpty()) {
 			return lista.get(0);
-		} else {
+		} else {  
 			return null;
 		}
 	}

@@ -75,8 +75,7 @@ public class LoginRest {
 	}
 
 	/**
-	 * servicio que verifica los roles y accesos de un
-	 * usuario
+	 * servicio que verifica los roles y accesos de un usuario
 	 * 
 	 * @param usuario
 	 *            el usuario
@@ -90,6 +89,7 @@ public class LoginRest {
 		List<Rol> roles = accesoRolEJB.listarRoles(usuario);
 		List<Acceso> accesos = accesoRolEJB.listarAccesos();
 		if (!roles.isEmpty()) {
+			System.out.println("tiene accesos" + roles.size());
 			AccesoRolDTO obj = new AccesoRolDTO(accesos, roles, usuario);
 			return new RespuestaDTO(obj);
 		} else {
