@@ -37,7 +37,7 @@ public class AccesoRolEJB extends EJBGenerico<Acceso> {
 	}
 
 	/**
-	 * metodo que lista los accesos de los roles
+	 * metodo que lista los accesos de los roles 
 	 * 
 	 * @return una lista de accesos
 	 */

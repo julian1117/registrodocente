@@ -1,7 +1,19 @@
 app.controller("loginController", function($scope, $http, $window,
 		$sessionStorage) {
+	
+	/**
+	 * user del usuario
+	 */
 	$scope.user = '';
+	
+	/**
+	 * contrasenia del usuario
+	 */
 	$scope.pass = '';
+
+	/**
+	 * funcion para consumir servicio de verificar usuario
+	 */
 	$scope.login = function() {
 		var xsrf = $.param({
 			usuario : $scope.user,

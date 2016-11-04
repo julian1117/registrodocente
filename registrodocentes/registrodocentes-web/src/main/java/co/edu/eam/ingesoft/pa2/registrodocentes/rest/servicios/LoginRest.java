@@ -1,6 +1,7 @@
 package co.edu.eam.ingesoft.pa2.registrodocentes.rest.servicios;
 
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -24,22 +25,31 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Usuario;
 
 /**
  * 
- * @author Jairo
+ * @author Jairo Andres
  *
  */
 @Path("/login")
 public class LoginRest {
 
+	/**
+	 * EJB de login
+	 */
 	@EJB
 	private LoginEJB loginEJB;
 
+	/**
+	 * EJB de acceso rol
+	 */
 	@EJB
 	private AccesoRolEJB accesoRolEJB;
 
+	/**
+	 * Map de tokens
+	 */
 	public static Map<String, Object> tokens = new HashMap<>();
 
 	/**
-	 * jairo andres rios franco servicio rest para verificar usuario
+	 * servicio rest para verificar usuario
 	 * 
 	 * @param usuario
 	 *            el usuario
@@ -60,12 +70,12 @@ public class LoginRest {
 			LoginOutDTO obj = new LoginOutDTO(token, usuario, u.getId() + "");
 			return new RespuestaDTO(obj);
 		} else {
-			return new RespuestaDTO(null, "NO AUTORIZADO", "-1");
+			return new RespuestaDTO(null, "Usuario o contraseña incorrectos", "-1");
 		}
 	}
 
 	/**
-	 * jairo andres rios franco servicio que verifica los roles y accesos de un
+	 * servicio que verifica los roles y accesos de un
 	 * usuario
 	 * 
 	 * @param usuario

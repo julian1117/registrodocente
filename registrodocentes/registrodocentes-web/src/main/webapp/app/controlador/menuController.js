@@ -1,6 +1,14 @@
 app.controller("menuController", function($scope, $http, $window,
 		$sessionStorage) {
+	
+	/**
+	 * lista de accesos de un usuario
+	 */
 	$scope.accesos = [];
+
+	/**
+	 * funcion que carga los accesos de un usuario en el menu
+	 */
 	$scope.cargarAccesos = function() {
 		var xsrf = $.param({
 			usuario : $sessionStorage.objeto.usuario
@@ -24,11 +32,17 @@ app.controller("menuController", function($scope, $http, $window,
 			alert('error::' + data.mensaje);
 		});
 	}
-
+	
+	/**
+	 * funcion para cerrar sesion
+	 */
 	$scope.logout = function() {
 		sessionStorage.clear();
 	};
-
+	
+	/**
+	 * constructor
+	 */
 	$scope.iniciar = function() {
 		$scope.cargarAccesos();
 	}
