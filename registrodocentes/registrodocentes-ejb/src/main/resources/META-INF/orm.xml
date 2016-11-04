@@ -17,11 +17,6 @@
 			SELECT d FROM Docente d WHERE d.programa.id=?1
 		</query> 
 	</named-query> 
-	
-	<named-query name="Rol.LISTAR_ROLES_USUARIO"> 
-		<query>
-		</query> 
-		</named-query>
 
 	<named-query name="Programa.LISTAR_PROGRAMAS">
 		<query>

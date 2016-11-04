@@ -1,7 +1,7 @@
 app.controller("crearRolController", function($scope,$http,$window,$sessionStorage) {
 	$scope.nombreRol = '';
+	var rol=document.getElementById('idRol').value;
 	$scope.botonCrear = function() {
-		$scope.nombreRol = 'asdasdasd';
-		alert('asdjjskf');
+		$sessionStorage.rol = $scope.nombreRol;
 	};
 });
