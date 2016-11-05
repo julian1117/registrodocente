@@ -91,7 +91,7 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 	$scope.ver = function(asignatura) {
 		$sessionStorage.codeDoc = $sessionStorage.docente;
 		$sessionStorage.codeAsig = asignatura.id;
-		window.location.href = '../app/#/aprobar-registro';
+		window.location.href = '../app/menu.html#/aprobar-registro';
 	}
 
 });
