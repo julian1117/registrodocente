@@ -16,7 +16,7 @@
 			<tbody>
 
 				<tr ng-repeat="p in programas">
-					<td >{{p.id}}</td>
+					<td>{{p.id}}</td>
 					<td>{{p.nombre}}</td>
 					<td>{{p.facultad.nombre}}</td>
 					<td>
@@ -55,7 +55,8 @@
 					<td>{{d.nombre}}</td>
 					<td>{{d.apellido}}</td>
 					<td>
-						<button class="btn btn-primary" type="button">VER ASIGNATURAS</button>
+						<button class="btn btn-primary" type="submit"
+						name="action" ng-click="guardarsesionstorage(d.id)">VER ASIGNATURAS</button>
 					</td>
 				</tr>
 

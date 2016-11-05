@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.bo.BORegistroEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Registro;
 
 @Path("/registro")
 public class RegistroRest {
@@ -25,7 +26,7 @@ public class RegistroRest {
 	 */
 	@GET
 	@Path("/listar-registros")
-	@javax.ws.rs.Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public RespuestaDTO listarRegistros(){
 		return new RespuestaDTO(registroEJB.listarRegistros());
 	}
@@ -40,7 +41,7 @@ public class RegistroRest {
 	 * @return una cadena JSON con la lista de registros en ese rango
 	 */
 	@POST
-	@Path("/listar-registros-fechas")
+	@Path("/listarregistrosfechas")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public RespuestaDTO listarRegistrosEntreFechas(@FormParam(value = "cod")String cod, @FormParam(value = "ced") int ced){
@@ -50,7 +51,7 @@ public class RegistroRest {
 	
 	
 	/**
-	 * Metodo REST para listar los registros de un docente en una
+	 * Metodo REST para listar los registros sin aprobar de un docente en una
 	 * asignatura especifica
 	 * @param idDoc, es la identificacion del docente
 	 * @param idAsig, es la identificacion de la asignatura
@@ -58,13 +59,29 @@ public class RegistroRest {
 	 * Correo : giraldo97@outlook.com
 	 */
 	@POST
-	@Path("/listar-registros-docente-asignatura")
+	@Path("/listar-registros-docente-asignatura-sin-aprobar")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public RespuestaDTO listarRegistrosDocenteAsignatura(@FormParam(value="doc") int idDoc,
-			                                             @FormParam(value="asig") String idAsig){
-		return new RespuestaDTO(registroEJB.listarRegistrosDocenteAsignatura(idDoc, idAsig));
+	public RespuestaDTO listarRegistrosDocenteAsignaturaNA(@FormParam(value="doc") int idDoc,
+			                                               @FormParam(value="asig") String idAsig){
+		return new RespuestaDTO(registroEJB.listarRegistrosDocenteAsignaturaNA(idDoc, idAsig));
 	}
 	
+	
+	/**
+	 * Metodo para aprobar un registro
+	 * @param idReg, es el id del registro a aprobar
+	 * @param coment, es el comentario del registro a aprobar
+	 * @author Brayan Giraldo
+	 * Correo : giraldo97@outlook.com
+	 */
+	@POST
+	@Path("/aprobar-registro")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public RespuestaDTO aprobarRegistro(@FormParam(value="idReg") Long idReg,
+                                        @FormParam(value="coment") String coment){
+		return new RespuestaDTO(registroEJB.aprobarRegistro(idReg, coment));
+	}
 	
 }

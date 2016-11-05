@@ -41,11 +41,6 @@
 			<artifactId>ejb-api</artifactId>
 			<version>3.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-			<version>2.4.0</version>
-		</dependency>
 
 		<!-- Dependency on the EJB module so we can use it's services if needed -->
 		<dependency>
@@ -61,6 +56,12 @@
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>jaxrs-api</artifactId>
 			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+			<version>2.4.0</version>
 		</dependency>
 
 		<!-- Import the CDI API, we use provided scope as the API is included in 

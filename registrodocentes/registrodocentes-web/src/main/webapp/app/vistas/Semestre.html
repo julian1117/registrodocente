@@ -5,14 +5,13 @@
 				CREAR SEMESTRES <span class="label label-default"></span>
 			</h3>
 
+ 
 
 
-
-			<div class="input-group" style="margin-top: 50px;"
-				class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-				<span class="input-group-addon" id="basic-addon1">Fecha
-					Inicio</span> <input type="date" class="form-control" name="fechaInicio"
-					placeholder="Fecha" aria-describedby="basic-addon1" ng-model="fecha">
+			<div class="input-group">
+				<h4 id="basic-addon1">Fecha
+					Inicio</h4> <input type="date" class="form-control" name="fechaInicio"
+					placeholder="Fecha" aria-describedby="basic-addon1" style="with: 200px;" ng-model="fecha">
 
 				<button type="submit" name="action"
 					class="btn btn-default navbar-btn" ng-click="crearSemestre()">Guardar</button>
@@ -26,7 +25,7 @@
 		<table class="container">
 			<tr>
 				<td>
-					<div style="width: 370px; margin-top: -130px" class="col-md-12">
+					<div style="width: 370px; margin-top: -170px" class="col-md-12">
 						<h4 align="center" style="width: 370px" class="bg-primary">Semestres</h4>
 						<table class="table table-striped">
 							<thead>
@@ -34,7 +33,7 @@
 									<th>Año</th>
 									<th>Periodo</th>
 									<th>Eliminar</th>
-									<th>Editar</th>
+									<th>Dias no laborales</th>
 								</tr>
 							</thead> 
 							<tbody>
@@ -50,7 +49,7 @@
 									<td>
 										<button class="btn waves-effect waves-light" type="button"
 											data-toggle="modal" name="action"
-											data-target="#complete-dialog" style="width: 80px" ng-click="listarDiasSemestre(s)">No laborales</button>
+											data-target="#complete-dialog" style="width: 100px" ng-click="listarDiasSemestre(s)">Marcar</button>
 									</td>
 								</tr>
 							</tbody>
@@ -58,19 +57,8 @@
 					</div>
 				</td>
 				<td>
-					<div style="width: 370px" class="col-md-12">
-						<h4 class="bg-primary" align="center">Marcar dia</h4>
-						<span class="input-group-addon" id="basic-addon1">Fecha
-							Inicio</span> <input type="date" class="form-control" name="fechaInicio"
-							placeholder="Fecha" aria-describedby="basic-addon1" ng-model="fechaNoLaboral"> <br>
-						<span class="input-group-addon" id="basic-addon1">Causa</span>
-						<textarea class="form-control" name="causa" placeholder="Causa"
-							aria-describedby="basic-addon1" ng-model="causa"></textarea>
-
-						<button style="margin-left: 130px" type="button" name="marcar"
-							class="btn btn-default navbar-btn" ng-click="marcarDia(s)" >Marcar</button>
-					</div>
-					<div style="width: 370px" class="col-md-12">
+					
+					<div style="width: 370px; height: 400px" class="col-md-12">
 						<h4 class="bg-primary" style="width: 340px" align="center">Dias
 							no laborales</h4>
 						<table class="table table-striped">
@@ -90,16 +78,29 @@
 									<td>
 										<button class="btn waves-effect waves-light" type="button"
 											data-toggle="modal" name="action"
-											data-target="#complete-dialog" style="width: 80px">Eliminar</button>
+											data-target="#complete-dialog" style="width: 80px" ng-click="eliminarDia(d)">Eliminar</button>
 									</td>
 
 								</tr>
 							</tbody>
 						</table>
 					</div>
+					<div ng-show="estado.estado1" style="width: 370px" class="col-md-12">
+					<div ng-show="estado.estado1">
+						<h4 class="bg-primary" align="center">Marcar dia</h4>
+						<span class="input-group-addon" id="basic-addon1">Fecha
+							Inicio</span> <input type="date" class="form-control" name="fechaInicio"
+							placeholder="Fecha" aria-describedby="basic-addon1" ng-model="fechaNoLaboral"> <br>
+						<span class="input-group-addon" id="basic-addon1">Causa</span>
+						<textarea class="form-control" name="causa" placeholder="Causa"
+							aria-describedby="basic-addon1" ng-model="causa"></textarea>
+
+						<button style="margin-left: 130px" type="button" name="marcar"
+							class="btn btn-default navbar-btn" ng-click="marcarDia()" >Marcar</button>
+					</div>
+					</div>
 				</td>
 			</tr>
 		</table>
 	</div>
-
 
