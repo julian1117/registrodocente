@@ -164,4 +164,21 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 		}
 	}
 
+	/**
+	 * Método para editar un registro
+	 * 
+	 * @author Brian David Tafur Londoño<br/>
+	 *         email: tafur2401@gmail.com <br/>
+	 *         Fecha: 5 de nov. de 2016<br/>
+	 * @param id,
+	 *            el id del comentario a editar
+	 * @param comentario,
+	 *            el nuevo comentario del registro
+	 */
+	public void editarRegistro(long id, String comentario) {
+		Registro reg = buscar(id);
+		reg.setComentario(comentario);
+		dao.actualizar(reg);
+	}
+
 }
