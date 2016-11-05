@@ -50,16 +50,16 @@ app.config(function($routeProvider) {
  */
 app.filter('cambiar', function($location, $window) {
 
-	var objetoJson = $window.sessionStorage.getItem('objt');
+	var objetoJson = $window.sessionStorage.getItem('ngStorage-objt');
 	var objetoMane = JSON.parse(objetoJson);
-
-	if (objetoMane.obj.usuario != '') {
+	
+	if (objetoMane.usuario != '') {
 
 		var exito = false;
-		for (var i = 0, t = objetoMane.obj.accesos.length; i < t; i++) {
+		for (var i = 0, t = objetoMane.accesos.length; i < t; i++) {
 
-			alert(objetoMane.obj.accesos[i].url);
-			var acceso = objetoMane.obj.accesos[i].url;
+			alert(objetoMane.accesos[i].url);
+			var acceso = objetoMane.accesos[i].url;
 			if (("#" + $location.path()) == acceso) {
 				exito = true;
 			}

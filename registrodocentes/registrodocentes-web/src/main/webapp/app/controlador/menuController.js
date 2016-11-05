@@ -19,7 +19,7 @@ app.controller("menuController", function($scope, $http, $window,
 			data : xsrf,
 			headers : {
 				"Content-Type" : "application/x-www-form-urlencoded",
-				"Authorization" : $sessionStorage.objeto.token
+//				"Authorization" : $sessionStorage.objeto.token
 			}
 		}).success(function(data, status, headers, config) {
 			if (data.codigo == '00') {

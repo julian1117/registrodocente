@@ -36,7 +36,7 @@
 	<div class="container" ng-controller="menuController">
 		<form name="frmTest" id="frmTest" class="form-horizontal" role="form">
 			<ul class="nav nav-pills"> 			
-				<!-- <li ng-repeat="a in accesos"><a ng-href="{{a.url}}">{{a.nombre}}</a></li> -->
+				<li ng-repeat="a in accesos"><a ng-href="{{a.url}}">{{a.nombre}}</a></li>
 				<li class="active"><a href="../app/login.html" type="submit" ng-click="logout()">Cerrar</a></li>
 			</ul>
 			<div ng-view></div>  
