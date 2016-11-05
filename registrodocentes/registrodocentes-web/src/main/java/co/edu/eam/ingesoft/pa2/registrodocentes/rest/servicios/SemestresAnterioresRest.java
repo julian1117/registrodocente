@@ -29,6 +29,9 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 @Path("/semestresAnteriores")
 public class SemestresAnterioresRest {
 
+	/**
+	 * Inyeccion de los EJB
+	 */
 	@EJB
 	private UsuarioEJB usuarioEJB;
 
@@ -66,7 +69,6 @@ public class SemestresAnterioresRest {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public RespuestaDTO listaCursos(@FormParam("anio") int anio, @FormParam("periodo") int periodo,
 			@FormParam("docente") int docente) {
-		//System.out.println(anio+"\n"+periodo+"\n"+docente);
 		List<Curso> listaCur = cursoEJB.listaCursos(anio, periodo, docente);
 		if (listaCur.isEmpty()) {
 			return new RespuestaDTO(listaCur, "No hay cursos con estos datos", "5");

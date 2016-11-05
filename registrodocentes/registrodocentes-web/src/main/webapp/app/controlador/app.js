@@ -8,10 +8,6 @@ app.config(function($routeProvider) {
 		controller : "registrosController",
 		controllerAs : "reg",
 		templateUrl : "vistas/registros.html"
-	}).when("/aprobar-registro", {
-		controller : "aprobarRegistroController",
-		controllerAs : "apr",
-		templateUrl : "vistas/aprobar-registro.html"
 	}).when("/AsignarAcceso", {
 		controller : "asignarAccesoController",
 		controllerAs : "tra",
@@ -42,6 +38,10 @@ app.config(function($routeProvider) {
 	}).when("/CrearRol", {
 		controller : "crearRolController",
 		templateUrl : "vistas/CrearRol.html"
+	}).when("/aprobar-registro", {
+		controller : "aprobarRegistroController",
+		controllerAs : "apr",
+		templateUrl : "vistas/aprobar-registro.html"
 	});
 });
 
@@ -49,17 +49,16 @@ app.config(function($routeProvider) {
  * Jhohanns villa
  */
 app.filter('cambiar', function($location, $window) {
-
-	var objetoJson = $window.sessionStorage.getItem('objt');
+	var objetoJson = $window.sessionStorage.getItem('ngStorage-objt');
 	var objetoMane = JSON.parse(objetoJson);
 
-	if (objetoMane.obj.usuario != '') {
+	
+	if (objetoMane.usuario != undefined) {
+
 
 		var exito = false;
-		for (var i = 0, t = objetoMane.obj.accesos.length; i < t; i++) {
-
-			alert(objetoMane.obj.accesos[i].url);
-			var acceso = objetoMane.obj.accesos[i].url;
+		for (var i = 0, t = objetoMane.accesos.length; i < t; i++) {
+			var acceso = objetoMane.accesos[i].url;
 			if (("#" + $location.path()) == acceso) {
 				exito = true;
 			}
@@ -69,7 +68,5 @@ app.filter('cambiar', function($location, $window) {
 		}
 	} else {
 		window.location.href = '../app/login.html';
-
 	}
-
 });

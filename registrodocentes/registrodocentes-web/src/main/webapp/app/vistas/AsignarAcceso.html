@@ -1,19 +1,11 @@
-<div class="contmayor" ng-controller="asignarAccesoController">
-
-
-
+<div class="contmayor" ng-controller="asignarAccesoController" data-ng-init="listarRoles()">
+<label style="visibility:hidden;">{{us | cambiar}}</label>
 	<div class="containerr">
-	<label style="visibility:hidden;">{{us | cambiar}}</label>
-		<!-- Single button -->
-		<div class="btn-group" style="width: 30%; background-color: #f2f2f2">
-			<button type="button" class="btn btn-default dropdown-toggle"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Seleccione un rol<span class="caret"></span>
-			</button>
-			<ul ng-model="comboRoles" class="dropdown-menu" style="width: 100%; background-color: #f2f2f2">
-				<li ng-repeat="rol in roles"><a>{{rol.descripcion}}</a></li>
-			</ul>
-		</div>
+	<!--<label style="visibility:hidden;">{{us | cambiar}}</label>-->
+		<select id="rolSelect">
+			<option value="Nada">Seleccione una opcion</option>
+			<option ng-repeat="rol in roles" value="{{rol.descripcion}}">{{rol.descripcion}}</option>
+		</select>
 		<h2>Lista de Accesos</h2>
 		<p>Selecciona que Accesos tendra el Rol</p>
 		<table class="table">
@@ -49,8 +41,6 @@
 			</tbody>
 		</table>
 
-
-
 	</div>
 	<div class="containerr">
 		<h2>Accesos de el rol</h2>
@@ -58,32 +48,16 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Firstname</th>
-					<th>Lastname</th>
-					<th>Accion</th>
+					<th>Nombre</th>
+					<th>Acceso</th>
+					<th>Tipo</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>John</td>
-					<td>Doe</td>
-					<td><a href="#" class="btn btn-default" role="button"
-						style="background-color: #009688;">ELIMINAR</a>
-						</p></td>
-				</tr>
-				<tr>
-					<td>Mary</td>
-					<td>Moe</td>
-					<td><a href="#" class="btn btn-default " role="button"
-						style="background-color: #009688;">ELIMINAR</a>
-						</p></td>
-				</tr>
-				<tr>
-					<td>July</td>
-					<td>Dooley</td>
-					<td><a href="#" class="btn btn-default" role="button"
-						style="background-color: #009688;">ELIMINAR</a>
-						</p></td>
+				<tr ng-repeat="acceso in accesos">
+					<td>{{acceso.nombre}}</td>
+					<td>{{acceso.url}}</td>
+					<td>{{acceso.tipoAcceso}}</td>
 				</tr>
 			</tbody>
 		</table>

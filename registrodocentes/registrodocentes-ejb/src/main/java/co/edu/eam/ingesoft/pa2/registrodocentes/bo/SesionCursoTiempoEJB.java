@@ -24,7 +24,6 @@ public class SesionCursoTiempoEJB extends EJBGenerico<SesionCurso> {
 
 	@Override
 	public Class getClase() {
-		// TODO Auto-generated method stub
 		return SesionCurso.class;
 	}
 
@@ -103,6 +102,20 @@ public class SesionCursoTiempoEJB extends EJBGenerico<SesionCurso> {
 			return 0;
 		}
 		return 0;
+	}
+
+	/**
+	 * Método para listar las sesiones de un curso
+	 * 
+	 * @author Brian David Tafur Londoño<br/>
+	 *         email: tafur2401@gmail.com <br/>
+	 *         Fecha: 4 de nov. de 2016<br/>
+	 * @param cod,
+	 *            código del curso al que se le listarán las sesiones
+	 * @return una lista con todas las sesiones que tenga el curso
+	 */
+	public List<SesionCurso> listarSesionesCurso(String cod) {
+		return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_SESIONES_CURSO, cod);
 	}
 
 }
