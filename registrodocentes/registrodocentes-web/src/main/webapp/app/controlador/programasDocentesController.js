@@ -45,8 +45,8 @@ app.controller(
 					 */
 					$scope.guardarsesionstorage=function(cod){
 						console.log("entrando........");
-						$sessionStorage.cod=cod;
-						console.log($sessionStorage.cod);
+						$sessionStorage.docenteid=cod;
+						console.log($sessionStorage.docenteid);
 						$window.location.href = "#/asignaturas";
 					}
 					
