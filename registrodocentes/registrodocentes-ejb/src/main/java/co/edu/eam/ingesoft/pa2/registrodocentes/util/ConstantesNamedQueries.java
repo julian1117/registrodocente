@@ -54,6 +54,8 @@ public class ConstantesNamedQueries {
 
 	public static final String LISTAR_DIAS_NO_LABORALES = "DiaNoLaborable.listarDias";
 
+	
+	public static final String CONSULTAR_USUARIO_POR_USER="Usuario.buscarPorUsuario";
 	private ConstantesNamedQueries() {
 		// TODO Auto-generated constructor stub
 	}

@@ -42,34 +42,11 @@ app.config(function($routeProvider) {
 		controller : "aprobarRegistroController",
 		controllerAs : "apr",
 		templateUrl : "vistas/aprobar-registro.html"
+	}).when("/crearusuario", {
+		controller : "usuarioscontroller",
+		controllerAs : "usctrl",
+		templateUrl : "vistas/crearusuario.html"
 	});
 });
 
-/**Filtro de seguridad de paginas
- * Jhohanns villa
- */
-app.filter('cambiar', function($location, $window) {
 
-	var objetoJson = $window.sessionStorage.getItem('objt');
-	var objetoMane = JSON.parse(objetoJson);
-
-	if (objetoMane.obj.usuario != '') {
-
-		var exito = false;
-		for (var i = 0, t = objetoMane.obj.accesos.length; i < t; i++) {
-
-			alert(objetoMane.obj.accesos[i].url);
-			var acceso = objetoMane.obj.accesos[i].url;
-			if (("#" + $location.path()) == acceso) {
-				exito = true;
-			}
-		}
-		if (!exito) {
-			$location.path('/');
-		}
-	} else {
-		window.location.href = '../app/login.html';
-
-	}
-
-});

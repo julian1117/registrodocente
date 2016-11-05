@@ -1,0 +1,80 @@
+<div ng-controller="usuarioscontroller">
+	<div align="center" class="container">
+		<label style="visibility: hidden;">{{us | cambiar}}</label>
+		<h3 class="bg-primary">
+			CREAR USUARIO <span class="label label-default"></span>
+		</h3>
+
+
+
+
+		<div class="input-group">
+			<h4 id="basic-addon1">Nombre:</h4>
+			<input type="date" class="form-control" name="nombre"
+				placeholder="nombre" aria-describedby="basic-addon1"
+				style="with: 200px;" ng-model="nombre">
+
+			<h4 id="basic-addon1">Apellido:</h4>
+			<input type="date" class="form-control" name="apellido"
+				placeholder="apellido" aria-describedby="basic-addon1"
+				style="with: 200px;" ng-model="apellido">
+
+			<h4 id="basic-addon1">Usuario:</h4>
+			<input type="date" class="form-control" name="usuario"
+				placeholder="usuario" aria-describedby="basic-addon1"
+				style="with: 200px;" ng-model="usuario">
+
+			<h4 id="basic-addon1">Password:</h4>
+			<input type="password" class="form-control" name="password"
+				aria-describedby="basic-addon1" style="with: 200px;"
+				ng-model="password">
+
+			<h4 id="basic-addon1">Rol:</h4>
+			<select name="rol" id="rol" class="form-control" required="required"
+				ng-model="rol">
+				<option ng-repeat="r in roles" value="{{r.id}}">{{r.descripcion}}</option>
+			</select>
+
+
+
+		</div>
+		<button type="submit" name="action" class="btn btn-default navbar-btn"
+			ng-click="crearUsuario()">Guardar</button>
+
+
+	</div>
+
+	<br> <br> <br>
+
+
+	<div align="center" class="container">
+		<h4 align="center" style="width: 370px" class="bg-primary">Usuarios</h4>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Usuario</th>
+					<th>Rol</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="u in usuarios">
+					<td >{{u.nombre}}</td>
+					<td >{{u.apellido}}</td>
+					<td >{{u.usuario}}</td>
+					<td >{{u.rol}}</td>
+					<td>
+						<button class="btn waves-effect waves-light" type="button"
+							data-toggle="modal" name="action" data-target="#complete-dialog"
+							style="width: 80px" ng-click="eliminarUsuario(u)">Eliminar</button>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+

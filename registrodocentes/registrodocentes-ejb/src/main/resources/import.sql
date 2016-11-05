@@ -14,6 +14,7 @@ INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (8,'Registros','PA
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (9,'Registros Semestres Anteriores','PAGINA','#/RegSemAnteriores');
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (10,'Reporte Registros','PAGINA','#/ReporteRegistros');
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (11,'Semestre','PAGINA','#/Semestre');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (12,'Usuario','PAGINA','#/crearusuario');
 INSERT INTO t_rol (ID_ROL,DESCRIPCION) VALUES (1,'ADMINISTRADOR');
 INSERT INTO t_usuario (ID_USUARIO,APELLIDO,NOMBRE,PASS,USUARIO) VALUES(1,'APELLIDO_UNO','NOMBRE_UNO','81dc9bdb52d04dc20036dbd8313ed055','ADMIN');
 INSERT INTO t_usuario_rol (ID_ROL,ID_USUARIO) VALUES (1,1);

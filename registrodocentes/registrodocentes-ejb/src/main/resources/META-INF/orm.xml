@@ -184,5 +184,11 @@
 			SELECT d FROM DiaNoLaborable d
 		</query>
 	</named-query>
+	
+	<named-query name="Usuario.buscarPorUsuario">
+		<query>
+			SELECT u FROM Usuario u WHERE u.usuario=?1
+		</query>
+	</named-query>
 
 </entity-mappings>
