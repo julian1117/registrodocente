@@ -1,55 +1,76 @@
-	<div class="row" ng-controller="semestresAnterioresRegController">
-	
+
+<div class="container" ng-controller="semestresAnterioresRegController">
+
 	<h1 class="text-center">Registro de semestres anteriores</h1>
 
-	<div class="panel panel-primary"  id="lateral">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 class="panel-title">Informacion de los registros de los cursos</h3>
+			<h3 class="panel-title">Informacion de los registros de los
+				cursos</h3>
 		</div>
 		<div class="panel-body">
 
-			<form role="form">
+			<!--  	<form role="form">-->
 
-				<label id="label-1">Año</label>
-				<select class="form-control">
-					<option>Seleccine el año</option>
-					<option>2006</option>
-					<option>2007</option>
-					<option>2008</option>
-					<option>2009</option>
-					<option>2010</option>
-					<option>2011</option>
-					<option>2012</option>
-					<option>2013</option>
-					<option>2014</option>
-					<option>2015</option>
-					<option>2016</option>
-
-			
-				</select> 
-				
-				<label id="label-2">Semestre</label>
-				<select class="form-control">
-					<option>Seleccine el semestre del año</option>
-					<option>1</option>
-					<option>2</option>
-
-				</select>
-				
-				<label id="label-3">Profesor</label>
-				 <select class="form-control">
-					<option ng-repeat="u in usuarios" value="{u.nombre}" ></option>
+			<label id="label-1">Año</label> <select ng-model="anio" class="form-control">
+				<option>Seleccine el año</option>
+				<option>2006</option>
+				<option>2007</option>
+				<option>2008</option>
+				<option>2009</option>
+				<option>2010</option>
+				<option>2011</option>
+				<option>2012</option>
+				<option>2013</option>
+				<option>2014</option>
+				<option>2015</option>
+				<option>2016</option>
 
 
-				</select>
+			</select> <label id="label-2">Semestre</label> <select ng-model="periodo"  class="form-control">
+				<option>Seleccine el semestre del año</option>
+				<option>1</option>
+				<option>2</option>
 
-				
-				<button ng_click="alerta()" type="submit" class="btn btn-primary center-block">Consultar</button>
-			</form>
+			</select> <label id="label-3">Profesor</label> <select ng-model="docente" class="form-control">
+				<option ng-repeat="u in usuarios" value="{{u.id}}">{{u.id}} {{u.nombre}}</option>
+			</select>
+
+
+			<button ng_click="listarCurso()" type="submit"
+				class="btn btn-primary center-block" name="action">Consultar</button>
+			<!-- 	</form> -->
 
 			<div class="panel panel-default">
 
 
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Codigo</th>
+							<th>Grupo</th>
+							<th>Semestre Periodo</th>
+							<th>Semestre Anio</th>
+							<th>Asignatura</th>
+							<th>Ver registros</th>
+
+						</tr>
+					</thead>
+					<tbody>
+ 
+						<tr ng-repeat="c in cursos">
+							<td>{{c.codigo}}</td>
+							<td>{{c.grupo}}</td> 
+							<td>{{c.semestre.periodo}}</td> 
+							<td>{{c.semestre.anho}}</td> 
+							<td>{{c.asignatura.nombre}}</td> 
+						</tr>
+
+
+					</tbody>
+				</table>
+
+				<!-- 
 				<table class="table table-striped">
 
 					<tr>
@@ -76,6 +97,9 @@
 						
 					</tr>
 				</table>
+				
+				 -->
+
 
 			</div>
 
