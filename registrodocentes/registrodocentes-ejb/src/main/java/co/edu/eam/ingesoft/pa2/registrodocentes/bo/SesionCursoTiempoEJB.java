@@ -9,7 +9,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.SesionCurso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 
-@Stateless
+@Stateless    
 @LocalBean
 public class SesionCursoTiempoEJB extends EJBGenerico<SesionCurso> {
 

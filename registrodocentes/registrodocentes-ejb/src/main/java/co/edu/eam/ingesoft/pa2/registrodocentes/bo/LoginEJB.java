@@ -35,7 +35,7 @@ public class LoginEJB extends EJBGenerico<Usuario> {
 	 * @return el usuario si lo encuentra, de lo contrario excepcion
 	 */
 	public Usuario buscarUsuario(String user, String pass) {
-		// pass = MD5Util.code(pass);
+		 pass = MD5Util.code(pass);
 		List<Usuario> lista = dao.ejecutarNamedQuery(ConstantesNamedQueries.BUSCAR_POR_USER_PASS, user, pass);
 		if (!lista.isEmpty()) {
 			return lista.get(0);

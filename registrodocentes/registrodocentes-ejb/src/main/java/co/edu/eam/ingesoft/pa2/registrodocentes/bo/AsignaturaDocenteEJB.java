@@ -31,7 +31,7 @@ public class AsignaturaDocenteEJB extends EJBGenerico<Asignatura>  {
 			listaAsignatura.add(listaCurso.get(i).getAsignatura());
 			
 		}
-		return listaAsignatura;     
+		return listaAsignatura;          
 	}
 	
 	

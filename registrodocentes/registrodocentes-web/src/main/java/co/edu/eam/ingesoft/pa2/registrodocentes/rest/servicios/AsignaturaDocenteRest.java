@@ -36,9 +36,9 @@ public class AsignaturaDocenteRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@POST
-	public RespuestaDTO listarAsignatura(@FormParam(value = "docente") int usuario) {
+	public RespuestaDTO listarAsignatura(@FormParam(value = "docente") int docente) {
 
-		List<Asignatura> lista = asignaturaEJB.listarAsignatura(usuario);
+		List<Asignatura> lista = asignaturaEJB.listarAsignatura(docente);
 		if (lista.isEmpty()) {
 			return new RespuestaDTO(null, "El doncente no dicta ninguna asignatura", "-1");
 		} else
@@ -72,7 +72,7 @@ public class AsignaturaDocenteRest {
 		} else {
 			return new RespuestaDTO(tiempo);
 		}
-	}
+	} 
 
 	@Path("/registrosAprobados")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -88,5 +88,5 @@ public class AsignaturaDocenteRest {
 			return new RespuestaDTO(porcentajeAprobados + "%");
 		}
 	}
-  
+     
 }

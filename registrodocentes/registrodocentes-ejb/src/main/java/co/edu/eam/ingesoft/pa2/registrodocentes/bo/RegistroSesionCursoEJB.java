@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Registro;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
-
+   
 @Stateless
 @LocalBean
 public class RegistroSesionCursoEJB extends EJBGenerico<Registro> {

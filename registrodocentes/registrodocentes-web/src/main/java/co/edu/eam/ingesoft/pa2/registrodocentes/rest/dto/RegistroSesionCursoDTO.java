@@ -11,7 +11,7 @@ public class RegistroSesionCursoDTO {
 
 	public RegistroSesionCursoDTO() {
 		// TODO Auto-generated constructor stub
-	}   
+	}      
 
 	public RegistroSesionCursoDTO(int mes, int docente, String asignatura, int semestre, int periodo) {
 		super();
