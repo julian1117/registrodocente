@@ -14,7 +14,7 @@ app.controller("crearRolController", function($scope,$http,httpservice,$window,$
 						config) {
 					if(data.obj) {
 						alert(data.mensaje);
-						$window.location.href = '#/AsignarAcceso';
+//						$window.location.href = '#/AsignarAcceso';
 						limpiar();
 						$sessionStorage.rol = $scope.nombreRol;
 					} else {
