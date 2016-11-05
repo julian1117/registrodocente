@@ -2,7 +2,9 @@
  * Controlador para las funciones de la vista registros.html
  */
 app.controller("registrosController", function($scope, $http, httpservice,
-		$sessionStorage) {
+		$sessionStorage,$window,$location) {
+	 var res = filtrod($window,$location);
+		if (res == true) {
 
 	$scope.registros = [];
 
@@ -73,4 +75,5 @@ app.controller("registrosController", function($scope, $http, httpservice,
 		});
 		cargarRegistros();
 	}
+		}
 });

@@ -1,7 +1,9 @@
 /**
  * Controlador para las funciones de la vista AsignarAcceso
  */
-app.controller("asignarAccesoController", function($scope,$http,httpservice,$window,$sessionStorage) {
+app.controller("asignarAccesoController", function($scope,$http,httpservice,$window,$sessionStorage,$location) {
+	 var res = filtrod($window,$location);
+		if (res == true) {
 	$scope.prueba='';
 	$scope.accesosRol='';
 	$scope.listarRoles = function () {
@@ -35,4 +37,5 @@ app.controller("asignarAccesoController", function($scope,$http,httpservice,$win
 	$scope.comboSelect = function () {
 		
 	}
+		}
 });

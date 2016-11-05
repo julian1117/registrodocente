@@ -1,6 +1,8 @@
 app.controller(
 				"programasDocentesController",
-				function($scope, httpservice,$sessionStorage,$window) {
+				function($scope, httpservice,$sessionStorage,$window,$location) {
+					 var res = filtrod($window,$location);
+						if (res == true) {
 
 					$scope.programas = [];
 					$scope.docentes = [];
@@ -50,6 +52,6 @@ app.controller(
 						$window.location.href = "#/asignaturas";
 					}
 					
-					
+						}
 					
 				});
