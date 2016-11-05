@@ -10,9 +10,9 @@ app.controller("registrosController", function($scope, $http, httpservice,
 	 * Función para cargar los registros
 	 */
 	function cargarRegistros() {
-		//Se cargan los registros del curso y docente indicados
-		//Deben ser reemplazados por los valores del sessionstorage
-		
+		// Se cargan los registros del curso y docente indicados
+		// Deben ser reemplazados por los valores del sessionstorage
+
 		var xsrf = $.param({
 			cod : 1,
 			ced : 123
