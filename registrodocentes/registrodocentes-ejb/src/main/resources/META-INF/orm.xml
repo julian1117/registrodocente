@@ -4,26 +4,90 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
 	version="2.0">
 
-	
+	<!-- Asignatura docente Laura -->
+	<named-query name="Curso.listarCursoDocente">
+		<query>
+			Select c FROM Curso c where c.docente=?1
+		</query>
+	</named-query>
 
-	<named-query name="Programa.LISTAR_PROGRAMAS"> 
-		<query> 
+	<named-query name="SesionCurso.TiempoSemestre">
+		<query>
+			select sum(s.horaFinal-s.horaInicial)/10000 from SesionCurso s
+			INNER JOIN s.curso c on c.codigo=s.curso
+			where c.docente.id=?1 and
+			c.asignatura IN (select a from Asignatura a where a.id=?2) and s IN
+			(select r.sesion from Registro r where r.sesion.id=s.id) and
+			s.curso.semestre.anho=?3 and s.curso.semestre.periodo=?4
+		</query>
+	</named-query>
+
+	<named-query name="SesionCurso.TiempoMes">
+		<query>
+			select sum(s.horaFinal-s.horaInicial)/10000 from SesionCurso s
+			INNER JOIN s.curso c on c.codigo=s.curso
+			where
+			month(s.curso.semestre.fechaInicio) = ?1 and
+			c.docente.id=?2 and
+			c.asignatura IN
+			(select
+			a from Asignatura a where a.id=?3) and s IN
+			(select r.sesion
+			from
+			Registro r where r.sesion.id=s.id) and
+			s.curso.semestre.anho=?4 and
+			s.curso.semestre.periodo=?5
+		</query>
+	</named-query>
+
+	<named-query name="Registro.listarAprobados">
+		<query>
+			select count(r) from Registro r INNER JOIN r.sesion s on
+			s.id=r.sesion INNER JOIN s.curso c on c.codigo=s.curso
+			where
+			r.aprobadoCoord=1 and r.aprobadoRH=1 and c.asignatura IN (select a
+			from Asignatura a where a.id=?1)
+			and c.docente in (select d from
+			Docente d where d.id=?2) and
+			c.semestre.anho=?3 and
+			c.semestre.periodo=?4
+		</query>
+	</named-query>
+	<named-query name="Registro.listarTodos">
+		<query>
+			select count(r) from Registro r INNER JOIN r.sesion s on
+			s.id=r.sesion INNER JOIN s.curso c on c.codigo=s.curso
+			where
+			c.asignatura IN (select a
+			from Asignatura a where a.id=?1)
+			and
+			c.docente in (select d from Docente d where d.id=?2) and
+			c.semestre.anho=?3 and c.semestre.periodo=?4
+		</query>
+	</named-query>
+
+
+
+
+
+	<named-query name="Programa.LISTAR_PROGRAMAS">
+		<query>
 			Select p FROM Programa p
-		</query> 
-	</named-query> 
-	
-	<named-query name="Rol.LISTAR_ROLES_USUARIO"> 
-		<query> 
+		</query>
+	</named-query>
+
+	<named-query name="Rol.LISTAR_ROLES_USUARIO">
+		<query>
 			SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1
-		</query> 
-	</named-query> 
-	
-	<named-query name="Usuario.BUSCAR_POR_USERNAME"> 
-		<query> 
+		</query>
+	</named-query>
+
+	<named-query name="Usuario.BUSCAR_POR_USERNAME">
+		<query>
 			SELECT u FROM Usuario u WHERE u.usuario = ?1
-		</query> 
-	</named-query> 
-	
+		</query>
+	</named-query>
+
 
 
 

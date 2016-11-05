@@ -13,6 +13,14 @@ package co.edu.eam.ingesoft.pa2.registrodocentes.util;
  */
 public class ConstantesNamedQueries {
 	
+	/*ASIGNATURA DOCENTE LAURA*/
+	public static final String LISTAR_CURSO_DOCENTE = "Curso.listarCursoDocente";
+	public static final String TIEMPO_SEMESTRE = "SesionCurso.TiempoSemestre";
+	public static final String REGISTROS_APROBADOS = "Registro.listarAprobados";
+	public static final String LISTAR_REGISTROS = "Registro.listarTodos";
+	public static final String TIEMPO_MES = "SesionCurso.TiempoMes";
+	
+	
 	
 	public static final String LISTAR_PROGRAMAS = "Programa.listarTodos";
 	
@@ -21,6 +29,9 @@ public class ConstantesNamedQueries {
 
 	
 	public static final String BUSCAR_POR_USERNAME = "Usuario.buscarUser";
+	
+	
+	
 	
 	
 	private ConstantesNamedQueries() {
