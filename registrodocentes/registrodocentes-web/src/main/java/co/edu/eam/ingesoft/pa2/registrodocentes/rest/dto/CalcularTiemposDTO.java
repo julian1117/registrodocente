@@ -1,5 +1,9 @@
 package co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto;
-
+/**
+ * DTO que guarda el total de horas del semestre y del mes, y el porcentaje de registros aprobados
+ * @author Laura
+ *
+ */
 public class CalcularTiemposDTO {
 	
 	private String tiempoSem;

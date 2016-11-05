@@ -20,15 +20,29 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.CalcularTiemposDTO;
 @Path("/asignatura")
 public class AsignaturaDocenteRest {
 
+	/**
+	 * EJB asignatura
+	 */
 	@EJB
 	private AsignaturaDocenteEJB asignaturaEJB;
 
+	/**
+	 * EJB sesionCurso
+	 */
 	@EJB
 	private SesionCursoTiempoEJB sesionCursoEJB;
   
+	/**
+	 * EJB registro
+	 */
 	@EJB
 	private RegistroSesionCursoEJB registroEJB;
 
+	/**
+	 * Servicio rest que lista las asignturas de un docente
+	 * @param docente
+	 * @return lista, lista de asignaturas del docente
+	 */
 	@Path("/listarAsignaturas")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -43,6 +57,13 @@ public class AsignaturaDocenteRest {
 
 	}
 
+	/**
+	 * Servicio rest para obtener los calculos de las horas registradas
+	 * del docente por mes, semestre y el porcetaje de regisstros aprobados 
+	 * @param docente
+	 * @param asignatura
+	 * @return c, CalcularTiemposDTO
+	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)

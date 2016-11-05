@@ -1,23 +1,43 @@
+/**
+ * Laura
+ * Controlador para las funciones sobre la vista asignturas.html
+ */
+
 app.controller("asignaturaController", function($scope, $http, httpservice,
 		$window, $sessionStorage) {
 	/**
-	 * Codigo asignatura
+	 * Codigo docente
 	 */
 	$scope.docente = '';
+	/**
+	 * codigo asignatura
+	 */
 	$scope.asignatura = '';
+	/**
+	 * lista asignaturas
+	 */
 	$scope.listaAsignaturas = [];
+	/**
+	 * total horas por semestre
+	 */
 	$scope.horasSemestre = '';
+	/**
+	 * total horas por mes
+	 */
 	$scope.horasMes = '';
+	/**
+	 * porcentaje de registros aprobados
+	 */
 	$scope.porcentaje = '';
-	$sessionStorage.cod = 1;
-
+	
+	
 	/**
 	 * Metodo para listar asignaturas
 	 */
 
 	$scope.cargarAsignaturas = function() {
 		httpservice.post('../rest/asignatura/listarAsignaturas', {
-			docente : $sessionStorage.cod
+			docente : $sessionStorage.docente 
 		}, success = function(data, status, headers, config) {
 			$scope.listaAsignaturas = data.obj;
 		}, null, "application/x-www-form-urlencoded");
@@ -30,7 +50,7 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 	$scope.calcular = function(a) {
 
 		var xsrf = $.param({
-			docente : $sessionStorage.cod,
+			docente : $sessionStorage.docente,
 			asignatura : a.id
 		});
 		$http({
@@ -67,7 +87,7 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 	 * Redicrrecionamiento
 	 */
 	$scope.ver = function(asignatura) {
-		$sessionStorage.codeDoc = $sessionStorage.cod;
+		$sessionStorage.codeDoc = $sessionStorage.docente;
 		$sessionStorage.codeAsig = asignatura.id;
 		window.location.href = '../app/#/aprobar-registro';
 	}
