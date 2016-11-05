@@ -23,8 +23,7 @@
 			s.curso.semestre.anho=?3
 			and s.curso.semestre.periodo=?4
 		</query>
-	</named-query> <!-- esto me retorna el resultado directamente, lo unico que debo hacer es ponerlo en el label
-	pero ya tiene el servicio, que solo sea mandarle los parametors y listo, síp -->
+	</named-query> 
 
 	<named-query name="SesionCurso.TiempoMes">
 		<query>
