@@ -20,6 +20,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.DiaNoLaborable;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Semestre;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.DiaNoLaboralDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ExcepcionNegocio;
 
 
 
@@ -48,10 +49,14 @@ public class SemestreRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public RespuestaDTO crearSemestre(@FormParam(value = "fecha") Date fecha) {
-		if (semestreEjb.crear(fecha)) {
-			return new RespuestaDTO(true, "semestre creado correctamente", "00");
-		} else {
-			return new RespuestaDTO(false, "error al crear", "-1");
+		try {
+			if (semestreEjb.crear(fecha)) {
+				return new RespuestaDTO(true, "semestre creado correctamente", "00");
+			} else {
+				return new RespuestaDTO(false, "error al crear", "-2");
+			}
+		} catch (ExcepcionNegocio e) {
+			return new RespuestaDTO(false, e.getMessage(), "-1");
 		}
 	}
 
