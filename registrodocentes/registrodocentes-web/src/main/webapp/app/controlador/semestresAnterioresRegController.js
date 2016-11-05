@@ -61,7 +61,4 @@ app.controller(
 					}
 					
 					
-					
-					
-
 				});
