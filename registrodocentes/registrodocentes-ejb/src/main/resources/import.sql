@@ -29,6 +29,17 @@ INSERT INTO T_ACCESO_ROL (ID_ACCESO,ID_ROL) VALUES (9,1);
 INSERT INTO T_ACCESO_ROL (ID_ACCESO,ID_ROL) VALUES (10,1);
 INSERT INTO T_ACCESO_ROL (ID_ACCESO,ID_ROL) VALUES (11,1);
 
+INSERT INTO t_curso VALUES ('1','A','1',123,2016,2);
+INSERT INTO t_dianolaborable VALUES (1,'Festivo','2016-11-14',2016,2);
+INSERT INTO t_docente VALUES (123,'1');
+INSERT INTO t_asignatura VALUES ('1','Programación','1');
+INSERT INTO t_programa VALUES ('1','Software','1');
+INSERT INTO t_registro VALUES (1,1,1,'nada','2016-10-24 00:00:00',1),(2,0,0,'NADA','2016-10-26 00:00:00',2),(3,0,1,'nada','2016-10-27 00:00:00',3),(4,0,0,'nada','2016-10-28 00:00:00',4),(5,0,0,'NADA','2016-10-31 00:00:00',1),(6,1,0,'NADA','2016-11-02 00:00:00',2),(7,0,1,'NADA','2016-11-03 00:00:00',3),(8,0,0,'NADA','2016-11-04 00:00:00',4);
+INSERT INTO t_semestre VALUES (2016,2,'2016-06-01');
+INSERT INTO t_sesion_curso VALUES (1,'LUN','09:00:00','07:00:00','1'),(2,'MIER','11:00:00','09:00:00','1'),(3,'JUEV','10:00:00','08:00:00','1'),(4,'VIER','11:00:00','09:00:00','1');
+INSERT INTO t_usuario VALUES (123,'Tafur','Brian','1234','tafur');
+
+
 INSERT INTO T_PROGRAMA (ID_PROGRAMA,NOMBRE,ID_FACULTAD) VALUES ('1','Ing Software','1');
 INSERT INTO T_PROGRAMA (ID_PROGRAMA,NOMBRE,ID_FACULTAD) VALUES ('2', 'Ing Mecatronica', '1');
 
@@ -57,4 +68,3 @@ INSERT INTO registrodocente.T_SESION_CURSO(ID_SESIONCURSO, dia, horafinal, horai
 
 INSERT INTO registrodocente.T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('1', 0, 0, 'null', '2016-01-01', '1');
 INSERT INTO registrodocente.T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('2', 0, 0, 'null', '2016-05-06', '2');
-
