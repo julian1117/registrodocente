@@ -30,7 +30,7 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 	 */
 	$scope.porcentaje = '';
 	
-	 $sessionStorage.docente=$sessionStorage.codigodocente;
+	 $sessionStorage.docente=$sessionStorage.docenteid;
 	
 	
 	/**
