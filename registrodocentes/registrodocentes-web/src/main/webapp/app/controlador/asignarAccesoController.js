@@ -19,15 +19,12 @@ app.controller("asignarAccesoController", function($scope,$http,httpservice,$win
 			}
 		},null)
 	}
-	$scope.prueba = function () {
+	$scope.agregar = function () {
 		httpservice.get('gestionRol/listarAccesos',null,success = function(data, status, headers,config) {
 			if(data.obj != null) {
 				$scope.accesosRol = data.obj;
 			}
 		},null)
-	}
-	$scope.agregar = function () {
-		
 	}
 	$scope.eliminar = function () {
 		
