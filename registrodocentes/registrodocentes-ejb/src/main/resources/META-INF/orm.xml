@@ -76,14 +76,6 @@
 		</query>
 	</named-query>
 
-
-
-
-
-
-
-
-
 	<named-query name="Programa.listarTodos">
 		<query>
 			SELECT p FROM Programa p
@@ -164,8 +156,7 @@
 		<query>
 			SELECT r FROM Registro r WHERE r.sesion.curso.docente.id=?1 and
 			r.sesion.curso.asignatura.id=?2
-			and r.aprobadoCoord = 0 and
-			r.aprobadoRH = 0
+			and r.aprobadoCoord = 0 or r.aprobadoRH = 0
 		</query>
 	</named-query>
 	<named-query name="Semestre.listar">
