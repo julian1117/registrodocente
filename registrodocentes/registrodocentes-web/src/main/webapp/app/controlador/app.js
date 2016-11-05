@@ -49,16 +49,11 @@ app.config(function($routeProvider) {
  * Jhohanns villa
  */
 app.filter('cambiar', function($location, $window) {
-
 	var objetoJson = $window.sessionStorage.getItem('ngStorage-objt');
 	var objetoMane = JSON.parse(objetoJson);
-	
 	if (objetoMane.usuario != '') {
-
 		var exito = false;
 		for (var i = 0, t = objetoMane.accesos.length; i < t; i++) {
-
-			alert(objetoMane.accesos[i].url);
 			var acceso = objetoMane.accesos[i].url;
 			if (("#" + $location.path()) == acceso) {
 				exito = true;
@@ -69,7 +64,5 @@ app.filter('cambiar', function($location, $window) {
 		}
 	} else {
 		window.location.href = '../app/login.html';
-
 	}
-
 });
