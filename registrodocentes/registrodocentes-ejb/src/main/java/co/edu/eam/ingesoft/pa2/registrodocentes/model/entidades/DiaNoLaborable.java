@@ -32,7 +32,7 @@ public class DiaNoLaborable implements Serializable {
 	@Column(name="causa")
 	private String causa;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumns({
 		@JoinColumn(name="semestre_anho",referencedColumnName="anho"),
 		@JoinColumn(name="semestre_periodo",referencedColumnName="periodo"),
