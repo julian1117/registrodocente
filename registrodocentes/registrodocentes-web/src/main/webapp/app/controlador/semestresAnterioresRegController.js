@@ -3,11 +3,7 @@ app.controller(
 				function($scope,$http , httpservice,$sessionStorage) {
 
 					$scope.usuarios = [];
-					$scope.cursos = [];
-//					$scope.anio=0;
-//					$scope.periodo=0;
-//					$scope.docente=0;
-					
+					$scope.cursos = [];				
 					
 					
 					function listarUsuarios(){
@@ -25,12 +21,8 @@ app.controller(
 					/**
 					 * funcion de inicializacion
 					 */
-					(function() {
-						// cargar los productos.
-						
+					(function() {						
 						listarUsuarios();
-						
-
 					}());
 					
 					
@@ -44,16 +36,7 @@ app.controller(
 							docente : $scope.docente
 							
 						});
-//						console.log('refrescando.......'+anio+periodo+docente);
-//						httpservice.post('semestresAnteriores/listarCursos', {anio:anio},
-//								{periodo:periodo},{docente:docente},
-//								success = function(data, status, headers,config) {
-//									console.log('success.......');
-//									$scope.docentes = data.obj;
-//								}, null,"application/x-www-form-urlencoded");
-//					}
-					
-				//	$scope.listadoCursos=function(anio, periodo,docente){
+
 						$http({
 							url: '../rest/semestresAnteriores/listarCursos',
 						    method: "POST",
@@ -76,41 +59,5 @@ app.controller(
 						});
 						
 					}
-					
-//					$scope.listarCurso=function(){
-//						alert($scope.anio + 'locota'+ $scope.periodo + $scope.docente)
-//						var parametro =$.param({
-//							anio : $scope.anio,
-//							periodo : $scope.periodo,
-//							docente : $scope.docente
-//							
-//						});
-//						httpservice.post('semestresAnteriores/listarCursos',success = function(data, status, headers,config) {
-//									console.log('success.......');
-//									$scope.cursos = data.obj;
-//								}, null,"application/x-www-form-urlencoded");
-//					}
-//					
-////					$scope.listadoCursos=function(){
-////						$http({
-////							url: '../rest/semestresAnteriores/listarCursos',
-////						    method: "POST",
-////						    headers: {
-////						    		"Content-type":"application/x-www-form-urlencoded"
-////						    }
-////						    
-////						}).success(function(data, status, headers, config) {
-////							
-////							if(data.codigo=='00'){
-////								alert("Ya entroooooooooooooooooooooooooo")
-////							}else{
-////								alert(data.mensaje);
-////							}
-////							
-////						}).error(function(data, status, headers, config) {
-////							alert('Error:'+data.mensaje);
-////						});
-////						
-////					}
-					
+
 				});
