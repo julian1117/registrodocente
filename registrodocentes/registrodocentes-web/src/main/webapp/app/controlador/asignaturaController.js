@@ -11,7 +11,7 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 	$scope.porcentaje = '';
 	$sessionStorage.cod = 1;
 
-	/**  
+	/**
 	 * Metodo para listar asignaturas
 	 */
 
@@ -23,7 +23,10 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 		}, null, "application/x-www-form-urlencoded");
 	}
 
-	/* cosa */
+	/**
+	 * Funcion para calcular las horas registradas en el mes y el semestre y los
+	 * registros aprobados
+	 */
 	$scope.calcular = function(a) {
 
 		var xsrf = $.param({
@@ -68,23 +71,5 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 		$sessionStorage.codeAsig = asignatura.id;
 		window.location.href = '../app/#/aprobar-registro';
 	}
-
-	/**
-	 * Funcion calificardto
-	 */
-	/**
-	 * $scope.cargar = function (asig){ var fecha = new Date(); var valor =
-	 * Math.floor((Math.random() * 1000) + 1) + (fecha.getSeconds());
-	 * AsignaturaDocenteDTO = { docente : $sessionStorage.docente, asignatura :
-	 * asig, semestre : null, periodo :null }; $sessionStorage.calificacion =
-	 * calificardto;
-	 * 
-	 * 
-	 * httpservice.post('../rest/asignatura/listarAsignaturas',
-	 * {docente:$sessionStorage.cod}, success = function(data, status, headers,
-	 * config) { console.log('success.......'); $scope.listaAsignaturas =
-	 * data.obj; }, null,"application/x-www-form-urlencoded"); }
-	 * 
-	 */
 
 });
