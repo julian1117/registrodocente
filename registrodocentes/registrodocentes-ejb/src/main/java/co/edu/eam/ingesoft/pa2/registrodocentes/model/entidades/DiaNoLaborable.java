@@ -3,6 +3,7 @@ package co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +32,7 @@ public class DiaNoLaborable implements Serializable {
 	@Column(name="causa")
 	private String causa;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumns({
 		@JoinColumn(name="semestre_anho",referencedColumnName="anho"),
 		@JoinColumn(name="semestre_periodo",referencedColumnName="periodo"),

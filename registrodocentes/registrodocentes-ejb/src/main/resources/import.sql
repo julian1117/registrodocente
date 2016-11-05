@@ -40,6 +40,14 @@ INSERT INTO T_ASIGNATURA (ID_ASIGNATURA, Nombre, ID_PROGRAMA) VALUES ('2', 'Prog
 INSERT INTO T_SEMESTRE (anho, periodo, fecha_inicio)VALUES ('2016', '2', '2016-01-01');
 INSERT INTO T_SEMESTRE (anho, periodo, fecha_inicio)VALUES ('2015', '1', '2015-08-15');
 
+INSERT INTO t_semestre (anho, periodo, fecha_inicio) VALUES ('2016', '1', '2016-01-02');
+INSERT INTO t_semestre (anho, periodo, fecha_inicio) VALUES ('2016', '2', '2016-07-05');
+INSERT INTO t_dianolaborable (ID_DIANOLABORABLE, causa, fecha, semestre_anho, semestre_periodo) VALUES ('2', 'dia de la mdadre', '2016-04-01', '2016', '1');
+INSERT INTO t_dianolaborable (ID_DIANOLABORABLE, causa, fecha, semestre_anho, semestre_periodo) VALUES ('1', 'festivo', '2016-10-01', '2016', '2');
+
+
+
+
 INSERT INTO T_CURSO (ID_CURSO, GRUPO, asignatura, docente, semestre_anho, semestre_periodo) VALUES ('2', 'B', '1', '1', '2015', '1');
 INSERT INTO T_CURSO (ID_CURSO, GRUPO, asignatura, docente, semestre_anho, semestre_periodo) VALUES ('1', 'A', '1', '1', '2015', '1');
 -- Sección para Registros
@@ -49,3 +57,4 @@ INSERT INTO registrodocente.T_SESION_CURSO(ID_SESIONCURSO, dia, horafinal, horai
 
 INSERT INTO registrodocente.T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('1', 0, 0, 'null', '2016-01-01', '1');
 INSERT INTO registrodocente.T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('2', 0, 0, 'null', '2016-05-06', '2');
+
