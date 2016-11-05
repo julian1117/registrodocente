@@ -35,9 +35,7 @@ public class AsignaturaDocenteEJB extends EJBGenerico<Asignatura> {
 	 *            codigo del docente
 	 * @return listaAsignatura, la lista de asignaturas del docente
 	 */
-	public List<Asignatura> listarAsignatura(int docente) { // espera el codigo,
-															// no el docente
-															// como tal
+	public List<Asignatura> listarAsignatura(int docente) { 
 		List<Curso> listaCurso = dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_CURSO_DOCENTE, docente);
 		List<Asignatura> listaAsignatura = new ArrayList<>();
 		for (int i = 0; i < listaCurso.size(); i++) {
