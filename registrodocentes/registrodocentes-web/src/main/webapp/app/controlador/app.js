@@ -53,7 +53,7 @@ app.filter('cambiar', function($location, $window) {
 	var objetoJson = $window.sessionStorage.getItem('ngStorage-objt');
 	var objetoMane = JSON.parse(objetoJson);
 	
-	if (objetoMane.usuario != '') {
+	if (objetoMane.usuario != undefined) {
 
 		var exito = false;
 		for (var i = 0, t = objetoMane.accesos.length; i < t; i++) {
