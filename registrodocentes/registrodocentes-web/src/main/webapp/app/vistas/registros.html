@@ -2,72 +2,31 @@
 
 	<div class="col-md-12">
 		<div class="row">
-<label style="visibility:hidden;">{{us | cambiar}}</label>
+			<!-- <label style="visibility: hidden;">{{us | cambiar}}</label> -->
 			<h4>Registros Anteriores</h4>
 
 			<div class="panel-group" id="accordion" role="tablist"
 				aria-multiselectable="true">
-				<div class="panel panel-default">
+				<div class="panel panel-default" ng-repeat="r in registros">
 					<div class="panel-heading" role="tab" id="headingOne">
 						<h4 class="panel-title">
-							<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true"
-								aria-controls="collapseOne"> 26-oct-2016 </a>
+							<a role="button" data-toggle="collapse" data-parent="#accordion"
+								aria-expanded="true" aria-controls="collapseOne">
+								{{r.fecha}} </a>
 						</h4>
 					</div>
 					<div id="collapseOne" class="panel-collapse collapse in"
 						role="tabpanel" aria-labelledby="headingOne">
-						<div class="panel-body">						
-						<textarea class="form-control" rows="3" placeholder="Comentario"></textarea>
-						<button type="button" class="btn waves-effect waves-light" ng-click="">Registrar</button>
-						
+						<div class="panel-body">
+							<textarea class="form-control" rows="3" placeholder="Comentario">{{r.comentario}}</textarea>
+							<button type="button" class="btn waves-effect waves-light"
+								ng-click="" ng-disabled="{{r.aprobadoCoord || r.aprobadoRH}}">Registrar</button>
+
 						</div>
 					</div>
 				</div>
 			</div>
 
-
-			<h4>Registros Próximos</h4>
-
-			<div class="panel-group" id="accordion" role="tablist"
-				aria-multiselectable="true">
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingTres">
-						<h4 class="panel-title">
-							<a role="button" data-toggle="collapse" data-parent="#accordion"
-								href="#collapseTres" aria-expanded="true"
-								aria-controls="collapseTres"> 2-nov-2016 </a>
-						</h4>
-					</div>
-					<div id="collapseTres" class="panel-collapse collapse in"
-						role="tabpanel" aria-labelledby="headingTres">
-						<div class="panel-body">
-						
-						<textarea class="form-control" rows="3" placeholder="Comentario"></textarea>
-						<button type="button" class="btn waves-effect waves-light" ng-click="">Registrar</button>
-						
-						</div>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingCuatro">
-						<h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse"
-								data-parent="#accordion" href="#collapseTwo"
-								aria-expanded="false" aria-controls="collapseCuatro">
-								4-nov-2016 </a>
-						</h4>
-					</div>
-					<div id="collapseCuatro" class="panel-collapse collapse"
-						role="tabpanel" aria-labelledby="headingCuatro">
-						<div class="panel-body">
-						
-						<textarea class="form-control" rows="3" placeholder="Comentario"></textarea>
-						<button type="button" class="btn waves-effect waves-light" ng-click="">Registrar</button>
-						
-						</div>
-					</div>
-				</div>
-			</div>
 
 
 		</div>
