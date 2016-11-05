@@ -7,8 +7,8 @@ INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (1,'Login','PAGINA
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (2,'Menu','PAGINA','/menu.html');
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (3,'Registro','PAGINA','#/aprobar-registro');
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (4,'Asignar Acceso','PAGINA','#/AsignarAcceso');
-INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (5,'Asignaturas','PAGINA','#/Asignaturas');
-INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (6,'Rol','PAGINA','#/crearRol');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (5,'Asignaturas','PAGINA','#/asignaturas');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (6,'Rol','PAGINA','#/CrearRol');
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (7,'Programas','PAGINA','#/programasDocentes');
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (8,'Registros','PAGINA','#/registros');
 INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (9,'Registros Semestres Anteriores','PAGINA','#/RegSemAnteriores');
