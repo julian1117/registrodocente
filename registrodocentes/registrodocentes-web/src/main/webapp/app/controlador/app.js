@@ -8,10 +8,6 @@ app.config(function($routeProvider) {
 		controller : "registrosController",
 		controllerAs : "reg",
 		templateUrl : "vistas/registros.html"
-	}).when("/aprobar-registro", {
-		controller : "aprobarRegistroController",
-		controllerAs : "apr",
-		templateUrl : "vistas/aprobar-registro.html"
 	}).when("/AsignarAcceso", {
 		controller : "asignarAccesoController",
 		controllerAs : "tra",
@@ -42,6 +38,10 @@ app.config(function($routeProvider) {
 	}).when("/CrearRol", {
 		controller : "crearRolController",
 		templateUrl : "vistas/CrearRol.html"
+	}).when("/aprobar-registro", {
+		controller : "aprobarRegistroController",
+		controllerAs : "apr",
+		templateUrl : "vistas/aprobar-registro.html"
 	});
 });
 

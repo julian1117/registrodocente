@@ -7,77 +7,96 @@ app
 				function($scope, $http, httpservice, $sessionStorage) {
 
 					$scope.registrosDA = [];
+					$sessionStorage.doc = 1; // recibo id docente de la ventana 7 por SS 
+					$sessionStorage.asig = 1; // recibo id asignatura de la ventana 7 por SS
+					$sessionStorage.registrosAprobados = [];
 
+					/**
+					 * metodo para cargar la lista de registros no aprobados
+					 */
 					function cargarRegistrosDocenteAsignatura() {
-						var xsrf = $.param({
-							doc : 1,// $sessionStorage.object.docente.id,
-							asig : 1
-						// $sessionStorage.object.asignatura.id
-						});
+						httpservice
+								.post(
+										'registro/listar-registros-docente-asignatura-sin-aprobar',
+										{
+											doc : $sessionStorage.doc,
+											asig : $sessionStorage.asig
+										}, success = function(data, status,
+												headers, config) {
+											console.log('success.......'
+													+ $sessionStorage.doc + "-"
+													+ $sessionStorage.asig);
 
-						$http(
-								{
-									url : '../rest/registro/listar-registros-docente-asignatura-sin-aprobar',
-									method : "POST",
-									data : xsrf,
-									headers : {
-										"Content-Type" : "application/x-www-form-urlencoded",
-										"Authorization" : $sessionStorage.objeto.token
-									}
-								}).success(
-								function(data, status, headers, config) {
-									if (data.codigo == '00') {
-										$scope.registrosDA = data.obj;
-										// $sessionStorage.listaRegistrosDA =
-										// data.obj;
-									} else {
-										alert(data.mensaje);
-									}
-								}).error(
-								function(data, status, headers, config) {
-									alert('error::' + data.mensaje);
-								});
+												$scope.registrosDA = data.obj;
+												$sessionStorage.regList = data.obj;
+											
+										}, null,
+										"application/x-www-form-urlencoded");
 					}
 
-					(function() {
+					/*
+					 * Inicializa la lista de registros
+					 */
+					$scope.cargarLista = function() {
 						cargarRegistrosDocenteAsignatura();
-					});
+					};
 
-					$scope.init = function() {
-						$scope.cargarRegistrosDocenteAsignatura;
-						console.log("entre");
-					}
-					$scope.init();
+					$scope.cargarLista();
 
-					$scope.aprobarRegistro = function() {
-						var xsrf = $.param({
-							idRegistro : $scope.formData.idReg,
-							comentario : $scope.formData.coment
-						});
-
-						$http(
-								{
-									url : '../rest/registro/aprobar-registro',
-									method : "POST",
-									data : xsrf,
-									headers : {
-										"Content-Type" : "application/x-www-form-urlencoded",
-										"Authorization" : $sessionStorage.objeto.token
-									}
-								}).success(
-								function(data, status, headers, config) {
-									if (data.codigo == '00') {
-										$scope.resp = data.obj;
-										alert(resp);
-										// $sessionStorage.listaRegistrosDA =
-										// data.obj;
-									} else {
-										alert(data.mensaje);
-									}
-								}).error(
-								function(data, status, headers, config) {
-									alert('error::' + data.mensaje);
-								});
+					/**
+					 * metodo para agregar un comentario a un registro
+					 * @param reg, es el registro a agregarle el comentario
+					 */
+					$scope.agregarComentario = function(reg) {
+						$sessionStorage.reto = reg;
 					}
 
+					/**
+					 * setea el comentario al registro enviado 
+					 * desde agregarcomentario por sessionStorage
+					 */
+					$scope.guardarComentario = function() {
+						$sessionStorage.reto.comentario = document.getElementById('comentario').value;
+					}
+
+					/**
+					 * Metodo que limpia el text area
+					 * si el modal es cerrado desde el boton
+					 * cerrar
+					 */
+					$scope.cerrarComentario = function() {
+						document.getElementById('comentario').value = '';
+						
+					}
+
+					/**
+					 * recorro los registros aprobados y los
+					 * registro en la BD utilizando el 
+					 * servicio rest
+					 */
+					$scope.confirmar = function() {
+						var regList = $sessionStorage.regList;
+						var registrosAprobados = $sessionStorage.registrosAprobados;
+
+						for (var int = 0; int < regList.length; int++) {
+							elemento = document.getElementById(regList[int].id);
+							if (elemento.checked) {
+								registrosAprobados.push(regList[int]);
+							}
+						}
+
+						for (var int = 0; int < registrosAprobados.length; int++) {
+							var re = registrosAprobados[int];
+							httpservice.post('registro/aprobar-registro', {
+								idReg : re.id,
+								coment : re.comentario
+							},
+									success = function(data, status, headers,
+											config) {
+										console.log('success.......');
+									}, null,
+									"application/x-www-form-urlencoded");
+						}
+						window.location.reload();
+					}
 				});
