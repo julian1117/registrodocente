@@ -84,12 +84,9 @@ public class Acceso implements Serializable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	public TipoAcceso getTipoAcceso() {
+		return tipoAcceso;
+	}
 	
 }

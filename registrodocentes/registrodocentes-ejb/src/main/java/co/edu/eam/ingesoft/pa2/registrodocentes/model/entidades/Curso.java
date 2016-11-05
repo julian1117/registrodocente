@@ -53,7 +53,7 @@ public class Curso implements Serializable {
 	}
 
 	public String getCodigo() {
-		return "";// semestre.+periodo+asignatura.getId()+grupo;
+		return codigo;// semestre.+periodo+asignatura.getId()+grupo;
 	}
 
 	public Semestre getSemestre() {

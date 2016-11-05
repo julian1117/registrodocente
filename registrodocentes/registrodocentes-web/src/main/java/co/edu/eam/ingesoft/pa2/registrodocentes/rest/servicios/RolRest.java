@@ -59,6 +59,11 @@ public class RolRest {
 		return new RespuestaDTO(resp);
 	}
 	
+	/**
+	 * Servicio que se encarga de listar todos los roles
+	 * @return un RespuestaDTO con la lista de roles, si esta vacia envia 
+	 * un mensaje indicando esto con codigo -14
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/listarRoles")
