@@ -28,6 +28,7 @@ INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (8,1);
 INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (9,1);
 INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (10,1);
 INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (11,1);
+
 INSERT INTO t_curso VALUES ('1','A','1',123,2016,2);
 INSERT INTO t_dianolaborable VALUES (1,'Festivo','2016-11-14',2016,2);
 INSERT INTO t_docente VALUES (123,'1');
