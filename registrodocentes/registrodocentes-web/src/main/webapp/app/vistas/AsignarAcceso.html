@@ -1,7 +1,6 @@
 <div class="contmayor" ng-controller="asignarAccesoController" data-ng-init="listarRoles()">
-<label style="visibility:hidden;">{{us | cambiar}}</label>
 	<div class="containerr">
-	<!--<label style="visibility:hidden;">{{us | cambiar}}</label>-->
+	<!-- <label style="visibility:hidden;">{{us | cambiar}}</label> -->
 		<select id="rolSelect">
 			<option value="Nada">Seleccione una opcion</option>
 			<option ng-repeat="rol in roles" value="{{rol.descripcion}}">{{rol.descripcion}}</option>
