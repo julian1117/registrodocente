@@ -18,7 +18,7 @@
 					<div id="collapseOne" class="panel-collapse collapse in"
 						role="tabpanel" aria-labelledby="headingOne">
 						<div class="panel-body">
-							<textarea class="form-control" rows="3" placeholder="Comentario">{{r.comentario}}</textarea>
+							<textarea class="form-control" rows="3" ng-model="r.comentario" placeholder="Comentario"></textarea>
 							<button type="button" class="btn waves-effect waves-light"
 								ng-click="editarRegistro(r)" ng-disabled="{{r.aprobadoCoord || r.aprobadoRH}}">Registrar</button>
 
