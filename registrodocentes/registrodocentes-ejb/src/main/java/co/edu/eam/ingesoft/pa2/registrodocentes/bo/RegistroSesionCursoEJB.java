@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.pa2.registrodocentes.ejb;
+package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
 import java.util.List;
 
@@ -17,13 +17,14 @@ public class RegistroSesionCursoEJB extends EJBGenerico<Registro> {
 	public Class getClase() {
 		// TODO Auto-generated method stub
 		return Registro.class;
-	}
+	}     
+	
 
 	public double registrosAprobados(int docente, String asignatura, int semestre, int periodo) {
 		try {
 			List<Long> registrosAprobados = dao.ejecutarNamedQuery(ConstantesNamedQueries.REGISTROS_APROBADOS,
 					asignatura, docente, semestre, periodo);
-			List<Long> registrosTodos = dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS, 
+			List<Long> registrosTodos = dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS_SESION, 
 					asignatura, docente, semestre, periodo);
 			if (!registrosTodos.isEmpty()) {
 				if (!registrosAprobados.isEmpty()) {

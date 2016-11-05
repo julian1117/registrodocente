@@ -1,7 +1,7 @@
-	<div class="row" ng-controller="regSemAnteriores">
+	<div class="row" ng-controller="semestresAnterioresRegController">
 	
 	<h1 class="text-center">Registro de semestres anteriores</h1>
-
+<label style="visibility:hidden;">{{us | cambiar}}</label>
 	<div class="panel panel-primary"  id="lateral">
 		<div class="panel-heading">
 			<h3 class="panel-title">Informacion de los registros de los cursos</h3>
@@ -38,16 +38,13 @@
 				
 				<label id="label-3">Profesor</label>
 				 <select class="form-control">
-					<option>Seleccine el profesor</option>
-					<option>Camilo</option>
-					<option>Jorge Ivan</option>
-					<option>Erika</option>
-					<option>David</option>
+					<option ng-repeat="u in usuarios" value="{u.nombre}" ></option>
+
 
 				</select>
 
 				
-				<button type="submit" class="btn btn-primary center-block">Consultar</button>
+				<button ng_click="alerta()" type="submit" class="btn btn-primary center-block">Consultar</button>
 			</form>
 
 			<div class="panel panel-default">

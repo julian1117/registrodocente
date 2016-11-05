@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.pa2.registrodocentes.ejb;
+package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class SesionCursoTiempoEJB extends EJBGenerico<SesionCurso> {
 	public Class getClase() {
 		// TODO Auto-generated method stub
 		return SesionCurso.class;
-	}
+	}     
 
 	public int tiempoSemestre(int docente, String asignatura, int anho, int periodo) {
 		try {

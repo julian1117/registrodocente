@@ -4,7 +4,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.ExcepcionNegocio;
 
 /**

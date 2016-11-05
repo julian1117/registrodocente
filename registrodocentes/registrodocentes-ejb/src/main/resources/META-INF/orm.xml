@@ -3,16 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
 	version="2.0">
-
 	<!-- Asignatura docente Laura -->
 	<named-query name="Curso.listarCursoDocente">
 		<query>
-			Select c FROM Curso c where c.docente=?1
+			Select c FROM Curso c where c.docente=?1   
 		</query>
 	</named-query>
 
 	<named-query name="SesionCurso.TiempoSemestre">
-		<query>
+		<query>   
 			select sum(s.horaFinal-s.horaInicial)/10000 from SesionCurso s
 			INNER JOIN s.curso c on c.codigo=s.curso
 			where c.docente.id=?1 and
@@ -23,7 +22,7 @@
 	</named-query>
 
 	<named-query name="SesionCurso.TiempoMes">
-		<query>
+		<query>    
 			select sum(s.horaFinal-s.horaInicial)/10000 from SesionCurso s
 			INNER JOIN s.curso c on c.codigo=s.curso
 			where
@@ -39,8 +38,8 @@
 			s.curso.semestre.periodo=?5
 		</query>
 	</named-query>
-
-	<named-query name="Registro.listarAprobados">
+  
+	<named-query name="Registro.listarAprobados"> 
 		<query>
 			select count(r) from Registro r INNER JOIN r.sesion s on
 			s.id=r.sesion INNER JOIN s.curso c on c.codigo=s.curso
@@ -67,33 +66,113 @@
 	</named-query>
 
 
+   
+   
+   
+   
+   
+   
+   
+   
 
 
-
-	<named-query name="Programa.LISTAR_PROGRAMAS">
-		<query>
-			Select p FROM Programa p
+	
+	<named-query name="Programa.listarTodos"> 
+		<query> 
+			SELECT p FROM Programa p
 		</query>
 	</named-query>
 
-	<named-query name="Rol.LISTAR_ROLES_USUARIO">
-		<query>
-			SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1
+	
+	
+	<named-query name="Docente.listarPorPrograma"> 
+		<query> 
+			SELECT d FROM Docente d WHERE d.programa.id=?1
+		</query> 
+	</named-query> 
+
+	
+	 
+	<named-query name="Rol.listarRolesUsuario"> 
+		<query> 
+         SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.id = ?1
 		</query>
 	</named-query>
 
-	<named-query name="Usuario.BUSCAR_POR_USERNAME">
+	<named-query name="Usuario.buscarUser">
 		<query>
 			SELECT u FROM Usuario u WHERE u.usuario = ?1
 		</query>
 	</named-query>
+ 
+	
+     <named-query name="Registro.listar"> 
+		<query> 
+			SELECT reg FROM Registro reg 
+		</query>
+	</named-query>
+
+	<named-query name="Registro.listarentrefechas">
+		<query>
+			SELECT reg FROM Registro reg WHERE reg.fecha BETWEEN ?1 AND ?2 AND reg.sesion.curso.codigo = ?3 AND reg.sesion.curso.docente.id = ?4
+		</query>
+	</named-query>
 
 
+	<named-query name="Usuario.buscarUserPass">
+		<query>
+			SELECT u FROM Usuario u WHERE u.usuario = ?1 and u.pass=?2
+		</query>
+	</named-query>
 
+	<named-query name="Usuario.listarUsuarios">
+		<query>
+			Select u FROM Usuario u
+		</query>
+	</named-query>
+	
+	<named-query name="Usuario.roles">
+		<query>
+			SELECT ur.rol FROM UsuarioRol ur WHERE ur.usuario.usuario = ?1
 
+		</query>
+	</named-query>
 
+	<named-query name="Curso.listarcursos">
+		<query>
 
+			SELECT c FROM Curso c WHERE c.semestre.anho=?1 AND c.semestre.periodo=?2 AND c.docente.usuario.id=?3
+		</query>
+	</named-query>
 
+	<named-query name="Acceso.buscarRol">
+		<query>
+			SELECT ar.acceso FROM AccesoRol ar WHERE ar.rol=?1
+		</query>
+	</named-query>
+	
+	<named-query name="Registro.listarRegistrosDocenteAsignatura">
+		<query>
+			SELECT r FROM Registro r WHERE r.sesion.curso.docente.id=?1 and r.sesion.curso.asignatura.id=?2
+		</query>
+	</named-query>
 
+	<named-query name="Semestre.listar">
+		<query>
+			SELECT s FROM Semestre s
+		</query>
+	</named-query>
+	
+	<named-query name="Semestre.buscarSemestres">
+		<query>
+			SELECT s FROM Semestre s where s.anho =?1 and s.periodo =?2
+		</query>
+	</named-query>
 
+	<named-query name="DiaNoLaborable.listarDias">
+		<query>
+			SELECT d FROM DiaNoLaborable d  
+		</query>
+	</named-query>
+	
 </entity-mappings>

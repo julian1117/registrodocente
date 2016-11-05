@@ -11,7 +11,7 @@ public class AsignaturaDocenteDTO {
 	
 	public AsignaturaDocenteDTO() {
 		// TODO Auto-generated constructor stub
-	}
+	}   
 
 	public AsignaturaDocenteDTO(int docente, String asignatura, int semestre, int periodo) {
 		super();

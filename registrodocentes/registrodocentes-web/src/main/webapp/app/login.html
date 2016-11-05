@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registro docente</title>
+
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+  
+<!-- Librerias de Angular -->
+<script type="text/javascript" src="resources/js/angular.min.js"></script>
+<script type="text/javascript" src="resources/js/angular-route.js"></script>
+
+<!-- Librerias Jquery necesarias para el bootstrap y el material design -->
+<script type="text/javascript" src="resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resources/js/material.min.js"></script>
+<script type="text/javascript" src="resources/js/ripples.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+<script type="text/javascript" src="controlador/app.js"></script>
+<script type="text/javascript" src="controlador/loginController.js"></script>
+</head>
+<body ng-app="miApp"
+	style="background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed;">
+	<div class="container" ng-controller="loginController">
+		<form name="frmTest" id="frmTest" class="form-horizontal" role="form">
+			<div id="loginbox" style="margin-top: 50px;"
+				class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<div class="panel panel-primary">
+					<div style="padding-top: 30px" class="panel-body">
+						<div align="center">
+							<img id="profile-img" class="profile-img-card"
+								src="../app/img/avatar_2x.png" />
+						</div>
+						<p id="profile-name" class="profile-name-card"></p>
+						<span id="reauth-email" class="reauth-email"></span> <input
+							id="inputEmail" class="form-control" placeholder="Usuario"
+							ng-model="user"> <input type="password"
+							id="inputPassword" class="form-control" placeholder="Contraseña"
+							ng-model="pass">
+						<button class="btn btn-lg btn-primary btn-block btn-signin"
+							type="submit" ng-click="login()">Ingresar</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	$.material.init() 
+</script>
+</html>

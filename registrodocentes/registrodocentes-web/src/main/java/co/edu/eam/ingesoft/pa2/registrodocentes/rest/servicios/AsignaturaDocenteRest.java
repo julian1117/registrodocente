@@ -11,14 +11,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import co.edu.eam.ingesoft.pa2.registrodocentes.ejb.AsignaturaDocenteEJB;
-import co.edu.eam.ingesoft.pa2.registrodocentes.ejb.RegistroSesionCursoEJB;
-import co.edu.eam.ingesoft.pa2.registrodocentes.ejb.SesionCursoTiempoEJB;
+import co.edu.eam.ingesoft.pa2.registrodocentes.bo.AsignaturaDocenteEJB;
+import co.edu.eam.ingesoft.pa2.registrodocentes.bo.RegistroSesionCursoEJB;
+import co.edu.eam.ingesoft.pa2.registrodocentes.bo.SesionCursoTiempoEJB;
+import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Asignatura;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.SesionCurso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.AsignaturaDocenteDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RegistroSesionCursoDTO;
-import co.edu.eam.ingesoft.pa2.registrodocentes.rest.dto.RespuestaDTO;
 
 @Path("/asignatura")
 public class AsignaturaDocenteRest {
@@ -58,7 +58,7 @@ public class AsignaturaDocenteRest {
 		} else {
 			return new RespuestaDTO(tiempo);
 		}
-	}
+	}   
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -83,10 +83,10 @@ public class AsignaturaDocenteRest {
 				dto.getSemestre(), dto.getPeriodo());
 		if (porcentajeAprobados == -1) {
 			return new RespuestaDTO(null, "La asigntura no contiene registros", "-1");
-		} else {
+		} else {  
 
 			return new RespuestaDTO(porcentajeAprobados + "%");
 		}
 	}
-
+  
 }

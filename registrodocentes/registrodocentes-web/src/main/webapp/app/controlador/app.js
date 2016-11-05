@@ -2,9 +2,8 @@ var app = angular.module("miApp", [ "ngRoute", "ngStorage" ]);
 
 app.config(function($routeProvider) {
 	$routeProvider.when("/", {
-		controller : "modulo1Controller",
+		controller : "menuController",
 		controllerAs : "m1",
-		templateUrl : "vistas/form.html"
 	}).when("/registros", {
 		controller : "registrosController",
 		controllerAs : "reg",
@@ -14,34 +13,63 @@ app.config(function($routeProvider) {
 		controllerAs : "apr",
 		templateUrl : "vistas/aprobar-registro.html"
 	}).when("/AsignarAcceso", {
-		controller : "modulo1Controller",
+		controller : "asignarAccesoController",
 		controllerAs : "tra",
 		templateUrl : "vistas/AsignarAcceso.html"
-	}).when("/login", {
-		controller : "modulo1Controller",
-		controllerAs : "m1",
-		templateUrl : "vistas/login.html"
 	}).when("/cliente", {
 		controller : "clientecontroller",
 		controllerAs : "cliente",
 		templateUrl : "vistas/cliente.html"
 	}).when("/RegSemAnteriores", {
-		controller : "inventariocontroller",
+		controller : "semestresAnterioresRegController",
 		templateUrl : "vistas/RegSemAnteriores.html"
 	}).when("/ReporteRegistros", {
 		controller : "inventariocontroller",
 		templateUrl : "vistas/ReporteRegistros.html"
 	}).when("/programasDocentes", {
-		controller : "inventariocontroller",
+		controller : "programasDocentesController",
 		templateUrl : "vistas/programasDocentes.html"
 	}).when("/asignaturas", {
 		controller : "inventariocontroller",
 		templateUrl : "vistas/asignaturas.html"
 	}).when("/Semestre", {
-		controller : "inventariocontroller",
+		controller : "semestreController",
 		templateUrl : "vistas/Semestre.html"
+	}).when("/menu", {
+		controller : "menuController",
+		controllerAs : "menu",
+		templateUrl : "menu.html"
 	}).when("/CrearRol", {
-		controller : "inventariocontroller",
+		controller : "crearRolController",
 		templateUrl : "vistas/CrearRol.html"
 	});
+});
+
+/**Filtro de seguridad de paginas
+ * Jhohanns villa
+ */
+app.filter('cambiar', function($location, $window) {
+
+	var objetoJson = $window.sessionStorage.getItem('objt');
+	var objetoMane = JSON.parse(objetoJson);
+
+	if (objetoMane.obj.usuario != '') {
+
+		var exito = false;
+		for (var i = 0, t = objetoMane.obj.accesos.length; i < t; i++) {
+
+			alert(objetoMane.obj.accesos[i].url);
+			var acceso = objetoMane.obj.accesos[i].url;
+			if (("#" + $location.path()) == acceso) {
+				exito = true;
+			}
+		}
+		if (!exito) {
+			$location.path('/');
+		}
+	} else {
+		window.location.href = '../app/login.html';
+
+	}
+
 });

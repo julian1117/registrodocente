@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.pa2.registrodocentes.ejb;
+package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class AsignaturaDocenteEJB extends EJBGenerico<Asignatura>  {
 			listaAsignatura.add(listaCurso.get(i).getAsignatura());
 			
 		}
-		return listaAsignatura;
+		return listaAsignatura;     
 	}
 	
 	
