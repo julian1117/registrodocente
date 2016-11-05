@@ -35,7 +35,15 @@ INSERT INTO T_ASIGNATURA (ID_ASIGNATURA, Nombre, ID_PROGRAMA) VALUES ('2', 'Prog
 INSERT INTO T_SEMESTRE (anho, periodo, fecha_inicio)VALUES ('2016', '2', '2016-01-01');
 INSERT INTO T_SEMESTRE (anho, periodo, fecha_inicio)VALUES ('2015', '1', '2015-08-15');
 INSERT INTO T_CURSO (ID_CURSO, GRUPO, asignatura, docente, semestre_anho, semestre_periodo) VALUES ('2', 'B', '1', '1', '2015', '1');
+INSERT INTO t_semestre (anho, periodo, fecha_inicio) VALUES ('2016', '1', '2016-01-02');
 
+
+INSERT INTO t_semestre (anho, periodo, fecha_inicio) VALUES ('2016', '2', '2016-07-05');
+
+
+INSERT INTO t_dianolaborable (ID_DIANOLABORABLE, causa, fecha, semestre_anho, semestre_periodo) VALUES ('2', 'dia de la mdadre', '2016-04-01', '2016', '1');
+
+INSERT INTO t_dianolaborable (ID_DIANOLABORABLE, causa, fecha, semestre_anho, semestre_periodo) VALUES ('1', 'festivo', '2016-10-01', '2016', '2');
 
 
 
