@@ -9,7 +9,7 @@ public class CalcularTiemposDTO {
 	public CalcularTiemposDTO() {
 		// TODO Auto-generated constructor stub
 	}
-
+ 
 	public CalcularTiemposDTO(String tiempoSem, String tiempoMes, String porcentajeAprobados) {
 		super();
 		this.tiempoSem = tiempoSem;

@@ -21,7 +21,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 @Stateless
 @LocalBean
 public class AsignaturaDocenteEJB extends EJBGenerico<Asignatura> {
-
+ 
 	@Override
 	public Class getClase() {
 		// TODO Auto-generated method stub

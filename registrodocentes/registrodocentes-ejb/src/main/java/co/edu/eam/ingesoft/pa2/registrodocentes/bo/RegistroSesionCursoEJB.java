@@ -17,7 +17,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 /**
  * 
  * @author Laura
- *
+ * 
  */
 @Stateless
 @LocalBean

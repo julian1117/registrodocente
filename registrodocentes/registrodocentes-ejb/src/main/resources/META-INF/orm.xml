@@ -10,7 +10,7 @@
 		</query>
 	</named-query>
 
-	<named-query name="SesionCurso.TiempoSemestre">
+	 <named-query name="SesionCurso.TiempoSemestre">
 		<query>
 			select sum(s.horaFinal-s.horaInicial)/10000 from SesionCurso s
 			INNER JOIN

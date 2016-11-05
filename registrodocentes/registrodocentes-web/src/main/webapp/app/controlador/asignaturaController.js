@@ -11,7 +11,7 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 	$scope.porcentaje = '';
 	$sessionStorage.cod = 1;
 
-	/**
+	/** 
 	 * Metodo para listar asignaturas
 	 */
 

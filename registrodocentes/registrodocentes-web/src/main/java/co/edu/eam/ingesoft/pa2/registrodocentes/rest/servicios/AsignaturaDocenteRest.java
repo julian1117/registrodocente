@@ -25,7 +25,7 @@ public class AsignaturaDocenteRest {
 
 	@EJB
 	private SesionCursoTiempoEJB sesionCursoEJB;
-
+ 
 	@EJB
 	private RegistroSesionCursoEJB registroEJB;
 
