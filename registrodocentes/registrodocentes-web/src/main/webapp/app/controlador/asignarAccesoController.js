@@ -3,22 +3,36 @@
  */
 app.controller("asignarAccesoController", function($scope,$http,httpservice,$window,$sessionStorage) {
 	$scope.prueba='';
+	$scope.accesosRol='';
 	$scope.listarRoles = function () {
 		httpservice.get('gestionRol/listarRoles',null,success = function(data, status, headers,config) {
 			if(data.obj != null) {
 				$scope.roles = data.obj;
-//				alert(combo);
+				listarAccesos();
 			}
 		},null)
 	}
-	$scope.prueba = function () {
+	function listarAccesos() {
 		httpservice.get('gestionRol/listarAccesos',null,success = function(data, status, headers,config) {
 			if(data.obj != null) {
 				$scope.accesos = data.obj;
 			}
 		},null)
 	}
-	$scope.asd = function() {
-		alert($scope.rolSelect)
-	};
+	$scope.prueba = function () {
+		httpservice.get('gestionRol/listarAccesos',null,success = function(data, status, headers,config) {
+			if(data.obj != null) {
+				$scope.accesosRol = data.obj;
+			}
+		},null)
+	}
+	$scope.agregar = function () {
+		
+	}
+	$scope.eliminar = function () {
+		
+	}
+	$scope.comboSelect = function () {
+		
+	}
 });
