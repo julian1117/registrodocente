@@ -4,7 +4,9 @@
  */
 
 app.controller("asignaturaController", function($scope, $http, httpservice,
-		$window, $sessionStorage) {
+		$window, $sessionStorage,$location) {
+	 var res = filtrod($window,$location);
+		if (res == true) {
 	/**
 	 * Codigo docente
 	 */
@@ -29,6 +31,8 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 	 * porcentaje de registros aprobados
 	 */
 	$scope.porcentaje = '';
+	
+	 $sessionStorage.docente=$sessionStorage.docenteid;
 	
 	
 	/**
@@ -89,7 +93,7 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 	$scope.ver = function(asignatura) {
 		$sessionStorage.codeDoc = $sessionStorage.docente;
 		$sessionStorage.codeAsig = asignatura.id;
-		window.location.href = '../app/#/aprobar-registro';
+		window.location.href = '../app/menu.html#/aprobar-registro';
 	}
-
+		}
 });

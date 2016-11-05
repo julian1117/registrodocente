@@ -1,6 +1,8 @@
 app.controller(
 				"semestresAnterioresRegController",
-				function($scope,$http , httpservice,$sessionStorage) {
+				function($scope,$http , httpservice,$sessionStorage,$window,$location) {
+					 var res = filtrod($window,$location);
+						if (res == true) {
 
 					$scope.usuarios = [];
 					$scope.cursos = [];				
@@ -59,5 +61,7 @@ app.controller(
 						});
 						
 					}
-
+						}
+					
+					
 				});

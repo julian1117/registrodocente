@@ -1,39 +1,24 @@
 <div class="contmayor" ng-controller="asignarAccesoController" data-ng-init="listarRoles()">
 	<div class="containerr">
-<!-- 	<label style="visibility:hidden;">{{us | cambiar}}</label> -->
-		<select ng-model="rolSelect" ng-options="rol.id as rol.descripcion for rol in roles">
-			<option selected value="Nada">Seleccione una opcion</option>
-			<option ng-repeat="rol in roles" value="{{rol.id}}">{{rol.descripcion}}</option>
+		<select ng-model="rolSelect">
+			<option ng-repeat="rol in roles" ng-click="comboSelect()">{{rol.descripcion}}</option>
 		</select>
 		<h2>Lista de Accesos</h2>
 		<p>Selecciona que Accesos tendra el Rol</p>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>#</th>
-					<th>Url</th>
-					<th>Accion</th>
+					<th>Nombre</th>
+					<th>Acceso</th>
+					<th>Tipo</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>John</td>
-					<td>Doe</td>
-					<td><a ng-click="prueba()" class="btn btn-default" role="button"
-						style="background-color: #009688;">AGREGAR-PRUEBA</a>
-						</p></td>
-				</tr>
-				<tr>
-					<td>Mary</td>
-					<td>Moe</td>
-					<td><a href="#" class="btn btn-default " role="button"
-						style="background-color: #009688;">AGREGAR</a>
-						</p></td>
-				</tr>
-				<tr>
-					<td>July</td>
-					<td>Dooley</td>
-					<td><a href="#" class="btn btn-default" role="button"
+				<tr ng-repeat="acceso in accesos">
+					<td>{{acceso.nombre}}</td>
+					<td>{{acceso.url}}</td>
+					<td>{{acceso.tipoAcceso}}</td>
+					<td><a ng-click="agregar()" class="btn btn-default" role="button"
 						style="background-color: #009688;">AGREGAR</a>
 						</p></td>
 				</tr>
@@ -53,10 +38,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="acceso in accesos">
-					<td>{{acceso.nombre}}</td>
-					<td>{{acceso.url}}</td>
-					<td>{{acceso.tipoAcceso}}</td>
+				<tr ng-repeat="accesoRol in accesosRol">
+					<td>{{accesoRol.nombre}}</td>
+					<td>{{accesoRol.url}}</td>
+					<td>{{accesoRol.tipoAcceso}}</td>
+					<td><a ng-click="eliminar()" class="btn btn-default" role="button"
+						style="background-color: #009688;">ELIMINAR</a>
+						</p></td>
 				</tr>
 			</tbody>
 		</table>
