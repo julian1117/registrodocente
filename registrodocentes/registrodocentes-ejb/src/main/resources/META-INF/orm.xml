@@ -10,7 +10,7 @@
 		</query>
 	</named-query>
 
-	<named-query name="SesionCurso.TiempoSemestre">
+	   <named-query name="SesionCurso.TiempoSemestre">
 		<query>
 			select sum(s.horaFinal-s.horaInicial)/10000 from SesionCurso s
 			INNER JOIN
@@ -23,7 +23,8 @@
 			s.curso.semestre.anho=?3
 			and s.curso.semestre.periodo=?4
 		</query>
-	</named-query>
+	</named-query> <!-- esto me retorna el resultado directamente, lo unico que debo hacer es ponerlo en el label
+	pero ya tiene el servicio, que solo sea mandarle los parametors y listo, síp -->
 
 	<named-query name="SesionCurso.TiempoMes">
 		<query>

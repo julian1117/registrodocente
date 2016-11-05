@@ -48,12 +48,12 @@ app.config(function($routeProvider) {
 /**Filtro de seguridad de paginas
  * Jhohanns villa
  */
-app.filter('cambiar', function($location, $window) {
+var filtrod = function($window,$location) {
+	
 	var objetoJson = $window.sessionStorage.getItem('ngStorage-objt');
 	var objetoMane = JSON.parse(objetoJson);
 
 	
-	if (objetoMane.usuario != undefined) {
 
 
 		var exito = false;
@@ -64,9 +64,11 @@ app.filter('cambiar', function($location, $window) {
 			}
 		}
 		if (!exito) {
-			$location.path('/');
+			return $location.path('/');
 		}
-	} else {
-		window.location.href = '../app/login.html';
-	}
-});
+		return true;
+	
+	
+};
+
+
