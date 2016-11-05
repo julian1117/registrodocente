@@ -72,7 +72,7 @@
 
 	<named-query name="SesionCurso.listarSesionesCurso">
 		<query>
-			SELECT se FROM SesionCurso se WHERE se.curso.codigo=?1;
+			SELECT se FROM SesionCurso se WHERE se.curso.codigo=?1
 		</query>
 	</named-query>
 
