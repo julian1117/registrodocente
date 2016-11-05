@@ -26,11 +26,11 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.util.DiaNoLaboralDTO;
 @Path("/semestre")
 public class SemestreRest {
 
+	//ejb de semestre
 	@EJB
-	private SemestreEJB semestreEjb;
-
+	 private SemestreEJB semestreEjb;
 	
-	
+	//ejb del diaNoLaborable
 	@EJB
 	private DiaNoLaboralEJB diaNoLaborableEjb;
 
@@ -38,12 +38,16 @@ public class SemestreRest {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Metodo rest para crear un semestre
+	 * @param fecha , la fecha del inicio del semestre
+	 * @return RespuestaDTO true si se creo
+	 */
 	@Path("/crearSemestre")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public RespuestaDTO crearSemestre(@FormParam(value = "fecha") Date fecha) {
-		System.out.println(fecha+"entroooooooooooooooo");
 		if (semestreEjb.crear(fecha)) {
 			return new RespuestaDTO(true, "semestre creado correctamente", "00");
 		} else {
@@ -51,6 +55,10 @@ public class SemestreRest {
 		}
 	}
 
+	/**
+	 * metodo rest para listar los semestres
+	 * @return Respuesta dto con la lista de semestres
+	 */
 	@Path("/listarSemestres")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -63,27 +71,33 @@ public class SemestreRest {
 		}
 	}
 	
-	
+	/**
+	 * Metodo rest para eliinar un semestre
+	 * @param anho del semestre, periodo del semestre
+	 * @return RespuestaDTO true si se elimino corectamente
+	 */
 	@Path("/eliminarSemestre")
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public RespuestaDTO eliminarSemestre(@FormParam(value = "anho") int anio, @FormParam(value = "periodo") int periodo ) {
-		System.out.println("");
 		if (semestreEjb.eliminar(anio, periodo)) {
 			return new RespuestaDTO(true, "se elimino correctamente", "00");
 		} else {
 			return new RespuestaDTO(false, "error al eliminar", "-1");
 		}
+	}
+
 	
-} 
-	
-	
-	
+	/**
+	 * Metodo rest para listar diasNoLaborales de un semestre
+	 * @param anho del semestre, periodo del semestre
+	 * @return RespuestaDTO lista de dias no laborales
+	 */
 	@Path("/listarDiasNoLaborales")
-	@GET
+	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public RespuestaDTO listarDiasNoLaborales(@QueryParam(value = "anho") int anho ,@QueryParam(value = "periodo") int periodo) {
+	public RespuestaDTO listarDiasNoLaborales(@FormParam(value = "anho") int anho ,@FormParam(value = "periodo") int periodo) {
 		List<DiaNoLaborable> dias = diaNoLaborableEjb.listarDias(anho, periodo);
 		if (dias.isEmpty()) {
 			return new RespuestaDTO(null, "no hay dias no laborales registrados", "-1");
@@ -93,6 +107,12 @@ public class SemestreRest {
 	}
 	
 
+	
+	/**
+	 * Metodo rest para Marcar o asignar un dia no laborales a un semestre
+	 * @param dto , con el anho y periodo del semestre y la fecha y causa del dia
+	 * @return RespuestaDTO true si se creo
+	 */
 	@Path("/marcarDia")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -107,11 +127,15 @@ public class SemestreRest {
 	
 	
 	
+	/**
+	 * Metodo rest para eliminar un dia no laboral de un semestre
+	 * @param id , identificados del dia no laboral
+	 * @return RespuestaDTO true si se elimino
+	 */
 	@Path("/eliminarDia")
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public RespuestaDTO eliminarSemestre(@FormParam(value = "id") long id) {
-		System.out.println("");
 		if (diaNoLaborableEjb.eliminar(id)) {
 			return new RespuestaDTO(true, "se elimino correctamente", "00");
 		} else {
@@ -119,4 +143,4 @@ public class SemestreRest {
 		}
 	
 } 
-}
+} 

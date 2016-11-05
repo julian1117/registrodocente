@@ -25,6 +25,12 @@ public class SemestreEJB extends EJBGenerico<Semestre> {
 		return Semestre.class;
 	}
 
+	 
+	  /**
+	 * Metodo para crear un semestre
+	 * @param fecha , la fecha del inicio del semestre
+	 * @return true si se persiste
+	 */
 	public boolean crear(Date fecha) {
 
 		if (fecha != null) {
@@ -50,16 +56,30 @@ public class SemestreEJB extends EJBGenerico<Semestre> {
 		}
 	}
 	
-	 
+	/**
+	 * Lista todos los semestres
+	 * @return la lista de semestres
+	 */
 	public List<Semestre> listarSemestres(){
 		return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTA_SEMESTRES);
 	}
 	
 	
 	
+	/**
+	 * Lista semestres por su año y periodo
+	 * @return lista de sememestres
+	 */
 	public List<Semestre> buscarSemestre(int anio, int periodo){
 		return dao.ejecutarNamedQuery(ConstantesNamedQueries.BUSCAR_SEMESTRE, anio, periodo);
 	}	
+	
+	
+	/**
+	 * Metodo para eliminar un semestre
+	 * @param anho del semestre, periodo del semestre
+	 * @return true si lo elimina
+	 */
 	public boolean eliminar(int anio, int periodo){
 		Semestre se = buscarSemestre(anio, periodo).get(0);
 		if(se != null){
