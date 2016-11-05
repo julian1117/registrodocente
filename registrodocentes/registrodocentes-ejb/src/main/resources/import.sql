@@ -34,7 +34,7 @@ INSERT INTO T_ASIGNATURA (ID_ASIGNATURA, Nombre, ID_PROGRAMA) VALUES ('1', 'Calc
 INSERT INTO T_ASIGNATURA (ID_ASIGNATURA, Nombre, ID_PROGRAMA) VALUES ('2', 'Programacion', '1');
 INSERT INTO T_SEMESTRE (anho, periodo, fecha_inicio)VALUES ('2016', '2', '2016-01-01');
 INSERT INTO T_SEMESTRE (anho, periodo, fecha_inicio)VALUES ('2015', '1', '2015-08-15');
-INSERT INTO T_CURSO (ID_CURSO, GRUPO, asignatura, docente, semestre_anho, semestre_periodo) VALUES ('2', 'B', '1', '1', '2015', '1');
+INSERT INTO T_CURSO (ID_CURSO, GRUPO, asignatura, docente, semestre_anho, semestre_periodo) VALUES ('2', 'B', '1', '1', '2015','1');
 
 
 
