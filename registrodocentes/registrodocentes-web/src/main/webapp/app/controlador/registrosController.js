@@ -48,5 +48,12 @@ app.controller("registrosController", function($scope, $http, httpservice,
 		cargarRegistros();
 
 	}());
+	
+	/**
+	 * Función para editar registro
+	 */
+	$scope.editarRegistro = function(registro) {
+		console.log(registro);
+	}
 
 });
