@@ -1,19 +1,30 @@
---
--- JBoss, Home of Professional Open Source
--- Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
--- contributors by the @authors tag. See the copyright.txt in the
--- distribution for a full listing of individual contributors.
---
--- Licensed under the Apache License, Version 2.0 (the "License");
--- you may not use this file except in compliance with the License.
--- You may obtain a copy of the License at
--- http://www.apache.org/licenses/LICENSE-2.0
--- Unless required by applicable law or agreed to in writing, software
--- distributed under the License is distributed on an "AS IS" BASIS,
--- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
--- See the License for the specific language governing permissions and
--- limitations under the License.
---
-
--- You can use this file to load seed data into the database using SQL statements
-insert into Registrant(id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212')
+INSERT INTO T_FACULTAD (ID_FACULTAD, NOMBRE) VALUES ('1', 'Ingenieria');
+INSERT INTO T_FACULTAD (ID_FACULTAD, NOMBRE) VALUES ('2', 'Administracion');
+INSERT INTO T_FACULTAD (ID_FACULTAD, NOMBRE) VALUES ('3', Diseño y comm);
+INSERT INTO t_rol (ID_ROL, DESCRIPCION) VALUES ('1', 'SUPERADMIN');
+INSERT INTO t_rol (ID_ROL, DESCRIPCION) VALUES ('2', 'DOCENTE');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (1,'Login','PAGINA','/login.html');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (2,'Menu','PAGINA','/menu.html');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (3,'Registro','PAGINA','#/aprobar-registro');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (4,'Asignar Acceso','PAGINA','#/AsignarAcceso');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (5,'Asignaturas','PAGINA','#/asignaturas');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (6,'Rol','PAGINA','#/CrearRol');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (7,'Programas','PAGINA','#/programasDocentes');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (8,'Registros','PAGINA','#/registros');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (9,'Registros Semestres Anteriores','PAGINA','#/RegSemAnteriores');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (10,'Reporte Registros','PAGINA','#/ReporteRegistros');
+INSERT INTO t_acceso (ID_ACCESO,NOMBRE,tipoacceso,URL) VALUES (11,'Semestre','PAGINA','#/Semestre');
+INSERT INTO t_rol (ID_ROL,DESCRIPCION) VALUES (1,'ADMINISTRADOR');
+INSERT INTO t_usuario (ID_USUARIO,APELLIDO,NOMBRE,PASS,USUARIO) VALUES(1,'APELLIDO_UNO','NOMBRE_UNO','81dc9bdb52d04dc20036dbd8313ed055','ADMIN');
+INSERT INTO t_usuario_rol (ID_ROL,ID_USUARIO) VALUES (1,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (1,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (2,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (3,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (4,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (5,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (6,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (7,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (8,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (9,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (10,1);
+INSERT INTO t_acceso_rol (ID_ACCESO,ID_ROL) VALUES (11,1);

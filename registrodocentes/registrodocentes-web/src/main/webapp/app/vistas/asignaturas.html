@@ -1,20 +1,11 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-<h1 class="center">Asignaturas Docentes</h1>
+
 <div class="panel panel-primary">
+<h1 class="center">Asignaturas Docentes</h1>
       <div class="panel-heading">Asignaturas</div>
-      
+      <label style="visibility:hidden;">{{us | cambiar}}</label>
+          
   <table class="table">
-    <thead>
+    <thead>    
       <tr>
         <th>CODIGO</th>
         <th>NOMBRE</th>
@@ -25,19 +16,19 @@
     <tbody>
       <tr>
         <td>123</td>
-        <td>AdministraciÃ³n BD</td>
+        <td>Administración BD</td>
         <td>Software</td>
         <td><button type="button" class="btn btn-primary">VER ASIGNATURA</button></td>
       </tr>
       <tr>
         <td>124</td>
-        <td>DiseÃ±o de BD</td>
+        <td>Diseño de BD</td>
         <td>Software</td>
         <td><button type="button" class="btn btn-primary">VER ASIGNATURA</button></td>
       </tr>
       <tr>
         <td>125</td>
-        <td>FÃ­sica II</td>
+        <td>Física II</td>
         <td>Mecatronica</td>
         <td><button type="button" class="btn btn-primary">VER ASIGNATURA</button></td>
       </tr>
@@ -71,5 +62,3 @@
 </div>
 
 
-</body>
-</html>

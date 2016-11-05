@@ -1,22 +1,14 @@
-<div class="contmayor">
+<div class="contmayor" ng-controller="asignarAccesoController" data-ng-init="listarRoles()">
 
 
 
 	<div class="containerr">
-		<!-- Single button -->
-		<div class="btn-group" style="width: 30%; background-color: #f2f2f2">
-			<button type="button" class="btn btn-default dropdown-toggle"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Seleccione un rol<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu" style="width: 100%; background-color: #f2f2f2">
-				<li><a href="#">Rol 0</a></li>
-				<li><a href="#">Rol 1</a></li>
-				<li><a href="#">Rol 2</a></li>
-				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li>
-			</ul>
-		</div>
+	<!--<label style="visibility:hidden;">{{us | cambiar}}</label>-->
+		
+		<select>
+			<option>Seleccione una opcion</option>
+			<option ng-repeat="rol in roles">{{rol.descripcion}}</option>
+		</select>
 		<h2>Lista de Accesos</h2>
 		<p>Selecciona que Accesos tendra el Rol</p>
 		<table class="table">
@@ -31,8 +23,8 @@
 				<tr>
 					<td>John</td>
 					<td>Doe</td>
-					<td><a href="#" class="btn btn-default" role="button"
-						style="background-color: #009688;">AGREGAR</a>
+					<td><a ng-click="prueba()" class="btn btn-default" role="button"
+						style="background-color: #009688;">AGREGAR-PRUEBA</a>
 						</p></td>
 				</tr>
 				<tr>
