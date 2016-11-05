@@ -18,6 +18,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Registro;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.SesionCurso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ExcepcionNegocio;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.InterfaceEJBRemote;
 
 @LocalBean
@@ -42,8 +43,7 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 
 	@Override
 	public Registro buscar(Object pk) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.encontrarPorId(Registro.class, pk);
 	}
 
 	@Override
@@ -100,6 +100,13 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 	 *            es la identificacion del docente
 	 * @param idAsig,
 	 *            es la identificacion de la asignatura
+	 * @author Brayan Giraldo Correo : giraldo97@outlook.com Metodo para listar
+	 *         los registros de un docente en una asignatura especifica sin
+	 *         aprobar
+	 * @param idDoc,
+	 *            es la identificacion del docente
+	 * @param idAsig,
+	 *            es la identificacion de la asignatura
 	 * @author Brayan Giraldo Correo : giraldo97@outlook.com
 	 */
 	public List<Registro> listarRegistrosDocenteAsignatura(int idDoc, String idAsig) {
@@ -117,8 +124,7 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 		} else {
 			periodo = 2;
 		}
-		List<SesionCurso> sesiones 
-		= sesionEJB.listarSesionesCurso(cod);
+		List<SesionCurso> sesiones = sesionEJB.listarSesionesCurso(cod);
 		List<DiaNoLaborable> diasNo = diaNoEJB.listarDias(anio, periodo);
 		for (int i = -8; i < 9; i++) {
 			Calendar fecha = Calendar.getInstance();
@@ -129,6 +135,33 @@ public class BORegistroEJB extends EJBGenerico<Registro> implements InterfaceEJB
 			fecha.getTime();
 		}
 		return lista;
+	}
+
+	public List<Registro> listarRegistrosDocenteAsignaturaNA(int idDoc, String idAsig) {
+		return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_REGISTROS_DOCENTE_ASIGNATURA_NA, idDoc, idAsig);
+	}
+
+	/**
+	 * Aprueba un registro
+	 * 
+	 * @param id,
+	 *            es el registro a aprobar
+	 * @param comentario,
+	 *            es el comentario para el registro
+	 * @author Brayan Giraldo Correo : giraldo97@outlook.com
+	 */
+	public String aprobarRegistro(Long id, String comentario) {
+		Registro reg = buscar(id);
+		if (reg != null) {
+			reg.setComentario(comentario);
+			reg.setAprobadoCoord(true);
+			reg.setAprobadoRH(true);
+			dao.actualizar(reg);
+			return "Aprobado Correctamente";
+		} else {
+			throw new ExcepcionNegocio(
+					"No se puede aprobar el registro " + "con codigo " + id + " ya que a�n no esta registrado");
+		}
 	}
 
 }

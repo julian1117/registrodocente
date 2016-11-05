@@ -46,6 +46,8 @@ public class ConstantesNamedQueries {
 
 	public static final String LISTAR_REGISTROS_DOCENTE_ASIGNATURA = "Registro.listarRegistrosDocenteAsignatura";
 
+	public static final String LISTAR_REGISTROS_DOCENTE_ASIGNATURA_NA = "Registro.listarRegistrosDocenteAsignaturaNA";
+
 	public static final String LISTA_SEMESTRES = "Semestre.listar";
 
 	public static final String BUSCAR_SEMESTRE = "Semestre.buscarSemestres";
