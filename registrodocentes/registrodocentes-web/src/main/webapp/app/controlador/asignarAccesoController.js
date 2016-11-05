@@ -11,7 +11,6 @@ app.controller("asignarAccesoController", function($scope,$http,httpservice,$win
 			}
 		},null)
 	}
-	
 	var prueba = function () {
 		httpservice.get('gestionRol/listarAccesos',null,success = function(data, status, headers,config) {
 			if(data.obj != null) {
