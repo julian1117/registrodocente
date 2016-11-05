@@ -13,6 +13,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Semestre;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.SemestrePK;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ExcepcionNegocio;
 
 
 @Stateless
@@ -48,8 +49,12 @@ public class SemestreEJB extends EJBGenerico<Semestre> {
 			} else {
 				periodo = 2;
 			}
-			Semestre semestre = new Semestre(fecha, anho, periodo);
-			dao.persistir(semestre);
+			if (buscarSemestre(anho, periodo).isEmpty()) {
+				Semestre semestre = new Semestre(fecha, anho, periodo);
+				dao.persistir(semestre);
+			} else {
+				throw new ExcepcionNegocio("este semestre ya se encuentra creado");
+			}
 			return true;
 		} else {
 			return false;
