@@ -9,15 +9,14 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.SesionCurso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 
-@Stateless    
+@Stateless
 @LocalBean
 public class SesionCursoTiempoEJB extends EJBGenerico<SesionCurso> {
 
 	@Override
 	public Class getClase() {
-		// TODO Auto-generated method stub
 		return SesionCurso.class;
-	}     
+	}
 
 	public int tiempoSemestre(int docente, String asignatura, int anho, int periodo) {
 		try {
@@ -32,7 +31,7 @@ public class SesionCursoTiempoEJB extends EJBGenerico<SesionCurso> {
 		return 0;
 	}
 
-	public int tiempoMes( int mes, int docente, String asignatura, int anho, int periodo) {
+	public int tiempoMes(int mes, int docente, String asignatura, int anho, int periodo) {
 		try {
 			List<Double> tiempoMes = dao.ejecutarNamedQuery(ConstantesNamedQueries.TIEMPO_MES, mes, docente, asignatura,
 					anho, periodo);
@@ -44,6 +43,20 @@ public class SesionCursoTiempoEJB extends EJBGenerico<SesionCurso> {
 			return 0;
 		}
 		return 0;
+	}
+
+	/**
+	 * Método para listar las sesiones de un curso
+	 * 
+	 * @author Brian David Tafur Londoño<br/>
+	 *         email: tafur2401@gmail.com <br/>
+	 *         Fecha: 4 de nov. de 2016<br/>
+	 * @param cod,
+	 *            código del curso al que se le listarán las sesiones
+	 * @return una lista con todas las sesiones que tenga el curso
+	 */
+	public List<SesionCurso> listarSesionesCurso(String cod) {
+		return dao.ejecutarNamedQuery(ConstantesNamedQueries.LISTAR_SESIONES_CURSO, cod);
 	}
 
 }

@@ -40,7 +40,7 @@ public class RegistroRest {
 	 * @return una cadena JSON con la lista de registros en ese rango
 	 */
 	@POST
-	@Path("/listar-registros-fechas")
+	@Path("/listarregistrosfechas")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public RespuestaDTO listarRegistrosEntreFechas(@FormParam(value = "cod")String cod, @FormParam(value = "ced") int ced){
