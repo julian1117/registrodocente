@@ -16,6 +16,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RolInDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Rol;
+import co.edu.eam.ingesoft.pa2.registrodocentes.rest.util.Secured;
 
 @Path("/gestionRol")
 public class RolRest {
@@ -67,6 +68,7 @@ public class RolRest {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/listarRoles")
+	@Secured
 	public RespuestaDTO listarRoles() {
 		ArrayList<Rol> resp = rolEJB.listarRoles();
 		if(resp.isEmpty()) {

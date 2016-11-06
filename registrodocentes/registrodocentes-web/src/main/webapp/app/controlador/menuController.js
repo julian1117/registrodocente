@@ -10,18 +10,23 @@ app.controller("menuController", function($scope, $http, $window,
 	 * funcion que carga los accesos de un usuario en el menu
 	 */
 	$scope.cargarAccesos = function() {
+		
 		if ($sessionStorage.objeto!= undefined) {
-
+			var ttoken=$sessionStorage.objeto.token;
+			
+			
 			var xsrf = $.param({
 				usuario : $sessionStorage.objeto.usuario
+				
 			});
+			
 			$http({
 				url : '../rest/login/accesos',
 				method : "POST",
 				data : xsrf,
 				headers : {
 					"Content-Type" : "application/x-www-form-urlencoded",
-				// "Authorization" : $sessionStorage.objeto.token
+				    "Authorization" : ttoken
 				}
 			}).success(function(data, status, headers, config) {
 				if (data.codigo == '00') {
