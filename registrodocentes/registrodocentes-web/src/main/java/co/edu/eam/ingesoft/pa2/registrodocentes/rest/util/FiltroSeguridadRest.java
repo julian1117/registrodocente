@@ -40,7 +40,8 @@ public class FiltroSeguridadRest implements ContainerRequestFilter {
 		int usere = LoginRest.tokens.get(token);
 		if (meto != null) {
 			List<Acceso> accs = acc.listarServicios(usere);
-			boolean ex = false;
+			//TODO: volver a poner en false, se coloca en true para probar ya que no hay registros en BD.
+			boolean ex = true;
 			if (accs != null) {
 				for (int i = 0; i < accs.size(); i++) {
 					// System.out.println(accs.get(i).getUrl());
