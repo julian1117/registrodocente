@@ -68,3 +68,15 @@ INSERT INTO registrodocente.T_SESION_CURSO(ID_SESIONCURSO, dia, horafinal, horai
 
 INSERT INTO registrodocente.T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('1', 0, 0, 'null', '2016-01-01', '1');
 INSERT INTO registrodocente.T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('2', 0, 0, 'null', '2016-05-06', '2');
+
+INSERT INTO T_SESION_CURSO(ID_SESIONCURSO,dia,horafinal,horainicial,ID_CURSO) VALUES ('1', 'LUN', '12:00:00', '10:00:00', '2');
+INSERT INTO T_SESION_CURSO(ID_SESIONCURSO,dia,horafinal,horainicial,ID_CURSO) VALUES ('10', 'LUN', '6:00:00', '8:00:00', '2');
+
+INSERT INTO T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('1', 1, 1, 'BUENO', '2016-01-30 00:00:00', '1');
+INSERT INTO T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('2', 1, 1, 'MALO', '2014-08-15 00:00:00', '2');
+INSERT INTO T_USUARIO (ID_USUARIO,APELLIDO,NOMBRE,PASS,USUARIO) VALUES(2,'CASTRO','KEVIN','81dc9bdb52d04dc20036dbd8313ed055','CASTRO');
+INSERT INTO T_USUARIO (ID_USUARIO,APELLIDO,NOMBRE,PASS,USUARIO) VALUES(3,'MARTINEZ','JOSE','81dc9bdb52d04dc20036dbd8313ed055','MARTINEZ');
+INSERT INTO T_USUARIO (ID_USUARIO,APELLIDO,NOMBRE,PASS,USUARIO) VALUES(4,'MATALLANA','ALEJANDRO','81dc9bdb52d04dc20036dbd8313ed055','ALEJANDRO');
+INSERT INTO T_DOCENTE (ID_USUARIO, ID_PROGRAMA) VALUES ('4', '1');
+INSERT INTO T_DOCENTE (ID_USUARIO, ID_PROGRAMA) VALUES ('2', '1');
+INSERT INTO T_CURSO (ID_CURSO, GRUPO, asignatura, docente, semestre_anho, semestre_periodo) VALUES ('5', 'C', '1', '4', '2016', '2');
