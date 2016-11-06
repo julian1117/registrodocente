@@ -1,6 +1,7 @@
 app.controller("loginController", function($scope, $http, $window,
 		$sessionStorage) {
 	
+	
 	/**
 	 * user del usuario
 	 */
@@ -39,4 +40,5 @@ app.controller("loginController", function($scope, $http, $window,
 			alert('error::' + data.mensaje);
 		});
 	};
+		
 });

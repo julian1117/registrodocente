@@ -10,7 +10,7 @@
 		</query>
 	</named-query>
 
-	<named-query name="SesionCurso.TiempoSemestre">
+	   <named-query name="SesionCurso.TiempoSemestre">
 		<query>
 			select sum(s.horaFinal-s.horaInicial)/10000 from SesionCurso s
 			INNER JOIN
@@ -23,7 +23,7 @@
 			s.curso.semestre.anho=?3
 			and s.curso.semestre.periodo=?4
 		</query>
-	</named-query>
+	</named-query> 
 
 	<named-query name="SesionCurso.TiempoMes">
 		<query>
@@ -75,14 +75,6 @@
 			SELECT se FROM SesionCurso se WHERE se.curso.codigo=?1
 		</query>
 	</named-query>
-
-
-
-
-
-
-
-
 
 	<named-query name="Programa.listarTodos">
 		<query>
@@ -164,7 +156,7 @@
 		<query>
 			SELECT r FROM Registro r WHERE r.sesion.curso.docente.id=?1 and
 			r.sesion.curso.asignatura.id=?2
-			and r.aprobadoCoord = 0 and r.aprobadoRH = 0
+			and r.aprobadoCoord = 0 or r.aprobadoRH = 0
 		</query>
 	</named-query>
 	<named-query name="Semestre.listar">
@@ -184,5 +176,12 @@
 			SELECT d FROM DiaNoLaborable d
 		</query>
 	</named-query>
+
+	<named-query name="Registro.listarRegistroDocente">
+		<query>
+			SELECT r FROM Registro r WHERE r.sesion.curso.docente.usuario.id=?1
+		</query>
+	</named-query>
+
 
 </entity-mappings>

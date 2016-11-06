@@ -1,21 +1,38 @@
 /**
  * Controlador para las funciones de la vista AsignarAcceso
  */
-app.controller("asignarAccesoController", function($scope,$http,httpservice,$window,$sessionStorage) {
+app.controller("asignarAccesoController", function($scope,$http,httpservice,$window,$sessionStorage,$location) {
+	 var res = filtrod($window,$location);
+		if (res == true) {
+	$scope.prueba='';
+	$scope.accesosRol='';
 	$scope.listarRoles = function () {
-		var combo = document.getElementById("rolSelect");
 		httpservice.get('gestionRol/listarRoles',null,success = function(data, status, headers,config) {
 			if(data.obj != null) {
 				$scope.roles = data.obj;
-				alert(combo);
+				listarAccesos();
 			}
 		},null)
 	}
-	var prueba = function () {
+	function listarAccesos() {
 		httpservice.get('gestionRol/listarAccesos',null,success = function(data, status, headers,config) {
 			if(data.obj != null) {
 				$scope.accesos = data.obj;
 			}
 		},null)
 	}
+	$scope.agregar = function () {
+		httpservice.get('gestionRol/listarAccesos',null,success = function(data, status, headers,config) {
+			if(data.obj != null) {
+				$scope.accesosRol = data.obj;
+			}
+		},null)
+	}
+	$scope.eliminar = function () {
+		
+	}
+	$scope.comboSelect = function () {
+		
+	}
+		}
 });

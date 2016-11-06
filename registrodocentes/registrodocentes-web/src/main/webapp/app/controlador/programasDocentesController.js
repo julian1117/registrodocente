@@ -1,6 +1,8 @@
 app.controller(
 				"programasDocentesController",
-				function($scope, httpservice,$sessionStorage,$window) {
+				function($scope, httpservice,$sessionStorage,$window,$location) {
+					 var res = filtrod($window,$location);
+						if (res == true) {
 
 					$scope.programas = [];
 					$scope.docentes = [];
@@ -45,11 +47,11 @@ app.controller(
 					 */
 					$scope.guardarsesionstorage=function(cod){
 						console.log("entrando........");
-						$sessionStorage.cod=cod;
-						console.log($sessionStorage.cod);
+						$sessionStorage.docenteid=cod;
+						console.log($sessionStorage.docenteid);
 						$window.location.href = "#/asignaturas";
 					}
 					
-					
+						}
 					
 				});

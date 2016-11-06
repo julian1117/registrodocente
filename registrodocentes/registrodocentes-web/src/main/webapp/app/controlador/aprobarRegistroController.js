@@ -4,11 +4,16 @@
 app
 		.controller(
 				"aprobarRegistroController",
-				function($scope, $http, httpservice, $sessionStorage) {
+				function($scope, $http, httpservice, $sessionStorage,$window,$location) {
+					 var res = filtrod($window,$location);
+						if (res == true) {
 
 					$scope.registrosDA = [];
-					$sessionStorage.doc = 1; // recibo id docente de la ventana 7 por SS 
-					$sessionStorage.asig = 1; // recibo id asignatura de la ventana 7 por SS
+					// $sessionStorage.doc = 1; // recibo id docente de la ventana 7 por SS 
+					// $sessionStorage.asig = 1; // recibo id asignatura de la ventana 7 por SS
+					$sessionStorage.doc = $sessionStorage.codeDoc;
+					$sessionStorage.asig = $sessionStorage.codeAsig;
+					
 					$sessionStorage.registrosAprobados = [];
 
 					/**
@@ -99,4 +104,5 @@ app
 						}
 						window.location.reload();
 					}
+						}
 				});
