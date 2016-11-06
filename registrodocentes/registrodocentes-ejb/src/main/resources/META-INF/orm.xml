@@ -182,6 +182,11 @@
 			SELECT r FROM Registro r WHERE r.sesion.curso.docente.usuario.id=?1
 		</query>
 	</named-query>
-
+	
+	<named-query name="AccesoRol.ListarServiciosUsuario">
+		<query>
+			SELECT a.acceso FROM AccesoRol a WHERE a.rol = (SELECT u.rol FROM UsuarioRol u WHERE u.usuario.id=?1)
+		</query>
+	</named-query>
 
 </entity-mappings>

@@ -13,16 +13,16 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.bo.AccesoEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.registrodocentes.rest.servicios.LoginRest;
 
-//@Secured//indicar al filtro que se interceptara lo anotado con esto
-//@Provider
+@Secured//indicar al filtro que se interceptara lo anotado con esto
+@Provider
 public class FiltroSeguridadRest implements ContainerRequestFilter {
-//	@EJB
-//	AccesoEJB acc;
+	@EJB
+	AccesoEJB acc;
 
 	@Override
 	public void filter(ContainerRequestContext ctxReq) throws IOException {
 		String token=ctxReq.getHeaderString("Authorization");
-		
+//		System.out.println(token+"hh");
 //		List<String> meto = ctxReq.getUriInfo().getMatchedURIs();
 //		String metod = meto.get(0);
 		//TODO: revisar el usuario del token y el permiso de acceso al servicio
@@ -31,9 +31,9 @@ public class FiltroSeguridadRest implements ContainerRequestFilter {
 			Response res=Response.status(401).entity(dto).build();
 			ctxReq.abortWith(res);
 		}
-//		String usere =(String)LoginRest.tokens.get(token);
+//	    String usere =(String)LoginRest.tokens.get(token);
 //		if(meto!=null){
-//			
+//		
 //		}
 		
 	}
