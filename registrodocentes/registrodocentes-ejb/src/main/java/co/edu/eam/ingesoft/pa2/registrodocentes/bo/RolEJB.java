@@ -1,5 +1,6 @@
 package co.edu.eam.ingesoft.pa2.registrodocentes.bo;
 
+import java.util.List;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +11,7 @@ import javax.persistence.PersistenceContext;
 
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Rol;
+import co.edu.eam.ingesoft.pa2.registrodocentes.util.ConstantesNamedQueries;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.DAOGenerico;
 import co.edu.eam.ingesoft.pa2.registrodocentes.util.EJBGenerico;
 
@@ -60,5 +62,16 @@ public class RolEJB extends EJBGenerico<Acceso> {
 	 */
 	public ArrayList<Rol> listarRoles() {
 		return (ArrayList<Rol>) dao.listarTodos(Rol.class);
+	}
+	
+	/**
+	 * Metodo que lista los accesos de un Rol
+	 * @param role, el Rol del cual se listaran los accesos
+	 * @return la lista de los accesos del Rol
+	 */
+	public List<Acceso> listarAccesosPorRol(Rol rol) {
+		List<Acceso> accesos = new ArrayList<>();
+		accesos = dao.ejecutarNamedQuery(ConstantesNamedQueries.BUSCAR_ACCESO_ROL, rol.getId());
+		return accesos;
 	}
 }

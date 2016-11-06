@@ -74,4 +74,15 @@ public class RolRest {
 		}
 		return new RespuestaDTO(resp);
 	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/listarAccesosPorRol")
+	public RespuestaDTO listarAccesosPorRol() {
+		ArrayList<Rol> resp = rolEJB.listarRoles();
+		if(resp.isEmpty()) {
+			return new RespuestaDTO(null, "No hay roles", "-14");
+		}
+		return new RespuestaDTO(resp);
+	}
 }
