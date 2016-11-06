@@ -1,7 +1,7 @@
 <div class="contmayor" ng-controller="asignarAccesoController" data-ng-init="listarRoles()">
 	<div class="containerr">
 		<select ng-model="rolSelect">
-			<option ng-repeat="rol in roles" value="{{rol.id}}" ng-click="comboSelect({{rol.id}})">{{rol.descripcion}}</option>
+			<option ng-repeat="rol in roles" ng-click="comboSelect()">{{rol.descripcion}}</option>
 		</select>
 		<h2>Lista de Accesos</h2>
 		<p>Selecciona que Accesos tendra el Rol</p>

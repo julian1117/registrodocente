@@ -4,7 +4,9 @@
  */
 
 app.controller("asignaturaController", function($scope, $http, httpservice,
-		$window, $sessionStorage) {
+		$window, $sessionStorage,$location) {
+	 var res = filtrod($window,$location);
+		if (res == true) {
 	/**
 	 * Codigo docente
 	 */
@@ -93,5 +95,5 @@ app.controller("asignaturaController", function($scope, $http, httpservice,
 		$sessionStorage.codeAsig = asignatura.id;
 		window.location.href = '../app/menu.html#/aprobar-registro';
 	}
-
+		}
 });

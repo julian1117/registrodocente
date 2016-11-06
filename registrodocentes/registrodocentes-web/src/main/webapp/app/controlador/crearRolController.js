@@ -1,7 +1,9 @@
 /**
  * Controlador para las funciones de la vista CrearRol
  */
-app.controller("crearRolController", function($scope,$http,httpservice,$window,$sessionStorage) {
+app.controller("crearRolController", function($scope,$http,httpservice,$window,$sessionStorage,$location) {
+	 var res = filtrod($window,$location);
+		if (res == true) {
 	$scope.nombreRol = '';
 	$scope.botonCrear = function() {
 		var json = {
@@ -24,4 +26,5 @@ app.controller("crearRolController", function($scope,$http,httpservice,$window,$
 	function limpiar() {
 		$scope.nombreRol = '';
 	}
+		}
 });

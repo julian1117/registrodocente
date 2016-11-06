@@ -26,7 +26,7 @@ app.config(function($routeProvider) {
 		controller : "programasDocentesController",
 		templateUrl : "vistas/programasDocentes.html"
 	}).when("/asignaturas", {
-		controller : "inventariocontroller",
+		controller : "asignaturaController",
 		templateUrl : "vistas/asignaturas.html"
 	}).when("/Semestre", {
 		controller : "semestreController",

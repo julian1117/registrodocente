@@ -29,6 +29,17 @@ INSERT INTO T_ACCESO_ROL (ID_ACCESO,ID_ROL) VALUES (9,1);
 INSERT INTO T_ACCESO_ROL (ID_ACCESO,ID_ROL) VALUES (10,1);
 INSERT INTO T_ACCESO_ROL (ID_ACCESO,ID_ROL) VALUES (11,1);
 
+INSERT INTO T_CURSO VALUES ('1','A','1',123,2016,2);
+INSERT INTO T_DIANOLABORABLE VALUES (1,'Festivo','2016-11-14',2016,2);
+INSERT INTO T_DOCENTE VALUES (123,'1');
+INSERT INTO T_ASIGNATURA VALUES ('1','ProgramaciÃ³n','1');
+INSERT INTO T_PROGRAMA VALUES ('1','Software','1');
+INSERT INTO T_REGISTRO VALUES (1,1,1,'nada','2016-10-24 00:00:00',1),(2,0,0,'NADA','2016-10-26 00:00:00',2),(3,0,1,'nada','2016-10-27 00:00:00',3),(4,0,0,'nada','2016-10-28 00:00:00',4),(5,0,0,'NADA','2016-10-31 00:00:00',1),(6,1,0,'NADA','2016-11-02 00:00:00',2),(7,0,1,'NADA','2016-11-03 00:00:00',3),(8,0,0,'NADA','2016-11-04 00:00:00',4);
+INSERT INTO T_SEMESTRE VALUES (2016,2,'2016-06-01');
+INSERT INTO T_SESION_CURSO VALUES (1,'LUN','09:00:00','07:00:00','1'),(2,'MIER','11:00:00','09:00:00','1'),(3,'JUEV','10:00:00','08:00:00','1'),(4,'VIER','11:00:00','09:00:00','1');
+INSERT INTO T_USUARIO VALUES (123,'Tafur','Brian','81dc9bdb52d04dc20036dbd8313ed055','tafur');
+
+
 INSERT INTO T_PROGRAMA (ID_PROGRAMA,NOMBRE,ID_FACULTAD) VALUES ('1','Ing Software','1');
 INSERT INTO T_PROGRAMA (ID_PROGRAMA,NOMBRE,ID_FACULTAD) VALUES ('2', 'Ing Mecatronica', '1');
 
@@ -50,11 +61,10 @@ INSERT INTO t_dianolaborable (ID_DIANOLABORABLE, causa, fecha, semestre_anho, se
 
 INSERT INTO T_CURSO (ID_CURSO, GRUPO, asignatura, docente, semestre_anho, semestre_periodo) VALUES ('2', 'B', '1', '1', '2015', '1');
 INSERT INTO T_CURSO (ID_CURSO, GRUPO, asignatura, docente, semestre_anho, semestre_periodo) VALUES ('1', 'A', '1', '1', '2015', '1');
--- Sección para Registros
+-- Secciï¿½n para Registros
 
 INSERT INTO registrodocente.T_SESION_CURSO(ID_SESIONCURSO, dia, horafinal, horainicial, ID_CURSO) VALUES ('1', 'LUN', '2:00:00', '12:00:00', '2');
 INSERT INTO registrodocente.T_SESION_CURSO(ID_SESIONCURSO, dia, horafinal, horainicial, ID_CURSO) VALUES ('2', 'JUEV', '4:00:00', '2:00:00', '2');
 
 INSERT INTO registrodocente.T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('1', 0, 0, 'null', '2016-01-01', '1');
 INSERT INTO registrodocente.T_REGISTRO (ID_REGISTRO, aprobcoord, aprobrh, comentario, fecha, sesion) VALUES ('2', 0, 0, 'null', '2016-05-06', '2');
-
