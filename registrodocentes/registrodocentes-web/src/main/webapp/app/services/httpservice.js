@@ -11,7 +11,7 @@ var httpservice = app.service('httpservice', [ '$http', '$window',
 						method : "GET",
 						params : datos,
 						headers : {
-							"Authorization" : $sessionStorage.usuario.token
+							//"Authorization" : $sessionStorage.usuario.token
 						}
 					}).error(function(data, status, headers, config) {
 						if (status == 401) {
@@ -52,8 +52,8 @@ var httpservice = app.service('httpservice', [ '$http', '$window',
 						method : "POST",
 						data : datos,
 						headers : {
-							"Content-Type" : content,
-							"Authorization" : $sessionStorage.usuario.token
+							"Content-Type" : content
+							//"Authorization" : $sessionStorage.usuario.token
 						}
 					}).error(function(data, status, headers, config) {
 						if (status == 401) {

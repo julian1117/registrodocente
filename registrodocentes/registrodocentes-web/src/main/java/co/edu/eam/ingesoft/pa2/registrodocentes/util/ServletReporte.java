@@ -3,6 +3,8 @@ package co.edu.eam.ingesoft.pa2.registrodocentes.util;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -22,14 +24,19 @@ public class ServletReporte extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		
-		String id=req.getParameter("id");
+		int docente=Integer.parseInt(req.getParameter("docenteid"));
+		String asig=req.getParameter("asignatura");
 		
 		//-----EJEMPLO-------------------------------------
 		try(Connection con=ds.getConnection();
 				) {
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("asignatura", asig);
+			params.put("ID_DOCENTE",docente);
 			ServletOutputStream salida=resp.getOutputStream();
 			GeneradorReporte generador=new GeneradorReporte(con);
-			byte[] byteStream=generador.generarReporte(null, "/reporte/test.jrxml", "test", salida);
+			byte[] byteStream=generador.generarReporte(params, "/reporte/reporteRegistros.jrxml", 
+						"Registros del mes", salida);
 			resp.setHeader("Content-Disposition","filename=myReport.pdf");
 			resp.setContentType("application/pdf");
 			resp.setContentLength(byteStream.length);
