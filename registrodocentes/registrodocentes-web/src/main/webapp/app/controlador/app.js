@@ -26,7 +26,7 @@ app.config(function($routeProvider) {
 		controller : "programasDocentesController",
 		templateUrl : "vistas/programasDocentes.html"
 	}).when("/asignaturas", {
-		controller : "inventariocontroller",
+		controller : "asignaturaController",
 		templateUrl : "vistas/asignaturas.html"
 	}).when("/Semestre", {
 		controller : "semestreController",
@@ -44,9 +44,34 @@ app.config(function($routeProvider) {
 		templateUrl : "vistas/aprobar-registro.html"
 	}).when("/crearusuario", {
 		controller : "usuarioscontroller",
-		controllerAs : "usctrl",
 		templateUrl : "vistas/crearusuario.html"
-	});
+	})
 });
+
+/**Filtro de seguridad de paginas
+ * Jhohanns villa
+ */
+var filtrod = function($window,$location) {
+	
+	var objetoJson = $window.sessionStorage.getItem('ngStorage-objt');
+	var objetoMane = JSON.parse(objetoJson);
+
+	
+
+
+		var exito = false;
+		for (var i = 0, t = objetoMane.accesos.length; i < t; i++) {
+			var acceso = objetoMane.accesos[i].url;
+			if (("#" + $location.path()) == acceso) {
+				exito = true;
+			}
+		}
+		if (!exito) {
+			return $location.path('/');
+		}
+		return true;
+	
+	
+};
 
 

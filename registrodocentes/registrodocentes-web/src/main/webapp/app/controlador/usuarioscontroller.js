@@ -1,4 +1,4 @@
-app.controller("usuarioscontroller", function($scope, $httpservice) {
+app.controller("usuarioscontroller", function($scope, httpservice) {
 
 	$scope.roles = [];
 	$scope.nombre = '';
@@ -29,7 +29,7 @@ app.controller("usuarioscontroller", function($scope, $httpservice) {
 	$scope.cargarUsuarios = function() {
 		$httpservice.get("/usuario/listar", null, function(data, status,
 				headers, config) {
-			$scope.usuarios=data.obj;
+			$scope.usuarios = data.obj;
 		}, null);
 	}
 
@@ -47,9 +47,9 @@ app.controller("usuarioscontroller", function($scope, $httpservice) {
 	 * funcion que consume el metodo rest para listar los roles
 	 */
 	$scope.listarroles = function() {
-		$httpservice.get("/gestionRol/listarRoles", null, function(data, status,
-				headers, config) {
-			$scope.roles=data.obj;
+		$httpservice.get("/gestionRol/listarRoles", null, function(data,
+				status, headers, config) {
+			$scope.roles = data.obj;
 		}, null);
 	}
 

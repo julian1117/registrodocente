@@ -22,7 +22,6 @@
 <script type="text/javascript" src="controlador/app.js"></script>
 <script type="text/javascript" src="services/httpservice.js"></script>
 <script type="text/javascript" src="controlador/programasDocentesController.js"></script>
-<script type="text/javascript" src="controlador/usuarioscontroller.js"></script>
 
 <script type="text/javascript" src="controlador/menuController.js"></script>
 <script type="text/javascript" src="controlador/semestresAnterioresRegController.js"></script>
@@ -31,6 +30,9 @@
 <script type="text/javascript" src="controlador/semestreController.js"></script>
 <script type="text/javascript" src="controlador/aprobarRegistroController.js"></script>
 <script type="text/javascript" src="controlador/registrosController.js"></script>
+<script type="text/javascript" src="controlador/asignaturaController.js"></script>
+<script type="text/javascript" src="controlador/usuarioscontroller.js"></script>
+
 
 </head>
 <body ng-app="miApp"
@@ -38,7 +40,7 @@
 	<div class="container" ng-controller="menuController">
 		<form name="frmTest" id="frmTest" class="form-horizontal" role="form">
 			<ul class="nav nav-pills"> 			
-				<!-- <li ng-repeat="a in accesos"><a ng-href="{{a.url}}">{{a.nombre}}</a></li> -->
+				<li ng-repeat="a in accesos"><a ng-href="{{a.url}}">{{a.nombre}}</a></li>
 				<li class="active"><a href="../app/login.html" type="submit" ng-click="logout()">Cerrar</a></li>
 			</ul>
 			<div ng-view></div>  

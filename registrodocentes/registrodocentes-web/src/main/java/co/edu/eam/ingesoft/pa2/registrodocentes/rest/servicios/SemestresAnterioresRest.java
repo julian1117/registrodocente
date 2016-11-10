@@ -15,10 +15,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import co.edu.eam.ingesoft.pa2.registrodocentes.bo.RegistroCursoEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.data.CursosEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.data.UsuarioEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Curso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Docente;
+import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Registro;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Usuario;
 import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 
@@ -29,11 +31,17 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.dto.RespuestaDTO;
 @Path("/semestresAnteriores")
 public class SemestresAnterioresRest {
 
+	/**
+	 * Inyeccion de los EJB
+	 */
 	@EJB
 	private UsuarioEJB usuarioEJB;
 
 	@EJB
 	private CursosEJB cursoEJB;
+	
+	@EJB
+	private RegistroCursoEJB regCursoEJB;
 
 	/**
 	 * Servicio rest que trae una lista de usuarios
@@ -66,7 +74,6 @@ public class SemestresAnterioresRest {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public RespuestaDTO listaCursos(@FormParam("anio") int anio, @FormParam("periodo") int periodo,
 			@FormParam("docente") int docente) {
-		//System.out.println(anio+"\n"+periodo+"\n"+docente);
 		List<Curso> listaCur = cursoEJB.listaCursos(anio, periodo, docente);
 		if (listaCur.isEmpty()) {
 			return new RespuestaDTO(listaCur, "No hay cursos con estos datos", "5");
@@ -76,4 +83,23 @@ public class SemestresAnterioresRest {
 
 	}
 
+	/**
+	 * Servicio Rest para listar los registros de un docente
+	 * @param docente, el docente al que se le van a listar los registros
+	 * @return, la lista de registros si esta llena 
+	 */
+	@POST
+	@Path("/listarRegistros")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public RespuestaDTO listaCursos(@FormParam("docente") int docente) {
+		List<Registro> listaReg = regCursoEJB.listarRegistro(docente);
+		if (listaReg.isEmpty()) {
+			return new RespuestaDTO(listaReg, "No hay registros con estos datos", "5");
+		} else {
+			return new RespuestaDTO(listaReg);
+		}
+
+	}
+	
 }

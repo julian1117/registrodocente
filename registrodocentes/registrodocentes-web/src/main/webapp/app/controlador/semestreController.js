@@ -1,4 +1,6 @@
-app.controller("semestreController", function($scope, $http) {
+app.controller("semestreController", function($scope, $http,$window,$location) {
+	 var res = filtrod($window,$location);
+		if (res == true) {
 
 	 $scope.causa = '';
 	$scope.fechaNoLaboral = new Date();
@@ -203,5 +205,6 @@ app.controller("semestreController", function($scope, $http) {
 		$scope.cargarSemestres();
 	}
 	$scope.iniciar();
+		}
 
 });

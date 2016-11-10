@@ -1,7 +1,9 @@
 /**
  * Controlador para las funciones de la vista CrearRol
  */
-app.controller("crearRolController", function($scope,$http,httpservice,$window,$sessionStorage) {
+app.controller("crearRolController", function($scope,$http,httpservice,$window,$sessionStorage,$location) {
+	 var res = filtrod($window,$location);
+		if (res == true) {
 	$scope.nombreRol = '';
 	$scope.botonCrear = function() {
 		var json = {
@@ -14,7 +16,6 @@ app.controller("crearRolController", function($scope,$http,httpservice,$window,$
 						config) {
 					if(data.obj) {
 						alert(data.mensaje);
-//						$window.location.href = '#/AsignarAcceso';
 						limpiar();
 						$sessionStorage.rol = $scope.nombreRol;
 					} else {
@@ -25,4 +26,5 @@ app.controller("crearRolController", function($scope,$http,httpservice,$window,$
 	function limpiar() {
 		$scope.nombreRol = '';
 	}
+		}
 });

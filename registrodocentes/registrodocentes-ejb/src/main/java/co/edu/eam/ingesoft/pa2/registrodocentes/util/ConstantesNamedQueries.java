@@ -53,6 +53,7 @@ public class ConstantesNamedQueries {
 	public static final String BUSCAR_SEMESTRE = "Semestre.buscarSemestres";
 
 	public static final String LISTAR_DIAS_NO_LABORALES = "DiaNoLaborable.listarDias";
+	public static final String LISTAR_REGISTROS_DOCENTE = "Registro.listarRegistroDocente";
 
 	
 	public static final String CONSULTAR_USUARIO_POR_USER="Usuario.buscarPorUsuario";
