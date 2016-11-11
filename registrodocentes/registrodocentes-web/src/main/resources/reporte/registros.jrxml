@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="registros" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="26120adf-edb8-48a8-9bd6-4d167e855427">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="registros" pageWidth="555" pageHeight="802" whenNoDataType="BlankPage" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="26120adf-edb8-48a8-9bd6-4d167e855427">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -10,78 +10,160 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT R.fecha,R.comentario,C.ID_CURSO,A.Nombre AS A_NOM FROM (((T_REGISTRO R JOIN T_SESION_CURSO SC ON R.sesion = SC.ID_SESIONCURSO) JOIN T_CURSO C ON SC.ID_CURSO = C.ID_CURSO) JOIN T_ASIGNATURA A ON C.asignatura = A.ID_ASIGNATURA) JOIN T_DOCENTE D ON C.docente = D.ID_USUARIO WHERE R.aprobcoord = TRUE AND R.aprobrh = TRUE AND D.ID_USUARIO = $P{DOCENTE} AND A.ID_ASIGNATURA = $P{asig_id} order by C.C.ID_CURSO,R.fecha]]>
+		<![CDATA[SELECT DATE_FORMAT(R.fecha,'%Y-%M-%d') as fecha,R.comentario,C.ID_CURSO,A.Nombre AS A_NOM,sc.dia,sc.horainicial,sc.horafinal FROM (((T_REGISTRO R JOIN T_SESION_CURSO SC ON R.sesion = SC.ID_SESIONCURSO) JOIN T_CURSO C ON SC.ID_CURSO = C.ID_CURSO) JOIN T_ASIGNATURA A ON C.asignatura = A.ID_ASIGNATURA) JOIN T_DOCENTE D ON C.docente = D.ID_USUARIO WHERE R.aprobcoord = TRUE AND R.aprobrh = TRUE AND D.ID_USUARIO = $P{DOCENTE} AND A.ID_ASIGNATURA = $P{asig_id} order by C.ID_CURSO,R.fecha desc]]>
 	</queryString>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="comentario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ID_CURSO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="A_NOM" class="java.lang.String"/>
+	<field name="dia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horainicial" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horafinal" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement x="26" y="30" width="495" height="29" forecolor="#FFFFFF" backcolor="#0033FF" uuid="3afbeb68-3cf4-4390-8f3f-e6c20d3c2d45"/>
-				<textElement textAlignment="Center">
-					<font size="14"/>
-				</textElement>
-				<text><![CDATA[DATOS DEL REGISTRO]]></text>
-			</staticText>
-		</band>
+		<band height="2" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="50" splitType="Stretch">
+		<band height="112" splitType="Stretch">
 			<staticText>
-				<reportElement x="26" y="12" width="100" height="20" forecolor="#0033FF" uuid="de723ff4-6819-45fe-97c4-555ccb324f91"/>
+				<reportElement x="26" y="72" width="100" height="20" forecolor="#0033FF" uuid="de723ff4-6819-45fe-97c4-555ccb324f91"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Id del curso:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="false">
-				<reportElement x="140" y="2" width="100" height="30" uuid="98793433-556d-4962-948c-c4ad429e1110"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="140" y="62" width="100" height="30" uuid="98793433-556d-4962-948c-c4ad429e1110"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{ID_CURSO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="282" y="12" width="100" height="20" forecolor="#0033FF" uuid="84a112e7-8a46-41d5-baec-cd88155ee10e"/>
+				<reportElement x="282" y="72" width="100" height="20" forecolor="#0033FF" uuid="84a112e7-8a46-41d5-baec-cd88155ee10e"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Asignatura:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="397" y="2" width="100" height="30" uuid="a9e10a95-422b-4fb5-a6e9-68aa0a42151d"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="397" y="62" width="100" height="30" uuid="a9e10a95-422b-4fb5-a6e9-68aa0a42151d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{A_NOM}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="26" y="15" width="495" height="29" forecolor="#FFFFFF" backcolor="#0033FF" uuid="6f94600f-ec54-40b8-8134-f0b898ee1c4a"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL REGISTRO]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="231" splitType="Stretch">
 			<staticText>
-				<reportElement x="26" y="24" width="114" height="20" forecolor="#0033FF" uuid="4ff04689-014b-4432-b369-f688e3e4b380"/>
+				<reportElement x="26" y="68" width="114" height="20" forecolor="#0033FF" uuid="4ff04689-014b-4432-b369-f688e3e4b380"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Fecha del registro:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="172" y="14" width="100" height="30" uuid="42165cb0-7b99-499e-8749-b20a2a3781e2"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="198" y="58" width="216" height="30" uuid="42165cb0-7b99-499e-8749-b20a2a3781e2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="26" y="77" width="146" height="20" forecolor="#0033FF" uuid="6c17b3ae-be64-4ed8-9c9d-a1e8df86dea7"/>
+				<reportElement x="26" y="192" width="146" height="20" forecolor="#0033FF" uuid="6c17b3ae-be64-4ed8-9c9d-a1e8df86dea7"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Comentarios del registro:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="198" y="67" width="100" height="30" uuid="b290c91c-cf28-4444-a050-e505a2ac6d29"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="198" y="182" width="284" height="30" uuid="b290c91c-cf28-4444-a050-e505a2ac6d29"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{comentario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="22" width="67" height="21" forecolor="#0000CC" uuid="8062962f-a80d-4acd-8944-4c1f65f32ed7"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Registro ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="96" y="23" width="144" height="20" forecolor="#3300CC" uuid="015fd804-2865-43b7-82b1-1516033f9d20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT} ]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="107" width="114" height="20" forecolor="#0033FF" uuid="5bf684ed-9cfe-40e6-8529-ba7e7f8a61e9"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dia:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="198" y="107" width="184" height="20" uuid="2c6b280d-4a03-454e-950b-792ad5ba1741"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="147" width="114" height="20" forecolor="#0033FF" uuid="fbe10db3-ea3d-432b-b5d8-215a9c551259"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Hora inicio de clase:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="198" y="147" width="100" height="20" uuid="d87c7203-0bb5-4315-bf8a-e4081f3a658c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horainicial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="328" y="147" width="114" height="20" forecolor="#0033FF" uuid="6721237d-9ca3-4208-84c7-02740af0972e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Hora fin de clase:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="147" width="100" height="20" uuid="243ecc3d-e385-4569-9805-2f313435327a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horafinal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
