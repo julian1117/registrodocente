@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
-<!-- 2016-11-11T05:44:14 -->
+<!-- 2016-11-11T06:35:12 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="registros" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="26120adf-edb8-48a8-9bd6-4d167e855427">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -12,7 +12,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT DATE_FORMAT(R.fecha,'%Y-%M-%d') as fecha,R.comentario,C.ID_CURSO,A.Nombre AS A_NOM,sc.dia,sc.horainicial,sc.horafinal FROM (((T_REGISTRO R JOIN T_SESION_CURSO SC ON R.sesion = SC.ID_SESIONCURSO) JOIN T_CURSO C ON SC.ID_CURSO = C.ID_CURSO) JOIN T_ASIGNATURA A ON C.asignatura = A.ID_ASIGNATURA) JOIN T_DOCENTE D ON C.docente = D.ID_USUARIO WHERE R.aprobcoord = TRUE AND R.aprobrh = TRUE AND D.ID_USUARIO = $P{DOCENTE} AND A.ID_ASIGNATURA = $P{asig_id} order by C.ID_CURSO,R.fecha desc]]>
+		<![CDATA[SELECT DATE_FORMAT(R.fecha,'%Y-%M-%d') as fecha,R.comentario,C.ID_CURSO,A.Nombre AS A_NOM,SC.dia,SC.horainicial,SC.horafinal FROM (((T_REGISTRO R JOIN T_SESION_CURSO SC ON R.sesion = SC.ID_SESIONCURSO) JOIN T_CURSO C ON SC.ID_CURSO = C.ID_CURSO) JOIN T_ASIGNATURA A ON C.asignatura = A.ID_ASIGNATURA) JOIN T_DOCENTE D ON C.docente = D.ID_USUARIO WHERE R.aprobcoord = TRUE AND R.aprobrh = TRUE AND D.ID_USUARIO = $P{DOCENTE} AND A.ID_ASIGNATURA = $P{asig_id} order by C.ID_CURSO,R.fecha desc]]>
 	</queryString>
 	<field name="fecha" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
