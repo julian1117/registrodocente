@@ -19,7 +19,7 @@ public class ConstantesNamedQueries {
 	public static final String REGISTROS_APROBADOS = "Registro.listarAprobados";
 	public static final String LISTAR_REGISTROS_SESION = "Registro.listarTodos";
 	public static final String TIEMPO_MES = "SesionCurso.TiempoMes";
-
+	public static final String LISTAR_ACCESOS_SERVICIOS_POR_USUARIO = "AccesoRol.ListarServiciosUsuario";
 	public static final String LISTAR_SESIONES_CURSO = "SesionCurso.listarSesionesCurso";
 
 	public static final String LISTAR_PROGRAMAS = "Programa.listarTodos";

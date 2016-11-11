@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="registros" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="26120adf-edb8-48a8-9bd6-4d167e855427">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DOCENTE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="asig_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT R.fecha,R.comentario,C.ID_CURSO,A.Nombre AS A_NOM FROM (((T_REGISTRO R JOIN T_SESION_CURSO SC ON R.sesion = SC.ID_SESIONCURSO) JOIN T_CURSO C ON SC.ID_CURSO = C.ID_CURSO) JOIN T_ASIGNATURA A ON C.asignatura = A.ID_ASIGNATURA) JOIN T_DOCENTE D ON C.docente = D.ID_USUARIO WHERE R.aprobcoord = TRUE AND R.aprobrh = TRUE AND D.ID_USUARIO = $P{DOCENTE} AND A.ID_ASIGNATURA = $P{asig_id} order by C.C.ID_CURSO,R.fecha]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="30" width="495" height="29" forecolor="#FFFFFF" backcolor="#0033FF" uuid="3afbeb68-3cf4-4390-8f3f-e6c20d3c2d45"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL REGISTRO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="12" width="100" height="20" forecolor="#0033FF" uuid="de723ff4-6819-45fe-97c4-555ccb324f91"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Id del curso:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement x="140" y="2" width="100" height="30" uuid="98793433-556d-4962-948c-c4ad429e1110"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ID_CURSO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="282" y="12" width="100" height="20" forecolor="#0033FF" uuid="84a112e7-8a46-41d5-baec-cd88155ee10e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Asignatura:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="397" y="2" width="100" height="30" uuid="a9e10a95-422b-4fb5-a6e9-68aa0a42151d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{A_NOM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="24" width="114" height="20" forecolor="#0033FF" uuid="4ff04689-014b-4432-b369-f688e3e4b380"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha del registro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="172" y="14" width="100" height="30" uuid="42165cb0-7b99-499e-8749-b20a2a3781e2"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="77" width="146" height="20" forecolor="#0033FF" uuid="6c17b3ae-be64-4ed8-9c9d-a1e8df86dea7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Comentarios del registro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="198" y="67" width="100" height="30" uuid="b290c91c-cf28-4444-a050-e505a2ac6d29"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{comentario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

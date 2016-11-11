@@ -3,83 +3,111 @@
 
 
 	<div class="panel panel-primary">
-
-		
-		<div class="panel panel-primary" id="lateral">
-
-			<div class="panel-heading">
-				<h3 class="panel-title">Informacion de los registros de los
-					cursos</h3>
-			</div>
-			<div class="panel-body">
-
-
-
-				<label id="label-1">Año</label> <select ng-model="anio"
-					class="form-control">
-					<option>Seleccine el año</option>
-					<option>2006</option>
-					<option>2007</option>
-					<option>2008</option>
-					<option>2009</option>
-					<option>2010</option>
-					<option>2011</option>
-					<option>2012</option>
-					<option>2013</option>
-					<option>2014</option>
-					<option>2015</option>
-					<option>2016</option>
-
-
-				</select> <label id="label-2">Semestre</label> <select ng-model="periodo"
-					class="form-control">
-					<option>Seleccine el semestre del año</option>
-					<option>1</option>
-					<option>2</option>
-
-				</select> <label id="label-3">Profesor</label> <select ng-model="docente"
-					class="form-control">
-					<option ng-repeat="u in usuarios" value="{{u.id}}">{{u.id}}
-						{{u.nombre}}</option>
-				</select>
-
-
-				<button ng_click="listarCurso()" type="submit"
-					class="btn btn-primary center-block" name="action">Consultar</button>
-
-
-				<div class="panel panel-default">
-
-
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Codigo</th>
-								<th>Grupo</th>
-								<th>Semestre Periodo</th>
-								<th>Semestre Anio</th>
-								<th>Asignatura</th>
-								
-
-							</tr>
-						</thead>
-						<tbody>
-
-							<tr ng-repeat="c in cursos">
-								<td>{{c.codigo}}</td>
-								<td>{{c.grupo}}</td>
-								<td>{{c.semestre.periodo}}</td>
-								<td>{{c.semestre.anho}}</td>
-								<td>{{c.asignatura.nombre}}</td>
-							</tr>
-
-						</tbody>
-					</table>
-
-
-
-				</div>
-
-			</div>
+		<div class="panel-heading">
+			<h3 class="panel-title">Informacion de los registros de los
+				cursos</h3>
 		</div>
+		<div class="panel-body">
+
+
+
+			<label id="label-1">Año</label> <select ng-model="anio"
+				class="form-control">
+				<option>Seleccine el año</option>
+				<option>2006</option>
+				<option>2007</option>
+				<option>2008</option>
+				<option>2009</option>
+				<option>2010</option>
+				<option>2011</option>
+				<option>2012</option>
+				<option>2013</option>
+				<option>2014</option>
+				<option>2015</option>
+				<option>2016</option>
+
+
+			</select> <label id="label-2">Semestre</label> <select ng-model="periodo"
+				class="form-control">
+				<option>Seleccine el semestre del año</option>
+				<option>1</option>
+				<option>2</option>
+
+			</select> <label id="label-3">Profesor</label> <select ng-model="docente"
+				class="form-control">
+				<option ng-repeat="u in usuarios" value="{{u.id}}">{{u.id}}
+					{{u.nombre}}</option>
+			</select> <br>
+
+			<button ng_click="listarCurso()" type="submit"
+				class="btn btn-primary center-block" name="action">Consultar</button>
+		</div>
+
+
 	</div>
+
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">Lista Cursos</div>
+		<table class="table">
+			<thead>
+
+				<tr>
+					<th>Codigo</th>
+					<th>Grupo</th>
+					<th>Semestre Periodo</th>
+					<th>Semestre Anio</th>
+					<th>Asignatura</th>
+					<th>Docente Id</th>
+					<th>Ver registros</th>
+
+				</tr>
+
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="c in cursos">
+					<td>{{c.codigo}}</td>
+					<td>{{c.grupo}}</td>
+					<td>{{c.semestre.periodo}}</td>
+					<td>{{c.semestre.anho}}</td>
+					<td>{{c.asignatura.nombre}}</td>
+					<td>{{c.docente.id}}</td>
+
+					<td>
+						<button class="btn btn-primary" type="submit" name="action"
+							ng-click="listarRegistros(c.docente.id)">Ver Registros</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">Lista Registros de un curso</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Codigo</th>
+					<th>Codigo Sesion</th>
+					<th>Fecha</th>
+					<th>Comentario</th>
+					<th>Aprovacion Coordinador</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="r in registros">
+					<td>{{r.id}}</td>
+					<td>{{r.sesion.id}}</td>
+					<td>{{r.fecha}}</td>
+					<td>{{r.comentario}}</td>
+					<td>{{r.aprobadoCoord}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+</div>

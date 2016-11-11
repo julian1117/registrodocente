@@ -64,7 +64,7 @@ public class UsuarioRest {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public RespuestaDTO eliminar(Usuario usuario){
-		usuario.setId((int)System.nanoTime());
+		
 		usuarioEJB.eliminar(usuario);
 		return new RespuestaDTO("Usuario eliminado con exito");
 	}

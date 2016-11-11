@@ -5,7 +5,11 @@ app.controller("semestresAnterioresRegController", function($scope, $http,
 
 		$scope.usuarios = [];
 		$scope.cursos = [];
+		$scope.registros = [];
 
+		/**
+		 * Funcion para listar los usuarios
+		 */
 		function listarUsuarios() {
 			console.log('refrescando.......');
 			httpservice.get('semestresAnteriores/listaUsuarios', null,
@@ -22,9 +26,11 @@ app.controller("semestresAnterioresRegController", function($scope, $http,
 			listarUsuarios();
 		}());
 
+		/**
+		 * Funcion para listar los cursos de un profesor con datos espesificos
+		 */
 		$scope.listarCurso = function() {
 
-			alert($scope.anio + 'locota' + $scope.periodo + $scope.docente)
 			var parametro = $.param({
 				anio : $scope.anio,
 				periodo : $scope.periodo,
@@ -56,6 +62,19 @@ app.controller("semestresAnterioresRegController", function($scope, $http,
 			});
 
 		}
+	}
+	
+	/**
+	 * Funcion para listar los registros de los docentes
+	 */
+	$scope.listarRegistros = function(docente) {
+		console.log('refrescando.......' + docente);
+		httpservice.post('semestresAnteriores/listarRegistros', {
+			docente : docente
+		}, success = function(data, status, headers, config) {
+			console.log('success.......');
+			$scope.registros = data.obj;
+		}, null, "application/x-www-form-urlencoded");
 	}
 
 });

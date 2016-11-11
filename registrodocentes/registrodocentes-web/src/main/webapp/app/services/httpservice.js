@@ -1,17 +1,17 @@
 var httpservice = app.service('httpservice', [ '$http', '$window',
 		'$sessionStorage', function($http, $window, $sessionStorage) {
 			var urlbase = '../rest/';
+			var ttoken=$sessionStorage.objeto.token;
+			
 			return {
-
 				get : function(url, datos, succes, error) {
-
 					console.log('invocando get:' + url);
 					return $http({
 						url : urlbase + url,
 						method : "GET",
 						params : datos,
 						headers : {
-							//"Authorization" : $sessionStorage.usuario.token
+							"Authorization" : ttoken
 						}
 					}).error(function(data, status, headers, config) {
 						if (status == 401) {
@@ -33,19 +33,16 @@ var httpservice = app.service('httpservice', [ '$http', '$window',
 								succes(data, status, headers, config);
 							}
 						}
-
 					});
 				},
-				post : function(url, datos, succes, error,contenttype) {
-					
-					var content='';
-					if(contenttype=="application/x-www-form-urlencoded"){
-						datos=$.param(datos);
-						content="application/x-www-form-urlencoded";
-					}else{
-						content="application/json";
+				post : function(url, datos, succes, error, contenttype) {
+					var content = '';
+					if (contenttype == "application/x-www-form-urlencoded") {
+						datos = $.param(datos);
+						content = "application/x-www-form-urlencoded";
+					} else {
+						content = "application/json";
 					}
-					
 					console.log('invocando post:' + url);
 					return $http({
 						url : urlbase + url,
@@ -53,7 +50,7 @@ var httpservice = app.service('httpservice', [ '$http', '$window',
 						data : datos,
 						headers : {
 							"Content-Type" : content,
-							//"Authorization" : $sessionStorage.usuario.token
+							"Authorization" : ttoken
 						}
 					}).error(function(data, status, headers, config) {
 						if (status == 401) {
@@ -72,7 +69,6 @@ var httpservice = app.service('httpservice', [ '$http', '$window',
 						} else {
 							succes(data, status, headers, config);
 						}
-
 					});
 				}
 			}

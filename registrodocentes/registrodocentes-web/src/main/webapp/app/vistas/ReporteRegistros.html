@@ -1,40 +1,35 @@
-<div class="row">
+<div class="row" ng-controller="ReporteRegistroController">
 
 	<h4>Reporte Registros</h4>
 
 	<div class="containerr">
 		<div class="input-group input-group-lg">
-			<span class="input-group-addon" id="sizing-addon1">Nro
-				Documento</span> <input type="text" class="form-control"
+			<span id="documentoDoc" class="input-group-addon" id="sizing-addon1">Nro
+				Documento</span> <input id="id" name="id" ng-model="docente.id" type="text" class="form-control"
 				placeholder="Ingrese la cedula del docente"
 				aria-describedby="sizing-addon1">
 		</div>
 
 		<div class="btn-group" role="group">
-			<button type="button" class="btn btn-default" 
-			style="background-color: #009688;">Buscar Docente</button>
+			<button type="submit" ng-click="cargarAsignaturas()" 
+				class="btn btn-primary" >Buscar Docente</button>
 		</div>
 	</div>
+	
+	
 
 	<div class="containerr">
-		<!-- Single button -->
 		<div class="btn-group" style="width: 30%; background-color: #f2f2f2">
-			<button type="button" class="btn btn-default dropdown-toggle"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Seleccione un curso<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu"
-				style="width: 100%; background-color: #f2f2f2">
-				<li><a href="#">Curso 0</a></li>
-				<li><a href="#">Curso 1</a></li>
-				<li><a href="#">Curso 2</a></li>
-				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li>
-			</ul>
+			<label id="label-3">Asignatura</label> 
+			<select ng-model="asignatura"
+					class="form-control">
+					<option ng-repeat="a in listaAsignaturas" value="{{a.id}}">
+						{{a.nombre}}</option>
+				</select>
 		</div>
 	</div>
 
 	<div class="btn-group" role="group">
-		<button type="button" class="btn btn-default"
-			style="background-color: #009688;">Generar Reporte</button>
+		<button type="button" class="btn btn-primary" target="_blank" 
+			ng-click="abrirReporte()">Generar Reporte</button>
 	</div>

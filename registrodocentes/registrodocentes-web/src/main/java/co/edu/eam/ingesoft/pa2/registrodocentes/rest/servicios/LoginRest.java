@@ -22,6 +22,7 @@ import co.edu.eam.ingesoft.pa2.registrodocentes.bo.LoginEJB;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Acceso;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Rol;
 import co.edu.eam.ingesoft.pa2.registrodocentes.model.entidades.Usuario;
+import co.edu.eam.ingesoft.pa2.registrodocentes.rest.util.Secured;
 
 /**
  * 
@@ -46,7 +47,7 @@ public class LoginRest {
 	/**
 	 * Map de tokens
 	 */
-	public static Map<String, Object> tokens = new HashMap<>();
+	public static Map<String, Integer> tokens = new HashMap<>();
 
 	/**
 	 * servicio rest para verificar usuario
@@ -85,6 +86,7 @@ public class LoginRest {
 	@Path("/accesos")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
+	@Secured
 	public RespuestaDTO accesos(@FormParam(value = "usuario") String usuario) {
 		List<Rol> roles = accesoRolEJB.listarRoles(usuario);
 		List<Acceso> accesos = accesoRolEJB.listarAccesos();

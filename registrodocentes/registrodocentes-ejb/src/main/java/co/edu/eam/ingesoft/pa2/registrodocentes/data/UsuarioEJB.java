@@ -48,4 +48,14 @@ public class UsuarioEJB extends EJBGenerico<Usuario> {
 		}
 	}
 
+	@Override
+	public void eliminar(Usuario entidad) throws ExcepcionNegocio {
+		// TODO Auto-generated method stub
+		Usuario us=buscar(entidad.getId());
+		if(us!=null){
+		super.eliminar(us);
+		}else{
+			throw new ExcepcionNegocio("No existe el usuario");
+		}
+	}
 }

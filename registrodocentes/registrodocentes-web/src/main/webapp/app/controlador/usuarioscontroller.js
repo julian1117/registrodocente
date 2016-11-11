@@ -8,6 +8,14 @@ app.controller("usuarioscontroller", function($scope, httpservice) {
 	$scope.usuarios = [];
 
 	/**
+	 * funcion de inicializacion
+	 */
+	(function() {
+		// cargar los programas					
+		refrescarProgramas();
+		cargarUsuarios();
+	}());
+	/**
 	 * funcion que consume el metodo rest para crear un semestre
 	 */
 	$scope.crearUsuario = function() {
@@ -15,19 +23,21 @@ app.controller("usuarioscontroller", function($scope, httpservice) {
 			nombre : $scope.nombre,
 			apellido : $scope.apellido,
 			usuario : $scope.usuario,
-			password : $scope.password
+			pass : $scope.password
 		}
-		$httpservice.post("/usuario/crear", dato, function(data, status,
+		httpservice.post("usuario/crear", dato, function(data, status,
 				headers, config) {
-			alert("Usuario creado exitosamente");
+			alert(data.obj);
+			cargarUsuarios();
+
 		}, null);
-	}
+			}
 
 	/**
 	 * funcion que consume el metodo rest para listar los usuarios
 	 */
-	$scope.cargarUsuarios = function() {
-		$httpservice.get("/usuario/listar", null, function(data, status,
+	 function cargarUsuarios() {
+		httpservice.get("usuario/listar", null, function(data, status,
 				headers, config) {
 			$scope.usuarios = data.obj;
 		}, null);
@@ -37,29 +47,26 @@ app.controller("usuarioscontroller", function($scope, httpservice) {
 	 * funcion que consume el metodo rest para eliminar un usuario
 	 */
 	$scope.eliminarUsuario = function(u) {
-		$httpservice.post("/usuario/eliminar", u, function(data, status,
+		//alert('que cosa!!!!');
+		httpservice.post("usuario/eliminar", u, function(data, status,
 				headers, config) {
-			alert("Usuario creado exitosamente");
+			alert(data.obj);
+			cargarUsuarios();
+
 		}, null);
 	}
 
 	/**
 	 * funcion que consume el metodo rest para listar los roles
 	 */
-	$scope.listarroles = function() {
-		$httpservice.get("/gestionRol/listarRoles", null, function(data,
+	function refrescarProgramas() {
+		//alert('que cosa roles!!!!');
+		httpservice.get("gestionRol/listarRoles", null, function(data,
 				status, headers, config) {
 			$scope.roles = data.obj;
 		}, null);
 	}
 
-	/**
-	 * funcion de inicializacion
-	 */
-	$scope.iniciar = function() {
-		$scope.cargarUsuarios();
-		$scope.listarroles();
-	}
-	$scope.iniciar();
+	
 
 });
