@@ -1,12 +1,13 @@
 package co.edu.eam.ingesoft.pa2.registrodocentes.util;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +35,10 @@ public class ServletReporte extends HttpServlet {
 			params.put("asignatura", asig);
 			params.put("ID_DOCENTE",docente);
 			ServletOutputStream salida=resp.getOutputStream();
+			
+			BufferedImage image = ImageIO.read(getClass().getResource("/reporte/logo.png"));
+			params.put("imagen", image);
+			
 			GeneradorReporte generador=new GeneradorReporte(con);
 			byte[] byteStream=generador.generarReporte(params, "/reporte/reporteRegistros.jrxml", 
 						"Registros del mes", salida);
