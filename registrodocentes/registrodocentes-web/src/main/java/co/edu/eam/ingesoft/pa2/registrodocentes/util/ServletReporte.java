@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+//http://ip:puerto/root/reporte--href.
 @WebServlet("/reporte")
 public class ServletReporte extends HttpServlet {
 
